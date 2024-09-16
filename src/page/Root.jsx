@@ -1,3 +1,3 @@
 export default function Root() {
-  return <div>Root</div>;
+  return <div className="font-IRANSans">سلام</div>;
 }

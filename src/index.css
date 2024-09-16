@@ -1,3 +1,48 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "IRANSans";
+    src: local("IRANSans"), url("/fonts/IRANSans/IRANSans.ttf"), format("ttf");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "IRANSans Black";
+    src: local("IRANSans Black"), url("/fonts/IRANSans/IRANSans_Black.ttf"),
+      format("ttf");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "IRANSans Bold";
+    src: local("IRANSans Bold"), url("/fonts/IRANSans/IRANSans_Bold.ttf"),
+      format("ttf");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "IRANSans Light";
+    src: local("IRANSans"), url("/fonts/IRANSans/IRANSans_Light.ttf"),
+      format("ttf");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "IRANSans Medium";
+    src: local("IRANSans Medium"), url("/fonts/IRANSans/IRANSans_Medium.ttf"),
+      format("ttf");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "IRANSans UltraLight";
+    src: local("IRANSans UltraLight"),
+      url("/fonts/IRANSans/IRANSans_UltraLight.ttf"), format("ttf");
+    font-display: swap;
+  }
+  body {
+    font-family: "IRANSans";
+    /* @apply bg-gray-100 dark:bg-zinc-800; */
+  }
+  html {
+    @apply scroll-smooth;
+  }
+}
