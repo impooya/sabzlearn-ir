@@ -28,6 +28,9 @@ export default {
         green: {
           primery: "#2bce56",
         },
+        gray: {
+          primery: "#f0f2f7",
+        },
       },
 
       container: {

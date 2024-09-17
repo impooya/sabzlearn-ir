@@ -4,11 +4,12 @@ import { IoIosArrowDown } from "react-icons/io";
 import { FaCartShopping } from "react-icons/fa6";
 import { FaSearch } from "react-icons/fa";
 import { FaRegUser } from "react-icons/fa";
+import { IoMdMenu } from "react-icons/io";
 function Header() {
   return (
     <>
       {/*top of main header*/}
-      <section className="hidden md:flex justify-between items-center  w-full text-dark-primery bg-[#f0f2f7] p-5">
+      <section className="hidden md:flex justify-between items-center  w-full text-dark-primery bg-gray-primery p-5">
         {/*learn courses btn in top of main header*/}
         <div className="w-auto">
           <ul className=" flex w-full gap-3 justify-center items-center">
@@ -95,85 +96,85 @@ function Header() {
       {/*main header*/}
       <section className="w-full flex items-center justify-between text-dark-primery p-5">
         <div className="flex w-full justify-start items-center gap-3 ">
-          <img src="\images\logo\Logo.png" />
-          <ul className="flex justify-center items-center gap-3">
+          <img src="\images\logo\Logo.png" className="md:block hidden" />
+          <ul className="hidden md:flex justify-center items-center gap-3">
             <li>
               <a href="a">صفحه اصلی</a>
             </li>
-            <li>
+            <li className="group relative">
               <span className="flex justify-center items-center gap-1">
                 <a href="#">فرانت اند</a>
                 <IoIosArrowDown />
               </span>
-              <ul className="hidden">
+              <ul className="absolute flex flex-col justify-center items-start gap-y-3 top-full left-0 right-0 rounded-lg w-96 bg-white shadow-xl py-4 pr-4 invisible opacity-0 group-hover:opacity-100 group-hover:visible transition-all child-hover:text-blue-600 child:transition-all border-b-green-primery border-b-4 ">
                 <li>
-                  <a>آموزش Html</a>
+                  <a href="#">آموزش Html</a>
                 </li>
                 <li>
-                  <a>آموزش Css</a>
+                  <a href="#">آموزش Css</a>
                 </li>
                 <li>
-                  <a>آموزش جاوا اسکریپت</a>
+                  <a href="#">آموزش جاوا اسکریپت</a>
                 </li>
                 <li>
-                  <a>آموزش Flex Box</a>
+                  <a href="#">آموزش Flex Box</a>
                 </li>
                 <li>
-                  <a>آموزش جامع ری اکت</a>
+                  <a href="#">آموزش جامع ری اکت</a>
                 </li>
               </ul>
             </li>
-            <li>
+            <li className="group relative">
               <span className="flex justify-center items-center gap-1">
                 <a href="#">امنیت</a>
                 <IoIosArrowDown />
               </span>
-              <ul className="hidden">
+              <ul className="absolute flex flex-col justify-center items-start gap-y-3 top-full left-0 right-0 rounded-lg w-96 bg-white shadow-xl py-4 pr-4 invisible opacity-0 group-hover:opacity-100 group-hover:visible transition-all child-hover:text-blue-600 child:transition-all border-b-green-primery border-b-4 ">
                 <li>
-                  <a>آموزش کالی لینوکس</a>
+                  <a href="#">آموزش کالی لینوکس</a>
                 </li>
                 <li>
-                  <a>آموزش پایتون سیاه</a>
+                  <a href="#">آموزش پایتون سیاه</a>
                 </li>
                 <li>
-                  <a>آموزش جاوا اسکریپت سیاه</a>
+                  <a href="#">آموزش جاوا اسکریپت سیاه</a>
                 </li>
                 <li>
-                  <a>اموزش شبکه</a>
+                  <a href="#">اموزش شبکه</a>
                 </li>
               </ul>
             </li>
-            <li>
+            <li className="group relative">
               <span className="flex justify-center items-center gap-1">
                 <a href="#">مقالات</a>
                 <IoIosArrowDown />
               </span>
-              <ul className="hidden">
+              <ul className="absolute flex flex-col justify-center items-start gap-y-3 top-full left-0 right-0 rounded-lg w-96 bg-white shadow-xl py-4 pr-4 invisible opacity-0 group-hover:opacity-100 group-hover:visible transition-all child-hover:text-blue-600 child:transition-all border-b-green-primery border-b-4 ">
                 <li>
-                  <a>توسعه وب</a>
+                  <a href="#">توسعه وب</a>
                 </li>
                 <li>
-                  <a>جاوا اسکریپت</a>
+                  <a href="#">جاوا اسکریپت</a>
                 </li>
                 <li>
-                  <a>فرانت اند</a>
+                  <a href="#">فرانت اند</a>
                 </li>
               </ul>
             </li>
-            <li>
+            <li className="group relative">
               <span className="flex justify-center items-center gap-1">
                 <a href="#">پایتون</a>
                 <IoIosArrowDown />
               </span>
-              <ul className="hidden">
+              <ul className="absolute flex flex-col justify-center items-start gap-y-3 top-full left-0 right-0 rounded-lg w-96 bg-white shadow-xl py-4 pr-4 invisible opacity-0 group-hover:opacity-100 group-hover:visible transition-all child-hover:text-blue-600 child:transition-all border-b-green-primery border-b-4 ">
                 <li>
-                  <a>دوره متخصص پایتون</a>
+                  <a href="#">دوره متخصص پایتون</a>
                 </li>
                 <li>
-                  <a>دوره هوش مصنوعی با پایتون</a>
+                  <a href="#">دوره هوش مصنوعی با پایتون</a>
                 </li>
                 <li>
-                  <a>دوره متخصص جنگو</a>
+                  <a href="#">دوره متخصص جنگو</a>
                 </li>
               </ul>
             </li>
@@ -181,17 +182,24 @@ function Header() {
               <a href="#">مهارت های نرم</a>
             </li>
           </ul>
+          <button
+            type="button"
+            className="md:hidden  w-10 h-10 bg-green-primery text-white rounded-lg flex justify-center items-center child:size-5"
+          >
+            <IoMdMenu />
+          </button>
         </div>
+        {/*user login and search and cart*/}
         <div className="flex justify-center items-center gap-1 flex-wrap lg:flex-nowrap tracking-tighter">
           <a
             href="a"
-            className="bg-green-primery w-12 h-12 flex justify-center items-center child:size-6 text-white rounded-lg"
+            className="bg-green-primery w-10 h-10 md:w-12 md:h-12 flex justify-center items-center child:size-5 md:child:size-6 text-white rounded-lg"
           >
             <FaSearch />
           </a>
           <a
             href="a"
-            className="w-12 h-12 flex justify-center items-center child:size-6 bg-[#f0f2f7] rounded-lg"
+            className="w-10 h-10 md:w-12 md:h-12 flex justify-center items-center child:size-5 md:child:size-6 bg-gray-primery rounded-lg"
           >
             <FaCartShopping />
           </a>
@@ -203,7 +211,7 @@ function Header() {
           </a>
           <a
             href="#"
-            className="bg-green-primery w-12 h-12 flex lg:hidden justify-center items-center child:size-6 text-white rounded-lg "
+            className="bg-green-primery w-10 h-10 md:w-12 md:h-12 flex lg:hidden justify-center items-center child:size-5 md:child:size-6 text-white rounded-lg "
           >
             <FaRegUser />
           </a>
