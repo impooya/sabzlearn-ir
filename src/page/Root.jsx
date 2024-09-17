@@ -1,9 +1,12 @@
+import SidebarProvider from "../contexts/sidebarState";
 import Home from "./Home";
 
 export default function Root() {
   return (
     <>
-      <Home />
+      <SidebarProvider>
+        <Home />
+      </SidebarProvider>
     </>
   );
 }

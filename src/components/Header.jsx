@@ -106,7 +106,7 @@ function Header() {
                 <a href="#">فرانت اند</a>
                 <IoIosArrowDown />
               </span>
-              <ul className="absolute flex flex-col justify-center items-start gap-y-3 top-full left-0 right-0 rounded-lg w-96 bg-white shadow-xl py-4 pr-4 invisible opacity-0 group-hover:opacity-100 group-hover:visible transition-all child-hover:text-blue-600 child:transition-all border-b-green-primery border-b-4 ">
+              <ul className="absolute flex flex-col justify-center items-start gap-y-3 top-full left-0 right-0 rounded-lg w-96 bg-white shadow-xl py-4 pr-4 invisible opacity-0 group-hover:opacity-100 group-hover:visible transition-all child-hover:text-blue-600 child:transition-all border-b-green-primery border-b-4 delay-100">
                 <li>
                   <a href="#">آموزش Html</a>
                 </li>
@@ -129,7 +129,7 @@ function Header() {
                 <a href="#">امنیت</a>
                 <IoIosArrowDown />
               </span>
-              <ul className="absolute flex flex-col justify-center items-start gap-y-3 top-full left-0 right-0 rounded-lg w-96 bg-white shadow-xl py-4 pr-4 invisible opacity-0 group-hover:opacity-100 group-hover:visible transition-all child-hover:text-blue-600 child:transition-all border-b-green-primery border-b-4 ">
+              <ul className="absolute flex flex-col justify-center items-start gap-y-3 top-full left-0 right-0 rounded-lg w-96 bg-white shadow-xl py-4 pr-4 invisible opacity-0 group-hover:opacity-100 group-hover:visible transition-all child-hover:text-blue-600 child:transition-all border-b-green-primery border-b-4 delay-100">
                 <li>
                   <a href="#">آموزش کالی لینوکس</a>
                 </li>
@@ -149,7 +149,7 @@ function Header() {
                 <a href="#">مقالات</a>
                 <IoIosArrowDown />
               </span>
-              <ul className="absolute flex flex-col justify-center items-start gap-y-3 top-full left-0 right-0 rounded-lg w-96 bg-white shadow-xl py-4 pr-4 invisible opacity-0 group-hover:opacity-100 group-hover:visible transition-all child-hover:text-blue-600 child:transition-all border-b-green-primery border-b-4 ">
+              <ul className="absolute flex flex-col justify-center items-start gap-y-3 top-full left-0 right-0 rounded-lg w-96 bg-white shadow-xl py-4 pr-4 invisible opacity-0 group-hover:opacity-100 group-hover:visible transition-all child-hover:text-blue-600 child:transition-all border-b-green-primery border-b-4 delay-100">
                 <li>
                   <a href="#">توسعه وب</a>
                 </li>
@@ -166,7 +166,7 @@ function Header() {
                 <a href="#">پایتون</a>
                 <IoIosArrowDown />
               </span>
-              <ul className="absolute flex flex-col justify-center items-start gap-y-3 top-full left-0 right-0 rounded-lg w-96 bg-white shadow-xl py-4 pr-4 invisible opacity-0 group-hover:opacity-100 group-hover:visible transition-all child-hover:text-blue-600 child:transition-all border-b-green-primery border-b-4 ">
+              <ul className="absolute flex flex-col justify-center items-start gap-y-3 top-full left-0 right-0 rounded-lg w-96 bg-white shadow-xl py-4 pr-4 invisible opacity-0 group-hover:opacity-100 group-hover:visible transition-all child-hover:text-blue-600 child:transition-all border-b-green-primery border-b-4 delay-100">
                 <li>
                   <a href="#">دوره متخصص پایتون</a>
                 </li>
