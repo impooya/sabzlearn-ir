@@ -5,7 +5,10 @@ import { FaCartShopping } from "react-icons/fa6";
 import { FaSearch } from "react-icons/fa";
 import { FaRegUser } from "react-icons/fa";
 import { IoMdMenu } from "react-icons/io";
+import { useContext } from "react";
+import { SidebarContext } from "../contexts/sidebarState";
 function Header() {
+  const sidebarConfig = useContext(SidebarContext);
   return (
     <>
       {/*top of main header*/}
@@ -183,8 +186,10 @@ function Header() {
             </li>
           </ul>
           <button
-            type="button"
-            className="md:hidden  w-10 h-10 bg-green-primery text-white rounded-lg flex justify-center items-center child:size-5"
+            className="md:hidden  w-10 h-10 bg-green-primery text-white rounded-lg flex justify-center items-center child:size-5 cursor-pointer"
+            onClick={() => {
+              sidebarConfig.sidebarOpenHnadler();
+            }}
           >
             <IoMdMenu />
           </button>

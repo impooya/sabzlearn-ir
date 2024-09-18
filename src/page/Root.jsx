@@ -1,4 +1,4 @@
-import SidebarProvider from "../contexts/sidebarState";
+import { SidebarProvider } from "../contexts/sidebarState";
 import Home from "./Home";
 
 export default function Root() {

@@ -1,103 +1,99 @@
+import { useContext } from "react";
 import { IoIosArrowDown, IoMdClose } from "react-icons/io";
+import { SidebarContext } from "../contexts/sidebarState";
+
 function SideBar() {
+  const sidebarConfig = useContext(SidebarContext);
+
+  const handleToggle = (id) => {
+    sidebarConfig.sidebarItemsOpenHandler();
+    sidebarConfig.setGetIdItemForSideBar(id);
+  };
+
   return (
-    <>
-      <section className="bg-white h-full w-56 pt-3 px-5 flex flex-col items-start justify-start text-dark-primery md:hidden">
-        <div className="flex justify-between items-center w-full border-b border-b-zinc-500/20 pb-2">
-          <img src="\images\logo\Logo.png" className="h-10 w-16" />
-          <button type="button">
-            <IoMdClose />
-          </button>
-        </div>
-        <nav className=" w-full mt-3">
-          <ul className="flex flex-col justify-start items-start gap-3 ">
-            <li className="">
-              <a href="a">صفحه اصلی</a>
-            </li>
-            <li>
-              <span className="flex justify-center items-center gap-1">
-                <a href="#">فرانت اند</a>
-                <IoIosArrowDown />
+    <section className="bg-white h-full w-56 pt-3 px-5 flex flex-col items-start justify-start text-dark-primery md:hidden">
+      <div className="flex justify-between items-center w-full border-b border-b-zinc-500/20 pb-2">
+        <img src="/images/logo/Logo.png" alt="Logo" className="h-10 w-16" />
+        <button type="button" onClick={sidebarConfig.sidebarCloseHandler}>
+          <IoMdClose />
+        </button>
+      </div>
+      <nav className="w-full mt-3">
+        <ul className="flex flex-col justify-start items-start gap-3">
+          {[
+            { title: "صفحه اصلی", id: "home" },
+            {
+              title: "فرانت اند",
+              id: "front-end",
+              items: [
+                "آموزش Html",
+                "آموزش Css",
+                "آموزش جاوا اسکریپت",
+                "آموزش Flex Box",
+                "آموزش جامع ری اکت",
+              ],
+            },
+            {
+              title: "امنیت",
+              id: "security",
+              items: [
+                "آموزش کالی لینوکس",
+                "آموزش پایتون سیاه",
+                "آموزش جاوا اسکریپت سیاه",
+                "اموزش شبکه",
+              ],
+            },
+            {
+              title: "مقالات",
+              id: "articles",
+              items: ["توسعه وب", "جاوا اسکریپت", "فرانت اند"],
+            },
+            {
+              title: "پایتون",
+              id: "python",
+              items: [
+                "دوره متخصص پایتون",
+                "دوره هوش مصنوعی با پایتون",
+                "دوره متخصص جنگو",
+              ],
+            },
+            { title: "مهارت های نرم", id: "soft-skills" },
+          ].map((item, index) => (
+            <li key={index} className="w-full group">
+              <span className="flex justify-between items-center gap-1 w-full">
+                <a href="#">{item.title}</a>
+                {item.items && (
+                  <IoIosArrowDown
+                    onClick={() => handleToggle(item.id)}
+                    id={item.id}
+                    aria-expanded={
+                      sidebarConfig.isOpenSideBarItems &&
+                      sidebarConfig.getIdItemForSideBar === item.id
+                    }
+                  />
+                )}
               </span>
-              <ul className="hidden">
-                <li>
-                  <a href="#">آموزش Html</a>
-                </li>
-                <li>
-                  <a href="#">آموزش Css</a>
-                </li>
-                <li>
-                  <a href="#">آموزش جاوا اسکریپت</a>
-                </li>
-                <li>
-                  <a href="#">آموزش Flex Box</a>
-                </li>
-                <li>
-                  <a href="#">آموزش جامع ری اکت</a>
-                </li>
-              </ul>
+              {item.items && (
+                <ul
+                  className={`flex flex-col justify-start items-start pr-6 mt-3 ${
+                    sidebarConfig.isOpenSideBarItems &&
+                    sidebarConfig.getIdItemForSideBar === item.id
+                      ? "h-auto overflow-visible"
+                      : "h-0 overflow-hidden"
+                  } transition-all duration-200`}
+                >
+                  {item.items.map((subItem, subIndex) => (
+                    <li key={subIndex}>
+                      <a href="#">{subItem}</a>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </li>
-            <li>
-              <span className="flex justify-center items-center gap-1">
-                <a href="#">امنیت</a>
-                <IoIosArrowDown />
-              </span>
-              <ul className="hidden">
-                <li>
-                  <a href="#">آموزش کالی لینوکس</a>
-                </li>
-                <li>
-                  <a href="#">آموزش پایتون سیاه</a>
-                </li>
-                <li>
-                  <a href="#">آموزش جاوا اسکریپت سیاه</a>
-                </li>
-                <li>
-                  <a href="#">اموزش شبکه</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <span className="flex justify-center items-center gap-1">
-                <a href="#">مقالات</a>
-                <IoIosArrowDown />
-              </span>
-              <ul className="hidden">
-                <li>
-                  <a href="#">توسعه وب</a>
-                </li>
-                <li>
-                  <a href="#">جاوا اسکریپت</a>
-                </li>
-                <li>
-                  <a href="#">فرانت اند</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <span className="flex justify-center items-center gap-1">
-                <a href="#">پایتون</a>
-                <IoIosArrowDown />
-              </span>
-              <ul className="hidden">
-                <li>
-                  <a href="#">دوره متخصص پایتون</a>
-                </li>
-                <li>
-                  <a href="#">دوره هوش مصنوعی با پایتون</a>
-                </li>
-                <li>
-                  <a href="#">دوره متخصص جنگو</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="#">مهارت های نرم</a>
-            </li>
-          </ul>
-        </nav>
-      </section>
-    </>
+          ))}
+        </ul>
+      </nav>
+    </section>
   );
 }
 

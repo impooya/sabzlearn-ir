@@ -1,7 +1,11 @@
+import { createPortal } from "react-dom";
 function Overlay() {
   return (
     <>
-      <div className="bg-black/30 inset-0 absolute z-[99] h-screen w-screen"></div>
+      {createPortal(
+        <div className="bg-black/30 inset-0 absolute z-[99] h-screen w-screen hidden"></div>,
+        document.getElementById("overlay")
+      )}
     </>
   );
 }
