@@ -70,12 +70,13 @@ function SideBar() {
                       sidebarConfig.isOpenSideBarItems &&
                       sidebarConfig.getIdItemForSideBar === item.id
                     }
+                    className="cursor-pointer"
                   />
                 )}
               </span>
               {item.items && (
                 <ul
-                  className={`flex flex-col justify-start items-start pr-6 mt-3 ${
+                  className={`flex flex-col gap-3  justify-start items-start pr-6 mt-3 ${
                     sidebarConfig.isOpenSideBarItems &&
                     sidebarConfig.getIdItemForSideBar === item.id
                       ? "h-auto overflow-visible"
