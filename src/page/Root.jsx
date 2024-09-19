@@ -1,12 +1,15 @@
+import { OverlayProvider } from "../contexts/OverlayState";
 import { SidebarProvider } from "../contexts/sidebarState";
 import Home from "./Home";
 
 export default function Root() {
   return (
     <>
-      <SidebarProvider>
-        <Home />
-      </SidebarProvider>
+      <OverlayProvider>
+        <SidebarProvider>
+          <Home />
+        </SidebarProvider>
+      </OverlayProvider>
     </>
   );
 }

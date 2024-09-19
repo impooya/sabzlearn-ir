@@ -7,8 +7,10 @@ import { FaRegUser } from "react-icons/fa";
 import { IoMdMenu } from "react-icons/io";
 import { useContext } from "react";
 import { SidebarContext } from "../contexts/sidebarState";
+import { OverlayContext } from "../contexts/OverlayState";
 function Header() {
   const sidebarConfig = useContext(SidebarContext);
+  const overlayConfig = useContext(OverlayContext);
   return (
     <>
       {/*top of main header*/}
@@ -189,6 +191,7 @@ function Header() {
             className="md:hidden  w-10 h-10 bg-green-primery text-white rounded-lg flex justify-center items-center child:size-5 cursor-pointer"
             onClick={() => {
               sidebarConfig.sidebarOpenHnadler();
+              overlayConfig.setIsShowOverLay(true);
             }}
           >
             <IoMdMenu />

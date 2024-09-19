@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { IoIosArrowDown, IoMdClose } from "react-icons/io";
 import { SidebarContext } from "../contexts/sidebarState";
+import { OverlayContext } from "../contexts/OverlayState";
 
 function SideBar() {
   const sidebarConfig = useContext(SidebarContext);
+  const overlayConfig = useContext(OverlayContext);
 
   const handleToggle = (id) => {
     // اگر منوی جدید باز شود، منوی قبلی بسته شود
@@ -20,7 +22,13 @@ function SideBar() {
     <section className="bg-white h-full w-56 pt-3 px-5 flex flex-col items-start justify-start text-dark-primery md:hidden">
       <div className="flex justify-between items-center w-full border-b border-b-zinc-500/20 pb-2">
         <img src="/images/logo/Logo.png" alt="Logo" className="h-10 w-16" />
-        <button type="button" onClick={sidebarConfig.sidebarCloseHandler}>
+        <button
+          type="button"
+          onClick={() => {
+            sidebarConfig.sidebarCloseHandler();
+            overlayConfig.setIsShowOverLay(false);
+          }}
+        >
           <IoMdClose />
         </button>
       </div>
