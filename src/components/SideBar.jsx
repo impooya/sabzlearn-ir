@@ -6,8 +6,14 @@ function SideBar() {
   const sidebarConfig = useContext(SidebarContext);
 
   const handleToggle = (id) => {
-    sidebarConfig.sidebarItemsOpenHandler();
-    sidebarConfig.setGetIdItemForSideBar(id);
+    // اگر منوی جدید باز شود، منوی قبلی بسته شود
+    if (sidebarConfig.getIdItemForSideBar === id) {
+      // اگر منو قبلاً باز بود، آن را ببند
+      sidebarConfig.setGetIdItemForSideBar(null);
+    } else {
+      // منوی جدید را باز کن
+      sidebarConfig.setGetIdItemForSideBar(id);
+    }
   };
 
   return (
@@ -67,7 +73,6 @@ function SideBar() {
                     onClick={() => handleToggle(item.id)}
                     id={item.id}
                     aria-expanded={
-                      sidebarConfig.isOpenSideBarItems &&
                       sidebarConfig.getIdItemForSideBar === item.id
                     }
                     className="cursor-pointer"
@@ -76,12 +81,11 @@ function SideBar() {
               </span>
               {item.items && (
                 <ul
-                  className={`flex flex-col gap-3  justify-start items-start pr-6 mt-3 ${
-                    sidebarConfig.isOpenSideBarItems &&
+                  className={`flex flex-col gap-3 justify-start items-start pr-6 mt-3 ${
                     sidebarConfig.getIdItemForSideBar === item.id
-                      ? "h-auto overflow-visible"
+                      ? "h-[190px] overflow-visible"
                       : "h-0 overflow-hidden"
-                  } transition-all duration-200`}
+                  } transition-all`}
                 >
                   {item.items.map((subItem, subIndex) => (
                     <li key={subIndex}>
