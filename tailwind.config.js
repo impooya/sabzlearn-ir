@@ -6,13 +6,10 @@ export default {
       xs: "480px",
       sm: "640px",
       // => @media (min-width: 640px) { ... }
-      "mid-md": "600px",
       md: "768px",
       // => @media (min-width: 768px) { ... }
-      "mid-lg": "900px",
       lg: "1024px",
       // => @media (min-width: 1024px) { ... }
-      "mid-xl": "1100px",
       xl: "1280px",
       // => @media (min-width: 1280px) { ... }
     },
@@ -23,6 +20,17 @@ export default {
         IRANSansBold: "IRANSans Bold",
         IRANSansLight: "IRANSans Light",
         IRANSansMedium: "IRANSans Medium",
+      },
+      colors: {
+        dark: {
+          primery: "#464749",
+        },
+        green: {
+          primery: "#2bce56",
+        },
+        gray: {
+          primery: "#f0f2f7",
+        },
       },
 
       container: {
