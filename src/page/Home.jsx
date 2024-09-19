@@ -19,6 +19,11 @@ export default function Home() {
         <SideBar />
       </aside>
       <Overlay />
+      <main>
+        <section>
+          <div></div>
+        </section>
+      </main>
     </>
   );
 }
