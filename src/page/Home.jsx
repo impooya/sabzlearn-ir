@@ -1,10 +1,11 @@
 import Landing from "../components/Landing";
+import Main from "../components/Main";
 export default function Home() {
   return (
     <>
-      <main className="w-screen">
+      <Main>
         <Landing />
-      </main>
+      </Main>
     </>
   );
 }
