@@ -96,8 +96,8 @@ function Landing() {
           </g>
         </symbol>
       </svg>
-      <section className="w-full bg-header-image  aspect-auto h-auto py-36 ">
-        <div className="h-full w-full container text-white flex flex-col justify-center items-center gap-y-12">
+      <section className=" w-full bg-header-image   h-auto md:h-[700px]  md:py-36 ">
+        <div className=" container text-white flex flex-col justify-center items-center gap-y-12">
           <div className="flex flex-col justify-center items-center gap-y-6">
             <h1 className="font-IRANSansBold text-4xl font-bold">
               ما به هر قیمتی دوره آموزشی تولید نمی کنیم !
@@ -107,7 +107,7 @@ function Landing() {
               کن.
             </h2>
           </div>
-          <form className="flex bg-white w-[700px] py-7 px-5 justify-between items-center text-black h-full relative rounded-xl">
+          <form className="hidden md:flex bg-white w-[700px] py-7 px-5 justify-between items-center  text-black h-full relative rounded-xl">
             <input
               type="text"
               placeholder="چه چیزی دوست داری یاد بگیری..."

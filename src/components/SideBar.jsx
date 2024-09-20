@@ -19,7 +19,7 @@ function SideBar() {
   };
 
   return (
-    <section className="bg-white h-full w-56 pt-3 px-5 flex flex-col items-start justify-start text-dark-primery md:hidden">
+    <section className="bg-white h-full w-56 pt-3 px-5 flex flex-col items-start justify-start text-dark-primery lg:hidden">
       <div className="flex justify-between items-center w-full border-b border-b-zinc-500/20 pb-2">
         <img src="/images/logo/Logo.png" alt="Logo" className="h-10 w-16" />
         <button

@@ -101,8 +101,8 @@ function Header() {
       {/*main header*/}
       <section className="w-full flex items-center justify-between text-dark-primery p-5">
         <div className="flex w-full justify-start items-center gap-3 ">
-          <img src="\images\logo\Logo.png" className="md:block hidden" />
-          <ul className="hidden md:flex justify-center items-center gap-3">
+          <img src="\images\logo\Logo.png" className="lg:block hidden" />
+          <ul className="hidden lg:flex justify-center items-center gap-3">
             <li>
               <a href="a">صفحه اصلی</a>
             </li>
@@ -111,7 +111,7 @@ function Header() {
                 <a href="#">فرانت اند</a>
                 <IoIosArrowDown />
               </span>
-              <ul className="absolute flex flex-col justify-center items-start gap-y-3 top-full left-0 right-0 rounded-lg w-96 bg-white shadow-xl py-4 pr-4 invisible opacity-0 group-hover:opacity-100 group-hover:visible transition-all child-hover:text-blue-600 child:transition-all border-b-green-primery border-b-4 delay-100">
+              <ul className="absolute flex flex-col justify-center items-start gap-y-3 top-full right-0 rounded-lg w-96 bg-white shadow-xl py-4 pr-4 invisible opacity-0 group-hover:opacity-100 group-hover:visible transition-all child-hover:text-blue-600 child:transition-all border-b-green-primery border-b-4 delay-100">
                 <li>
                   <a href="#">آموزش Html</a>
                 </li>
@@ -188,7 +188,7 @@ function Header() {
             </li>
           </ul>
           <button
-            className="md:hidden  w-10 h-10 bg-green-primery text-white rounded-lg flex justify-center items-center child:size-5 cursor-pointer"
+            className="lg:hidden  w-10 h-10 bg-green-primery text-white rounded-lg flex justify-center items-center child:size-5 cursor-pointer"
             onClick={() => {
               sidebarConfig.sidebarOpenHnadler();
               overlayConfig.setIsShowOverLay(true);
@@ -201,7 +201,7 @@ function Header() {
         <div className="flex justify-center items-center gap-1 flex-wrap lg:flex-nowrap tracking-tighter">
           <a
             href="a"
-            className="bg-green-primery w-10 h-10 md:w-12 md:h-12 flex justify-center items-center child:size-5 md:child:size-6 text-white rounded-lg"
+            className="bg-green-primery w-10 h-10 md:w-12 md:h-12 md:hidden flex justify-center items-center child:size-5 md:child:size-6 text-white rounded-lg"
           >
             <FaSearch />
           </a>

@@ -13,40 +13,15 @@ export default function Home() {
         <Header />
       </header>
       <aside
-        className={`absolute top-0 right-0 z-[9999] bottom-0 h-auto ${
+        className={`fixed top-0 right-0 z-[9999] bottom-0 h-auto ${
           sidebarConfig.isOpenSideBar ? "" : "translate-x-[250px]"
         } transition-all`}
       >
         <SideBar />
       </aside>
       <Overlay />
-      <main>
+      <main className="w-screen">
         <Landing />
-        {/* <div className="w-96 bg-white h-96"></div>
-        <div className="w-96 bg-white h-96"></div>
-        <div className="w-96 bg-white h-96"></div>
-        <div className="w-96 bg-white h-96"></div>
-        <div className="w-96 bg-white h-96"></div>
-        <div className="w-96 bg-white h-96"></div>
-        <div className="w-96 bg-white h-96"></div>
-        <div className="w-96 bg-white h-96"></div>
-        <div className="w-96 bg-white h-96"></div>
-        <div className="w-96 bg-white h-96"></div>
-        <div className="w-96 bg-white h-96"></div>
-        <div className="w-96 bg-white h-96"></div>
-        <div className="w-96 bg-white h-96"></div>
-        <div className="w-96 bg-white h-96"></div>
-        <div className="w-96 bg-white h-96"></div>
-        <div className="w-96 bg-white h-96"></div>
-        <div className="w-96 bg-white h-96"></div>
-        <div className="w-96 bg-white h-96"></div>
-        <div className="w-96 bg-white h-96"></div>
-        <div className="w-96 bg-white h-96"></div>
-        <div className="w-96 bg-white h-96"></div>
-        <div className="w-96 bg-white h-96"></div>
-        <div className="w-96 bg-white h-96"></div>
-        <div className="w-96 bg-white h-96"></div>
-        <div className="w-96 bg-white h-96"></div> */}
       </main>
     </>
   );
