@@ -1,5 +1,5 @@
 import { FaSearch } from "react-icons/fa";
-
+import Typewriter from "typewriter-effect";
 function Landing() {
   return (
     <>
@@ -100,7 +100,21 @@ function Landing() {
         <div className=" container text-white flex flex-col justify-center items-center gap-y-12">
           <div className="flex flex-col justify-center items-center gap-y-3 md:gap-y-6">
             <h1 className="font-IRANSansBold  text-lg text-center  md:text-4xl font-bold">
-              ما به هر قیمتی دوره آموزشی تولید نمی کنیم !
+              {/* ما به هر قیمتی دوره آموزشی تولید نمی کنیم ! */}
+              <Typewriter
+                onInit={(typewriter) => {
+                  typewriter
+                    .typeString("ما به هر قیمتی دوره آموزشی تولید نمی کنیم !")
+                    .start()
+                    .pauseFor(2000)
+                    .deleteAll()
+                    .typeString("سبز لرن-اکادمی خصوصی یادگیری برنامه نویسی")
+                    .start()
+                    .pauseFor(2000)
+                    .deleteAll();
+                }}
+                options={{ loop: true, autoStart: true }}
+              />
             </h1>
             <h2 className="font-IRANSansLight text-xs text-center md:text-lg">
               با آکادمی سبزلرن، برنامه نویسی رو با خیال راحت یاد بگیر و پیشرفت
