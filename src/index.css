@@ -50,6 +50,6 @@
 @layer components {
   .bg-header-image {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-      url(/images/headerBackground_landing.jfif) no-repeat center center;
+      url(/images/headerBackground_landing.jfif) no-repeat center center fixed;
   }
 }
