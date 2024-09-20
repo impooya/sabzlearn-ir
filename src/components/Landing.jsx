@@ -96,13 +96,13 @@ function Landing() {
           </g>
         </symbol>
       </svg>
-      <section className=" w-full bg-header-image   h-auto md:h-[700px]  md:py-36 ">
+      <section className=" w-full bg-header-image   h-auto  py-5 md:py-36 ">
         <div className=" container text-white flex flex-col justify-center items-center gap-y-12">
-          <div className="flex flex-col justify-center items-center gap-y-6">
-            <h1 className="font-IRANSansBold text-4xl font-bold">
+          <div className="flex flex-col justify-center items-center gap-y-3 md:gap-y-6">
+            <h1 className="font-IRANSansBold  text-lg text-center  md:text-4xl font-bold">
               ما به هر قیمتی دوره آموزشی تولید نمی کنیم !
             </h1>
-            <h2 className="font-IRANSansLight text-lg">
+            <h2 className="font-IRANSansLight text-xs text-center md:text-lg">
               با آکادمی سبزلرن، برنامه نویسی رو با خیال راحت یاد بگیر و پیشرفت
               کن.
             </h2>
@@ -118,30 +118,30 @@ function Landing() {
               <FaSearch />
             </button>
           </form>
-          <div className="flex justify-evenly items-center w-full">
-            <div className="flex justify-center items-center flex-col gap-y-6">
-              <svg className="fill-white w-24 h-24">
+          <div className="flex justify-evenly items-center w-full flex-wrap gap-y-4">
+            <div className="flex justify-center items-center flex-col gap-y-2 md:gap-y-6">
+              <svg className="fill-white size-16 md:w-24 md:h-24">
                 <use href="#students"></use>
               </svg>
-              <div className="flex flex-col justify-center items-center gap-y-3 font-IRANSansBold text-2xl">
+              <div className="flex flex-col justify-center items-center  md:gap-y-3 font-IRANSansBold text-lg md:text-2xl">
                 <span>31,020</span>
                 <h3>کاربر توی سبزلرن ثبت نام کردن</h3>
               </div>
             </div>
-            <div className="flex justify-center items-center flex-col gap-y-6">
-              <svg className="fill-white  w-24 h-24">
+            <div className="flex justify-center items-center flex-col gap-y-2 md:gap-y-6">
+              <svg className="fill-white size-16 md:w-24 md:h-24">
                 <use href="#courses"></use>
               </svg>
-              <div className="flex flex-col justify-center items-center gap-y-3 font-IRANSansBold text-2xl">
+              <div className="flex flex-col justify-center items-center  md:gap-y-3 font-IRANSansBold text-lg md:text-2xl">
                 <span>42</span>
                 <h3>کاربر توی سبزلرن ثبت نام کردن</h3>
               </div>
             </div>
-            <div className="flex justify-center items-center flex-col gap-y-6">
-              <svg className="fill-white  w-24 h-24">
+            <div className="flex justify-center items-center flex-col gap-y-2 md:gap-y-6">
+              <svg className="fill-white size-16 md:w-24 md:h-24">
                 <use href="#time"></use>
               </svg>
-              <div className="flex flex-col justify-center items-center gap-y-3 font-IRANSansBold text-2xl">
+              <div className="flex flex-col justify-center items-center  md:gap-y-3 font-IRANSansBold text-lg md:text-2xl">
                 <span>31,320</span>
                 <h3>کاربر توی سبزلرن ثبت نام کردن</h3>
               </div>
