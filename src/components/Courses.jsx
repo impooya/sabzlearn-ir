@@ -1,24 +1,25 @@
+import { FaArrowLeftLong } from "react-icons/fa6";
 function Courses() {
   return (
     <>
       <section className="mx-0 my-16">
         <div className="container">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center justify-between">
-              <span className="flex flex-col text-[2.3rem] text-[#444446] font-[bold] leading-[1.2] relative">
+          <div className="flex items-center justify-between mb-20">
+            <div className="flex flex-col items-start justify-between">
+              <span className="text-[1.3rem] text-[#444446] pr-2 font-bold leading-[1.2] relative before:content-['']  before:absolute before:bg-green-primery before:h-[4.4rem] before:w-1 before:rounded-md  before:-right-1 before:block before:rotate-12 after:content-[''] after:block after:w-60 after:h-4 after:absolute after:bg-green-primery/20 after:bottom-0 top-0 ">
                 جدیدترین دوره ها
               </span>
-              <span className="text-[#9c9c9c] text-2xl">
+              <span className="text-[#9c9c9c] text-xl pr-2 ">
                 سکوی پرتاپ شما به سمت موفقیت
               </span>
             </div>
             <div className="courses-header__left">
               <a
                 href="#"
-                className="flex items-center justify-center text-white bg-green-primery px-4 py-2 rounded-lg hover:text-white"
+                className="flex items-center justify-center text-white bg-green-primery px-4 py-2 rounded-lg hover:text-white gap-x-2"
               >
                 تمامی دوره ها
-                <i className="fas fa-arrow-left courses-header__icon"></i>
+                <FaArrowLeftLong />
               </a>
             </div>
           </div>
