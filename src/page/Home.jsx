@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Overlay from "../components/Overlay";
 import SideBar from "../components/SideBar";
 import { SidebarContext } from "../contexts/sidebarState";
+import Landing from "../components/Landing";
 
 export default function Home() {
   const sidebarConfig = useContext(SidebarContext);
@@ -20,9 +21,32 @@ export default function Home() {
       </aside>
       <Overlay />
       <main>
-        <section>
-          <div></div>
-        </section>
+        <Landing />
+        {/* <div className="w-96 bg-white h-96"></div>
+        <div className="w-96 bg-white h-96"></div>
+        <div className="w-96 bg-white h-96"></div>
+        <div className="w-96 bg-white h-96"></div>
+        <div className="w-96 bg-white h-96"></div>
+        <div className="w-96 bg-white h-96"></div>
+        <div className="w-96 bg-white h-96"></div>
+        <div className="w-96 bg-white h-96"></div>
+        <div className="w-96 bg-white h-96"></div>
+        <div className="w-96 bg-white h-96"></div>
+        <div className="w-96 bg-white h-96"></div>
+        <div className="w-96 bg-white h-96"></div>
+        <div className="w-96 bg-white h-96"></div>
+        <div className="w-96 bg-white h-96"></div>
+        <div className="w-96 bg-white h-96"></div>
+        <div className="w-96 bg-white h-96"></div>
+        <div className="w-96 bg-white h-96"></div>
+        <div className="w-96 bg-white h-96"></div>
+        <div className="w-96 bg-white h-96"></div>
+        <div className="w-96 bg-white h-96"></div>
+        <div className="w-96 bg-white h-96"></div>
+        <div className="w-96 bg-white h-96"></div>
+        <div className="w-96 bg-white h-96"></div>
+        <div className="w-96 bg-white h-96"></div>
+        <div className="w-96 bg-white h-96"></div> */}
       </main>
     </>
   );
