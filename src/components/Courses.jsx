@@ -1,10 +1,12 @@
 import { FaArrowLeftLong } from "react-icons/fa6";
+import { FaChalkboardTeacher } from "react-icons/fa";
+import { FaUsers } from "react-icons/fa";
 function Courses() {
   return (
     <>
       <section className="mx-0 my-16">
         <div className="container">
-          <div className="flex items-center justify-between mb-20">
+          <div className="flex items-center justify-between mb-7">
             <div className="flex flex-col items-start justify-between">
               <span className="text-[1.3rem] text-[#444446] pr-2 font-bold leading-[1.2] relative before:content-['']  before:absolute before:bg-green-primery before:h-[4.4rem] before:w-1 before:rounded-md  before:-right-1 before:block before:rotate-12 after:content-[''] after:block after:w-60 after:h-4 after:absolute after:bg-green-primery/20 after:bottom-0 top-0 ">
                 جدیدترین دوره ها
@@ -24,31 +26,37 @@ function Courses() {
             </div>
           </div>
 
-          <div className="courses-content">
+          <section className="w-full text-dark-primery ">
             <div className="container">
-              <div className="row">
-                <div className="col-4">
-                  <div className="course-box">
-                    <a href="#">
+              <div className="grid grid-cols-3 gap-5">
+                <div className="shadow-2xl rounded-2xl w-full  hover:-translate-y-2 transition-all ease-linear duration-400">
+                  <div className="flex flex-col justify-center items-start gap-y-4 w-full">
+                    <a href="#" className="block w-full">
                       <img
                         src="images/courses/fareelancer.png"
                         alt="Course img"
-                        className="course-box__img"
+                        className="bg-cover rounded-t-2xl w-full"
                       />
                     </a>
-                    <div className="course-box__main">
-                      <a href="#" className="course-box__title">
+                    <div className="flex flex-col justify-center items-start px-4 gap-4 w-full">
+                      <a
+                        href="#"
+                        className="hover:text-blue-600 transition-all delay-100"
+                      >
                         دوره پروژه محور متخصص جنگو
                       </a>
 
-                      <div className="course-box__rating-teacher">
-                        <div className="course-box__teacher">
-                          <i className="fas fa-chalkboard-teacher course-box__teacher-icon"></i>
-                          <a href="#" className="course-box__teacher-link">
+                      <div className="flex justify-between items-center w-full">
+                        <div className="flex justify-center items-center gap-x-1 text-sm text-[#6c757d] ">
+                          <FaChalkboardTeacher className="text-2xl" />
+                          <a
+                            href="#"
+                            className="hover:text-blue-600 transition-all delay-75"
+                          >
                             رضا دولتی
                           </a>
                         </div>
-                        <div className="course-box__rating">
+                        <div className="course-box__rating flex justify-center items-center child:w-4">
                           <img
                             src="images/svgs/star.svg"
                             alt="rating"
@@ -77,45 +85,56 @@ function Courses() {
                         </div>
                       </div>
 
-                      <div className="course-box__status">
-                        <div className="course-box__users">
-                          <i className="fas fa-users course-box__users-icon"></i>
+                      <div className=" text-[#6c757d] flex justify-between w-full items-center">
+                        <div className="course-box__users text-sm flex justify-center items-center gap-x-1">
+                          <FaUsers className="text-2xl" />
                           <span className="course-box__users-text">500</span>
                         </div>
-                        <span className="course-box__price">1,000,000</span>
+                        <span className="course-box__price text-lg">
+                          1,000,000
+                        </span>
                       </div>
                     </div>
 
-                    <div className="course-box__footer">
-                      <a href="#" className="course-box__footer-link">
+                    <div className="course-box__footer w-full justify-center items-center flex py-6 border-t-2">
+                      <a
+                        href="#"
+                        className="inline-flex justify-center items-center gap-x-2 text-green-primery font-IRANSansBold "
+                      >
                         مشاهده اطلاعات
-                        <i className="fas fa-arrow-left course-box__footer-icon"></i>
+                        <FaArrowLeftLong />
                       </a>
                     </div>
                   </div>
                 </div>
-                <div className="col-4">
-                  <div className="course-box">
-                    <a href="#">
+                <div className="shadow-2xl rounded-2xl w-full  hover:-translate-y-2 transition-all ease-linear duration-400">
+                  <div className="flex flex-col justify-center items-start gap-y-4 w-full">
+                    <a href="#" className="block w-full">
                       <img
                         src="images/courses/jango.png"
                         alt="Course img"
-                        className="course-box__img"
+                        className="bg-cover rounded-t-2xl w-full"
                       />
                     </a>
-                    <div className="course-box__main">
-                      <a href="#" className="course-box__title">
+                    <div className="flex flex-col justify-center items-start px-4 gap-4 w-full">
+                      <a
+                        href="#"
+                        className="hover:text-blue-600 transition-all delay-100"
+                      >
                         دوره پروژه محور متخصص جنگو
                       </a>
 
-                      <div className="course-box__rating-teacher">
-                        <div className="course-box__teacher">
-                          <i className="fas fa-chalkboard-teacher course-box__teacher-icon"></i>
-                          <a href="#" className="course-box__teacher-link">
+                      <div className=" flex justify-between items-center w-full">
+                        <div className="flex justify-center items-center gap-x-1 text-sm text-[#6c757d] ">
+                          <FaChalkboardTeacher className="text-2xl" />
+                          <a
+                            href="#"
+                            className="hover:text-blue-600 transition-all delay-75"
+                          >
                             رضا دولتی
                           </a>
                         </div>
-                        <div className="course-box__rating">
+                        <div className="flex justify-center items-center child:w-4">
                           <img
                             src="images/svgs/star.svg"
                             alt="rating"
@@ -144,45 +163,54 @@ function Courses() {
                         </div>
                       </div>
 
-                      <div className="course-box__status">
-                        <div className="course-box__users">
+                      <div className="text-[#6c757d] flex justify-between w-full items-center">
+                        <div className="text-sm flex justify-center items-center gap-x-1">
                           <i className="fas fa-users course-box__users-icon"></i>
                           <span className="course-box__users-text">500</span>
                         </div>
-                        <span className="course-box__price">1,000,000</span>
+                        <span className="text-lg">1,000,000</span>
                       </div>
                     </div>
 
-                    <div className="course-box__footer">
-                      <a href="#" className="course-box__footer-link">
+                    <div className="w-full justify-center items-center flex py-6 border-t-2">
+                      <a
+                        href="#"
+                        className="inline-flex justify-center items-center gap-x-2 text-green-primery font-IRANSansBold "
+                      >
                         مشاهده اطلاعات
-                        <i className="fas fa-arrow-left course-box__footer-icon"></i>
+                        <FaArrowLeftLong />
                       </a>
                     </div>
                   </div>
                 </div>
-                <div className="col-4">
-                  <div className="course-box">
-                    <a href="#">
+                <div className="shadow-2xl rounded-2xl w-full  hover:-translate-y-2 transition-all ease-linear duration-400">
+                  <div className="flex flex-col justify-center items-start gap-y-4 w-full">
+                    <a href="#" className="block w-full">
                       <img
                         src="images/courses/js_project.png"
                         alt="Course img"
-                        className="course-box__img"
+                        className="bg-cover rounded-t-2xl w-full"
                       />
                     </a>
-                    <div className="course-box__main">
-                      <a href="#" className="course-box__title">
+                    <div className="flex flex-col justify-center items-start px-4 gap-4 w-full">
+                      <a
+                        href="#"
+                        className="hover:text-blue-600 transition-all delay-100"
+                      >
                         دوره پروژه محور متخصص جنگو
                       </a>
 
-                      <div className="course-box__rating-teacher">
-                        <div className="course-box__teacher">
-                          <i className="fas fa-chalkboard-teacher course-box__teacher-icon"></i>
-                          <a href="#" className="course-box__teacher-link">
+                      <div className=" flex justify-between items-center w-full">
+                        <div className="flex justify-center items-center gap-x-1 text-sm text-[#6c757d] ">
+                          <FaChalkboardTeacher className="text-2xl" />
+                          <a
+                            href="#"
+                            className="hover:text-blue-600 transition-all delay-75"
+                          >
                             رضا دولتی
                           </a>
                         </div>
-                        <div className="course-box__rating">
+                        <div className="flex justify-center items-center child:w-4">
                           <img
                             src="images/svgs/star.svg"
                             alt="rating"
@@ -211,45 +239,54 @@ function Courses() {
                         </div>
                       </div>
 
-                      <div className="course-box__status">
-                        <div className="course-box__users">
+                      <div className="text-[#6c757d] flex justify-between w-full items-center">
+                        <div className="text-sm flex justify-center items-center gap-x-1">
                           <i className="fas fa-users course-box__users-icon"></i>
                           <span className="course-box__users-text">500</span>
                         </div>
-                        <span className="course-box__price">1,000,000</span>
+                        <span className="text-lg">1,000,000</span>
                       </div>
                     </div>
 
-                    <div className="course-box__footer">
-                      <a href="#" className="course-box__footer-link">
+                    <div className="w-full justify-center items-center flex py-6 border-t-2">
+                      <a
+                        href="#"
+                        className="inline-flex justify-center items-center gap-x-2 text-green-primery font-IRANSansBold "
+                      >
                         مشاهده اطلاعات
-                        <i className="fas fa-arrow-left course-box__footer-icon"></i>
+                        <FaArrowLeftLong />
                       </a>
                     </div>
                   </div>
                 </div>
-                <div className="col-4">
-                  <div className="course-box">
-                    <a href="#">
+                <div className="shadow-2xl rounded-2xl w-full  hover:-translate-y-2 transition-all ease-linear duration-400">
+                  <div className="flex flex-col justify-center items-start gap-y-4 w-full">
+                    <a href="#" className="block w-full">
                       <img
                         src="images/courses/youtuber.png"
                         alt="Course img"
-                        className="course-box__img"
+                        className="bg-cover rounded-t-2xl w-full"
                       />
                     </a>
-                    <div className="course-box__main">
-                      <a href="#" className="course-box__title">
+                    <div className="flex flex-col justify-center items-start px-4 gap-4 w-full">
+                      <a
+                        href="#"
+                        className="hover:text-blue-600 transition-all delay-100"
+                      >
                         دوره پروژه محور متخصص جنگو
                       </a>
 
-                      <div className="course-box__rating-teacher">
-                        <div className="course-box__teacher">
-                          <i className="fas fa-chalkboard-teacher course-box__teacher-icon"></i>
-                          <a href="#" className="course-box__teacher-link">
+                      <div className=" flex justify-between items-center w-full">
+                        <div className="flex justify-center items-center gap-x-1 text-sm text-[#6c757d] ">
+                          <FaChalkboardTeacher className="text-2xl" />
+                          <a
+                            href="#"
+                            className="hover:text-blue-600 transition-all delay-75"
+                          >
                             رضا دولتی
                           </a>
                         </div>
-                        <div className="course-box__rating">
+                        <div className="flex justify-center items-center child:w-4">
                           <img
                             src="images/svgs/star.svg"
                             alt="rating"
@@ -278,45 +315,54 @@ function Courses() {
                         </div>
                       </div>
 
-                      <div className="course-box__status">
-                        <div className="course-box__users">
+                      <div className="text-[#6c757d] flex justify-between w-full items-center">
+                        <div className="text-sm flex justify-center items-center gap-x-1">
                           <i className="fas fa-users course-box__users-icon"></i>
                           <span className="course-box__users-text">500</span>
                         </div>
-                        <span className="course-box__price">1,000,000</span>
+                        <span className="text-lg">1,000,000</span>
                       </div>
                     </div>
 
-                    <div className="course-box__footer">
-                      <a href="#" className="course-box__footer-link">
+                    <div className="w-full justify-center items-center flex py-6 border-t-2">
+                      <a
+                        href="#"
+                        className="inline-flex justify-center items-center gap-x-2 text-green-primery font-IRANSansBold "
+                      >
                         مشاهده اطلاعات
-                        <i className="fas fa-arrow-left course-box__footer-icon"></i>
+                        <FaArrowLeftLong />
                       </a>
                     </div>
                   </div>
                 </div>
-                <div className="col-4">
-                  <div className="course-box">
-                    <a href="#">
+                <div className="shadow-2xl rounded-2xl w-full  hover:-translate-y-2 transition-all ease-linear duration-400">
+                  <div className="flex flex-col justify-center items-start gap-y-4 w-full">
+                    <a href="#" className="block w-full">
                       <img
                         src="images/courses/python.png"
                         alt="Course img"
-                        className="course-box__img"
+                        className="bg-cover rounded-t-2xl w-full"
                       />
                     </a>
-                    <div className="course-box__main">
-                      <a href="#" className="course-box__title">
+                    <div className="flex flex-col justify-center items-start px-4 gap-4 w-full">
+                      <a
+                        href="#"
+                        className="hover:text-blue-600 transition-all delay-100"
+                      >
                         دوره پروژه محور متخصص جنگو
                       </a>
 
-                      <div className="course-box__rating-teacher">
-                        <div className="course-box__teacher">
-                          <i className="fas fa-chalkboard-teacher course-box__teacher-icon"></i>
-                          <a href="#" className="course-box__teacher-link">
+                      <div className=" flex justify-between items-center w-full">
+                        <div className="flex justify-center items-center gap-x-1 text-sm text-[#6c757d] ">
+                          <FaChalkboardTeacher className="text-2xl" />
+                          <a
+                            href="#"
+                            className="hover:text-blue-600 transition-all delay-75"
+                          >
                             رضا دولتی
                           </a>
                         </div>
-                        <div className="course-box__rating">
+                        <div className="flex justify-center items-center child:w-4">
                           <img
                             src="images/svgs/star.svg"
                             alt="rating"
@@ -345,45 +391,54 @@ function Courses() {
                         </div>
                       </div>
 
-                      <div className="course-box__status">
-                        <div className="course-box__users">
+                      <div className="text-[#6c757d] flex justify-between w-full items-center">
+                        <div className="text-sm flex justify-center items-center gap-x-1">
                           <i className="fas fa-users course-box__users-icon"></i>
                           <span className="course-box__users-text">500</span>
                         </div>
-                        <span className="course-box__price">1,000,000</span>
+                        <span className="text-lg">1,000,000</span>
                       </div>
                     </div>
 
-                    <div className="course-box__footer">
-                      <a href="#" className="course-box__footer-link">
+                    <div className="w-full justify-center items-center flex py-6 border-t-2">
+                      <a
+                        href="#"
+                        className="inline-flex justify-center items-center gap-x-2 text-green-primery font-IRANSansBold "
+                      >
                         مشاهده اطلاعات
-                        <i className="fas fa-arrow-left course-box__footer-icon"></i>
+                        <FaArrowLeftLong />
                       </a>
                     </div>
                   </div>
                 </div>
-                <div className="col-4">
-                  <div className="course-box">
-                    <a href="#">
+                <div className="shadow-2xl rounded-2xl w-full  hover:-translate-y-2 transition-all ease-linear duration-400">
+                  <div className="flex flex-col justify-center items-start gap-y-4 w-full">
+                    <a href="#" className="block w-full">
                       <img
                         src="images/courses/nodejs.png"
                         alt="Course img"
-                        className="course-box__img"
+                        className="bg-cover rounded-t-2xl w-full"
                       />
                     </a>
-                    <div className="course-box__main">
-                      <a href="#" className="course-box__title">
+                    <div className="flex flex-col justify-center items-start px-4 gap-4 w-full">
+                      <a
+                        href="#"
+                        className="hover:text-blue-600 transition-all delay-100"
+                      >
                         دوره پروژه محور متخصص جنگو
                       </a>
 
-                      <div className="course-box__rating-teacher">
-                        <div className="course-box__teacher">
-                          <i className="fas fa-chalkboard-teacher course-box__teacher-icon"></i>
-                          <a href="#" className="course-box__teacher-link">
+                      <div className=" flex justify-between items-center w-full">
+                        <div className="flex justify-center items-center gap-x-1 text-sm text-[#6c757d] ">
+                          <FaChalkboardTeacher className="text-2xl" />
+                          <a
+                            href="#"
+                            className="hover:text-blue-600 transition-all delay-75"
+                          >
                             رضا دولتی
                           </a>
                         </div>
-                        <div className="course-box__rating">
+                        <div className="flex justify-center items-center child:w-4">
                           <img
                             src="images/svgs/star.svg"
                             alt="rating"
@@ -412,26 +467,29 @@ function Courses() {
                         </div>
                       </div>
 
-                      <div className="course-box__status">
-                        <div className="course-box__users">
+                      <div className="text-[#6c757d] flex justify-between w-full items-center">
+                        <div className="text-sm flex justify-center items-center gap-x-1">
                           <i className="fas fa-users course-box__users-icon"></i>
                           <span className="course-box__users-text">500</span>
                         </div>
-                        <span className="course-box__price">1,000,000</span>
+                        <span className="text-lg">1,000,000</span>
                       </div>
                     </div>
 
-                    <div className="course-box__footer">
-                      <a href="#" className="course-box__footer-link">
+                    <div className="w-full justify-center items-center flex py-6 border-t-2">
+                      <a
+                        href="#"
+                        className="inline-flex justify-center items-center gap-x-2 text-green-primery font-IRANSansBold "
+                      >
                         مشاهده اطلاعات
-                        <i className="fas fa-arrow-left course-box__footer-icon"></i>
+                        <FaArrowLeftLong />
                       </a>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </section>
         </div>
       </section>
     </>
