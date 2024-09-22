@@ -96,7 +96,7 @@ function Landing() {
           </g>
         </symbol>
       </svg>
-      <section className=" w-full bg-header-image   h-auto  py-5 md:py-36 ">
+      <section className=" w-full bg-header-image  py-5 md:py-36 ">
         <div className=" container text-white flex flex-col justify-center items-center gap-y-12">
           <div className="flex flex-col justify-center items-center gap-y-3 md:gap-y-6">
             <h1 className="font-IRANSansBold  text-lg text-center  md:text-4xl font-bold">
