@@ -3,7 +3,13 @@ export default {
   content: ["../index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     screens: {
+      "4xs": "320px",
+      "3xs": "375px",
+      "2xs": "425",
       xs: "480px",
+      lmf: "500px",
+      lt: "900px",
+      xm: "600",
       sm: "640px",
       // => @media (min-width: 640px) { ... }
       md: "768px",
