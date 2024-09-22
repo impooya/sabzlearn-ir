@@ -44,6 +44,21 @@
   }
   html {
     @apply scroll-smooth;
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: #fff;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background-color: #2bce56;
+      border-radius: 30px;
+      cursor: pointer;
+    }
   }
 }
 
