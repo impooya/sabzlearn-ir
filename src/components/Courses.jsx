@@ -4,31 +4,31 @@ import { FaUsers } from "react-icons/fa";
 function Courses() {
   return (
     <>
-      <section className="mx-0 my-7 xs:my-16">
+      <section className="mx-0 my-7 md:my-16">
         <div className="container">
           <div className="flex items-center justify-between mb-7">
             <div className="flex flex-col items-start justify-between">
-              <span className="text-lg xs:text-[1.3rem] text-[#444446] pr-2 font-bold leading-[1.2] relative before:content-[''] xs:before:block before:absolute before:bg-green-primery before:h-[4.4rem] before:w-1 before:rounded-md  before:-right-1 before:hidden before:rotate-12 after:content-[''] after:block after:w-44 xs:after:w-60 after:h-4 after:absolute after:bg-green-primery/20 after:bottom-0 top-0 ">
+              <span className="text-lg md:text-[1.3rem] text-[#444446] pr-2 font-bold leading-[1.2] relative before:content-[''] md:before:block before:absolute before:bg-green-primery before:h-[4.4rem] before:w-1 before:rounded-md  before:-right-1 before:hidden before:rotate-12 after:content-[''] after:block after:w-44 md:after:w-60 after:h-4 after:absolute after:bg-green-primery/20 after:bottom-0 top-0 ">
                 جدیدترین دوره ها
               </span>
-              <span className="text-[#9c9c9c] xs:text-xl pr-2 text-sm">
+              <span className="text-[#9c9c9c] md:text-xl pr-2 text-sm">
                 سکوی پرتاپ شما به سمت موفقیت
               </span>
             </div>
             <div>
               <a
                 href="#"
-                className="flex items-center justify-center text-white bg-green-primery text-xs py-1 px-1 xs:text-lg xs:px-4 xs:py-2 rounded-lg hover:text-white gap-x-2"
+                className="flex items-center justify-center text-white bg-green-primery text-xs py-1 px-1 md:text-lg md:px-4 md:py-2 rounded-lg hover:text-white gap-x-2"
               >
                 تمامی دوره ها
-                <FaArrowLeftLong className="xs:block hidden" />
+                <FaArrowLeftLong className="md:block hidden" />
               </a>
             </div>
           </div>
 
           <section className="w-full text-dark-primery ">
             <div className="container">
-              <div className="grid grid-cols-1 xs:grid-cols-3 gap-5">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                 <div className="shadow-2xl rounded-2xl w-full  hover:-translate-y-2 transition-all ease-linear duration-400">
                   <div className="flex flex-col justify-center items-start gap-y-4 w-full">
                     <a href="#" className="block w-full">
