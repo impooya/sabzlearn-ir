@@ -29,7 +29,7 @@ function Courses() {
           <section className="w-full text-dark-primery ">
             <div className="container">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                <div className="shadow-2xl rounded-2xl w-full  hover:-translate-y-2 transition-all ease-linear duration-400">
+                <div className="shadow-2xl rounded-2xl w-full  hover:-translate-y-2 transition-all easear duration-[400ms]">
                   <div className="flex flex-col justify-center items-start gap-y-4 w-full">
                     <a href="#" className="block w-full">
                       <img
@@ -107,7 +107,7 @@ function Courses() {
                     </div>
                   </div>
                 </div>
-                <div className="shadow-2xl rounded-2xl w-full  hover:-translate-y-2 transition-all ease-linear duration-400">
+                <div className="shadow-2xl rounded-2xl w-full  hover:-translate-y-2 transition-all easear duration-[400ms]">
                   <div className="flex flex-col justify-center items-start gap-y-4 w-full">
                     <a href="#" className="block w-full">
                       <img
@@ -183,7 +183,7 @@ function Courses() {
                     </div>
                   </div>
                 </div>
-                <div className="shadow-2xl rounded-2xl w-full  hover:-translate-y-2 transition-all ease-linear duration-400">
+                <div className="shadow-2xl rounded-2xl w-full  hover:-translate-y-2 transition-all easear duration-[400ms]">
                   <div className="flex flex-col justify-center items-start gap-y-4 w-full">
                     <a href="#" className="block w-full">
                       <img
@@ -259,7 +259,7 @@ function Courses() {
                     </div>
                   </div>
                 </div>
-                <div className="shadow-2xl rounded-2xl w-full  hover:-translate-y-2 transition-all ease-linear duration-400">
+                <div className="shadow-2xl rounded-2xl w-full  hover:-translate-y-2 transition-all easear duration-[400ms]">
                   <div className="flex flex-col justify-center items-start gap-y-4 w-full">
                     <a href="#" className="block w-full">
                       <img
@@ -335,7 +335,7 @@ function Courses() {
                     </div>
                   </div>
                 </div>
-                <div className="shadow-2xl rounded-2xl w-full  hover:-translate-y-2 transition-all ease-linear duration-400">
+                <div className="shadow-2xl rounded-2xl w-full  hover:-translate-y-2 transition-all easear duration-[400ms]">
                   <div className="flex flex-col justify-center items-start gap-y-4 w-full">
                     <a href="#" className="block w-full">
                       <img
@@ -411,7 +411,7 @@ function Courses() {
                     </div>
                   </div>
                 </div>
-                <div className="shadow-2xl rounded-2xl w-full  hover:-translate-y-2 transition-all ease-linear duration-400">
+                <div className="shadow-2xl rounded-2xl w-full  hover:-translate-y-2 transition-all easear duration-[400ms]">
                   <div className="flex flex-col justify-center items-start gap-y-4 w-full">
                     <a href="#" className="block w-full">
                       <img
