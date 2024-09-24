@@ -3,11 +3,13 @@ import { createPortal } from "react-dom";
 import { OverlayContext } from "../contexts/OverlayState";
 import { SidebarContext } from "../contexts/sidebarState";
 import { CategoryContext } from "../contexts/CategorySideState";
+import { WichSideBarContext } from "../contexts/WichSideBarState";
 
 function Overlay() {
   const overlayConfig = useContext(OverlayContext);
   const sidebarConfig = useContext(SidebarContext);
   const categoryConfig = useContext(CategoryContext);
+  const wichSideBarConfig = useContext(WichSideBarContext);
   return (
     <>
       {createPortal(
@@ -17,8 +19,10 @@ function Overlay() {
           }`}
           onClick={() => {
             overlayConfig.preventShowOverLayHandler();
-            sidebarConfig.sidebarCloseHandler();
-            categoryConfig.closeCategorySideHandler();
+            wichSideBarConfig.wichSideBar === "menu-sidebar" &&
+            wichSideBarConfig.wichSideBar !== ""
+              ? sidebarConfig.sidebarCloseHandler()
+              : categoryConfig.closeCategorySideHandler();
           }}
         ></div>,
         document.getElementById("overlay")

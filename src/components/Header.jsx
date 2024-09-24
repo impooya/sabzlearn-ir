@@ -8,9 +8,11 @@ import { IoMdMenu } from "react-icons/io";
 import { useContext } from "react";
 import { SidebarContext } from "../contexts/sidebarState";
 import { OverlayContext } from "../contexts/OverlayState";
+import { WichSideBarContext } from "../contexts/WichSideBarState";
 function Header() {
   const sidebarConfig = useContext(SidebarContext);
   const overlayConfig = useContext(OverlayContext);
+  const wichSideBarConfig = useContext(WichSideBarContext);
   return (
     <>
       {/*top of main header*/}
@@ -193,6 +195,7 @@ function Header() {
               onClick={() => {
                 sidebarConfig.sidebarOpenHnadler();
                 overlayConfig.setIsShowOverLay(true);
+                wichSideBarConfig.setWichSideBar("menu-sidebar");
               }}
             >
               <IoMdMenu />

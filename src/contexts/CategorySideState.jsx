@@ -6,13 +6,16 @@ function CategorySideProvider({ children }) {
   function openCategorySideHandler() {
     setIsOpenCategorySide((prev) => !prev);
   }
-
+  function closeCategorySideHandler() {
+    setIsOpenCategorySide(false);
+  }
   return (
     <CategoryContext.Provider
       value={{
         isOpenCategorySide,
         openCategorySideHandler,
         setIsOpenCategorySide,
+        closeCategorySideHandler,
       }}
     >
       {children}

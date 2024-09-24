@@ -12,9 +12,12 @@ import {
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { IoReorderFour } from "react-icons/io5";
 import { CategoryContext } from "../contexts/CategorySideState";
+import { WichSideBarContext } from "../contexts/WichSideBarState";
+import { OverlayContext } from "../contexts/OverlayState";
 function Categories() {
   const categoryConfig = useContext(CategoryContext);
-
+  const wichSideBarConfig = useContext(WichSideBarContext);
+  const overlayConfig = useContext(OverlayContext);
   return (
     <>
       <section className="courses">
@@ -36,6 +39,8 @@ function Categories() {
                 <button
                   onClick={() => {
                     categoryConfig.openCategorySideHandler();
+                    wichSideBarConfig.setWichSideBar("category-sidebar");
+                    overlayConfig.setIsShowOverLay(true);
                   }}
                   className="py-3 px-4 flex md:hidden items-center justify-center w-16 h-14 rounded-md text-black cursor-pointer border border-[#e5e5e5] ml-4 child:text-2xl hover:text-white hover:bg-[#1e83f0] transition-all duration-300 ease-out "
                 >
