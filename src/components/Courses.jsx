@@ -393,7 +393,7 @@ function Courses() {
 
                       <div className="text-[#6c757d] flex justify-between w-full items-center">
                         <div className="text-sm flex justify-center items-center gap-x-1">
-                          <i className="fas fa-users course-box__users-icon"></i>
+                          <FaUsers />
                           <span className="course-box__users-text">500</span>
                         </div>
                         <span className="text-lg">1,000,000</span>
