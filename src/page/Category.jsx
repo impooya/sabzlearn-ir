@@ -9,13 +9,14 @@ import {
   FaUsers,
 } from "react-icons/fa";
 import { FaArrowLeftLong } from "react-icons/fa6";
+import { IoReorderFour } from "react-icons/io5";
 
 function Category() {
   return (
     <>
       <section className="courses">
         <div className="container">
-          <div className="courses-top-bar flex justify-between items-center p-8 shadow-lg">
+          <div className="courses-top-bar flex-col md:flex-row gap-y-4 flex justify-between items-center p-8 shadow-lg ">
             <div className="courses-top-bar__right flex items-center">
               <div className="courses-top-bar__row-btn  py-3 px-4 flex items-center justify-center w-16 h-14 rounded-md text-black cursor-pointer border border-[#e5e5e5] ml-4 child:text-2xl active:text-white active:bg-[#1e83f0]">
                 <FaBorderAll />
@@ -25,11 +26,14 @@ function Category() {
               </div>
 
               <div className="courses-top-bar__selection cursor-pointer relative group">
-                <span className="courses-top-bar__selection-title flex items-center justify-center gap-x-2 h-14 rounded-md py-3 px-8 border border-solid border-[#e5e5e5] text-[#7d7e7f] hover:text-white hover:bg-[#1e83f0] transition-all duration-300 ease-out delay-100 ">
+                <span className="courses-top-bar__selection-title hidden md:flex items-center justify-center gap-x-2 h-14 rounded-md py-3 px-8 border border-solid border-[#e5e5e5] text-[#7d7e7f] hover:text-white hover:bg-[#1e83f0] transition-all duration-300 ease-out delay-100 ">
                   مرتب سازی پیش فرض
                   <FaChevronDown />
                 </span>
-                <ul className="courses-top-bar__selection-list opacity-0 invisible absolute shadow-md bg-white w-full py-3 rounded-bl rounded-br border-b-4 border-solid border-b-green-primery z-[9999] transition-all duration-300 ease-out group-hover:opacity-100 group-hover:visible">
+                <div className="courses-top-bar__row-btn  py-3 px-4 flex md:hidden items-center justify-center w-16 h-14 rounded-md text-black cursor-pointer border border-[#e5e5e5] ml-4 child:text-2xl hover:text-white hover:bg-[#1e83f0] transition-all duration-300 ease-out ">
+                  <IoReorderFour />
+                </div>
+                <ul className="courses-top-bar__selection-list md:block hidden  opacity-0 invisible absolute shadow-md bg-white w-full py-3 rounded-bl rounded-br border-b-4 border-solid border-b-green-primery z-[9999] transition-all duration-300 ease-out group-hover:opacity-100 group-hover:visible">
                   <li className="courses-top-bar__selection-item courses-top-bar__selection-item--active text-[#5f5f5f] text-md py-3 px-5 hover:bg-[#ddd] transition-all duration-200 ease-in-out delay-100">
                     مرتب سازی پیش فرض
                   </li>
@@ -55,7 +59,7 @@ function Category() {
             <div className="courses-top-bar__left">
               <form
                 action="#"
-                className="courses-top-bar__form relative w-[25rem] flex justify-center items-center"
+                className="courses-top-bar__form relative 4xs:w-40  md:w-[15rem] lg:w-[25rem] flex justify-center items-center"
               >
                 <input
                   type="text"
@@ -311,7 +315,7 @@ function Category() {
               <li className="courses__pagination-item">
                 <a
                   href="#"
-                  className="courses__pagination-lin k rounded-lg w-16 h-16 flex justify-center items-center text-2xl bg-[#f0f0f1] mx-2"
+                  className="rounded-lg w-7 h-7 md:w-16 md:h-16 flex justify-center items-center text-md md:text-2xl bg-[#f0f0f1] mx-2"
                 >
                   <FaLongArrowAltRight />
                 </a>
@@ -319,7 +323,7 @@ function Category() {
               <li className="courses__pagination-item">
                 <a
                   href="#"
-                  className="courses__pagination-lin k rounded-lg w-16 h-16 flex justify-center items-center text-2xl bg-[#f0f0f1] mx-2"
+                  className="rounded-lg w-7 h-7 md:w-16 md:h-16 flex justify-center items-center text-md md:text-2xl bg-[#f0f0f1] mx-2"
                 >
                   1
                 </a>
@@ -327,12 +331,12 @@ function Category() {
               <li className="courses__pagination-item">
                 <a
                   href="#"
-                  className="courses__pagination-lin k rounded-lg w-16 h-16 flex justify-center items-center text-2xl bg-[#f0f0f1] mx-2"
+                  className="rounded-lg w-7 h-7 md:w-16 md:h-16 flex justify-center items-center text-md md:text-2xl bg-[#f0f0f1] mx-2"
                 >
                   2
                 </a>
               </li>
-              <li className="courses__pagination-item  courses__pagination-lin k rounded-lg w-16 h-16 flex justify-center items-center text-2xl bg-[#f0f0f1] mx-2">
+              <li className="courses__pagination-item  rounded-lg w-7 h-7 md:w-16 md:h-16 flex justify-center items-center text-md md:text-2xl bg-[#f0f0f1] mx-2">
                 <a
                   href="#"
                   className="courses__pagination-link courses__pagination-link--active"
@@ -343,7 +347,7 @@ function Category() {
               <li className="courses__pagination-item">
                 <a
                   href="#"
-                  className="courses__pagination-link  rounded-lg w-16 h-16 flex justify-center items-center text-2xl bg-[#f0f0f1] mx-2"
+                  className="courses__pagination-link  rounded-lg w-7 h-7 md:w-16 md:h-16 flex justify-center items-center text-md md:text-2xl bg-[#f0f0f1] mx-2"
                 >
                   <FaLongArrowAltLeft />
                 </a>
