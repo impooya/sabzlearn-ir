@@ -2,9 +2,12 @@ import { useContext } from "react";
 import { createPortal } from "react-dom";
 import { OverlayContext } from "../contexts/OverlayState";
 import { SidebarContext } from "../contexts/sidebarState";
+import { CategoryContext } from "../contexts/CategorySideState";
+
 function Overlay() {
   const overlayConfig = useContext(OverlayContext);
   const sidebarConfig = useContext(SidebarContext);
+  const categoryConfig = useContext(CategoryContext);
   return (
     <>
       {createPortal(
@@ -15,6 +18,7 @@ function Overlay() {
           onClick={() => {
             overlayConfig.preventShowOverLayHandler();
             sidebarConfig.sidebarCloseHandler();
+            categoryConfig.closeCategorySideHandler();
           }}
         ></div>,
         document.getElementById("overlay")
