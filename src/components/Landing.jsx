@@ -1,5 +1,6 @@
 import { FaSearch } from "react-icons/fa";
 import Typewriter from "typewriter-effect";
+import CountUp from "react-countup";
 function Landing() {
   return (
     <>
@@ -138,7 +139,9 @@ function Landing() {
                 <use href="#students"></use>
               </svg>
               <div className="flex flex-col justify-center items-center  md:gap-y-3 font-IRANSansBold text-lg md:text-2xl">
-                <span>31,020</span>
+                <span>
+                  <CountUp start={0} end={31020} duration={2.5} />
+                </span>
                 <h3>کاربر توی سبزلرن ثبت نام کردن</h3>
               </div>
             </div>
@@ -147,7 +150,9 @@ function Landing() {
                 <use href="#courses"></use>
               </svg>
               <div className="flex flex-col justify-center items-center  md:gap-y-3 font-IRANSansBold text-lg md:text-2xl">
-                <span>42</span>
+                <span>
+                  <CountUp start={0} end={42} duration={2.5} />
+                </span>
                 <h3>کاربر توی سبزلرن ثبت نام کردن</h3>
               </div>
             </div>
@@ -156,7 +161,9 @@ function Landing() {
                 <use href="#time"></use>
               </svg>
               <div className="flex flex-col justify-center items-center  md:gap-y-3 font-IRANSansBold text-lg md:text-2xl">
-                <span>31,320</span>
+                <span>
+                  <CountUp start={0} end={31320} duration={2.5} />
+                </span>
                 <h3>کاربر توی سبزلرن ثبت نام کردن</h3>
               </div>
             </div>
