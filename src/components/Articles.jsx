@@ -26,8 +26,8 @@ function Articles() {
           </div>
 
           <div className="articles__content">
-            <div className="grid grid-cols-3 gap-x-4">
-              <div className="col-4 flex justify-start items-center flex-col h-[600px] bg-white ">
+            <div className="grid grid-cols-1 lmf:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-2">
+              <div className="col-4 flex justify-start items-center flex-col   bg-white ">
                 <div className="article-card my-12 shadow-lg hover:-translate-y-3 transition-all duration-[400ms] ease delay-75">
                   <div className="article-card__header">
                     <a href="#" className="article-card__link-img">
@@ -45,20 +45,20 @@ function Articles() {
                     >
                       نحوه نصب کتابخانه در پایتون | آموزش نصب کتابخانه پایتون
                     </a>
-                    <p className="article-card__text text-[#898989] text-md pt-4 pb-10">
+                    <p className="article-card__text text-[#898989] text-md pt-4 pb-10 line-clamp-">
                       زبان پایتون هم مانند دیگر زبان­های برنامه نویسی رایج،
                       دارای کتابخانه های مختلفی برای تسریع...
                     </p>
                     <a
                       href="#"
-                      className="article-card__btn text-green-primery border-2 border-solid border-green-primery text-2xl py-2 px-4 rounded-lg hover:text-white transition-all ease duration-[400ms] hover:bg-green-primery "
+                      className="article-card__btn text-green-primery border-2 border-solid border-green-primery text-lg py-1 px-2 rounded-lg hover:text-white transition-all ease duration-[400ms] hover:bg-green-primery "
                     >
                       بیشتر بخوانید
                     </a>
                   </div>
                 </div>
               </div>
-              <div className="col-4 flex justify-start items-center flex-col h-[600px] bg-white ">
+              <div className="col-4 flex justify-start items-center flex-col  bg-white ">
                 <div className="article-card my-12 shadow-lg hover:-translate-y-3 transition-all duration-[400ms] ease delay-75">
                   <div className="article-card__header">
                     <a href="#" className="article-card__link-img">
@@ -76,20 +76,20 @@ function Articles() {
                     >
                       نحوه نصب کتابخانه در پایتون | آموزش نصب کتابخانه پایتون
                     </a>
-                    <p className="article-card__text text-[#898989] text-md pt-4 pb-10">
+                    <p className="article-card__text text-[#898989] text-md pt-4 pb-10 line-clamp-">
                       زبان پایتون هم مانند دیگر زبان­های برنامه نویسی رایج،
                       دارای کتابخانه های مختلفی برای تسریع...
                     </p>
                     <a
                       href="#"
-                      className="article-card__btn text-green-primery border-2 border-solid border-green-primery text-2xl py-2 px-4 rounded-lg hover:text-white transition-all ease duration-[400ms] hover:bg-green-primery "
+                      className="article-card__btn text-green-primery border-2 border-solid border-green-primery text-lg py-1 px-2 rounded-lg hover:text-white transition-all ease duration-[400ms] hover:bg-green-primery "
                     >
                       بیشتر بخوانید
                     </a>
                   </div>
                 </div>
               </div>
-              <div className="col-4 flex justify-start items-center flex-col h-[600px] bg-white ">
+              <div className="col-4 flex justify-start items-center flex-col  bg-white ">
                 <div className="article-card my-12 shadow-lg hover:-translate-y-3 transition-all duration-[400ms] ease delay-75">
                   <div className="article-card__header">
                     <a href="#" className="article-card__link-img">
@@ -107,13 +107,13 @@ function Articles() {
                     >
                       نحوه نصب کتابخانه در پایتون | آموزش نصب کتابخانه پایتون
                     </a>
-                    <p className="article-card__text text-[#898989] text-md pt-4 pb-10">
+                    <p className="article-card__text text-[#898989] text-md pt-4 pb-10 line-clamp-">
                       زبان پایتون هم مانند دیگر زبان­های برنامه نویسی رایج،
                       دارای کتابخانه های مختلفی برای تسریع...
                     </p>
                     <a
                       href="#"
-                      className="article-card__btn text-green-primery border-2 border-solid border-green-primery text-2xl py-2 px-4 rounded-lg hover:text-white transition-all ease duration-[400ms] hover:bg-green-primery "
+                      className="article-card__btn text-green-primery border-2 border-solid border-green-primery text-lg py-1 px-2 rounded-lg hover:text-white transition-all ease duration-[400ms] hover:bg-green-primery "
                     >
                       بیشتر بخوانید
                     </a>

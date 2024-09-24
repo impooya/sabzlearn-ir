@@ -9,7 +9,7 @@ export default {
       xs: "480px",
       lmf: "500px",
       lt: "900px",
-      xm: "600",
+      xm: "600px",
       sm: "640px",
       // => @media (min-width: 640px) { ... }
       md: "768px",
