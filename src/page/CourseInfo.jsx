@@ -1,5 +1,11 @@
+import BreadCrump from "../components/BreadCrump";
+
 function CourseInfo() {
-  return <div>CourseInfo</div>;
+  return (
+    <>
+      <BreadCrump />
+    </>
+  );
 }
 
 export default CourseInfo;
