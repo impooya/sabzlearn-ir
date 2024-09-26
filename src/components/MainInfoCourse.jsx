@@ -3,7 +3,7 @@ import { FaFacebook, FaTelegramPlane, FaTwitter } from "react-icons/fa";
 function MainInfoCourse() {
   return (
     <>
-      <section className="rounded-lg mt-4 p-8 shadow-[0_0_13px_1px_rgba(70,72,77,0.08)]">
+      <section className="rounded-lg mt-4 p-8 shadow-shade-primery">
         <div className="container">
           <div className="grid grid-cols-1 gap-y-7 lg:grid-cols-2 gap-x-32">
             <div className="">

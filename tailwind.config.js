@@ -20,6 +20,9 @@ export default {
       // => @media (min-width: 1280px) { ... }
     },
     extend: {
+      boxShadow: {
+        "shade-primery": "0 0 13px 1px rgba(70, 72, 77, 0.08)",
+      },
       fontFamily: {
         IRANSans: "IRANSans",
         IRANSansBlack: "IRANSans Black",

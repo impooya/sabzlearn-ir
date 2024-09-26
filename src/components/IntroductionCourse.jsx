@@ -6,7 +6,7 @@ import { FaChevronDown, FaYoutube } from "react-icons/fa";
 function IntroductionCourse() {
   return (
     <>
-      <div className=" p-8 md:p-12 rounded-lg shadow-[0_0_13px_1px_rgba(70,72,77,0.08)]">
+      <div className=" p-8 md:p-12 rounded-lg shadow-shade-primery">
         <div className="introduction__item">
           <div className="w-full  mb-7 flex justify-center items-center flex-col">
             <span className="text-lg md:text-[1.3rem] w-full text-[#444446] pr-2 font-bold leading-[1.2] relative before:content-[''] md:before:block before:absolute before:bg-green-primery before:h-[3rem] before:w-1 before:rounded-md  before:-right-1 before:hidden before:rotate-12 after:content-[''] after:hidden xs:after:block after:w-full after:h-4 after:absolute after:bg-green-primery/20 after:bottom-0 top-0 ">

@@ -4,6 +4,7 @@ import CourseProgress from "../components/CourseProgress";
 import IntroductionCourse from "../components/IntroductionCourse";
 import MainInfoCourse from "../components/MainInfoCourse";
 import MainInfoCoursesSection from "../components/MainInfoCoursesSection";
+import TeacherDetails from "../components/TeacherDetails";
 
 function CourseInfo() {
   return (
@@ -16,6 +17,7 @@ function CourseInfo() {
             <CourseInfoBox />
             <CourseProgress />
             <IntroductionCourse />
+            <TeacherDetails />
           </>
         }
       />
