@@ -6,7 +6,7 @@ function CourseInfoBox() {
   return (
     <>
       <div className="course-boxes">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-3">
           <div>
             <div className="course-boxes__bo flex rounded-lg py-6 px-7 shadow-[0_5px_30px_rgba(70,72,77,0.08)] my-3 ">
               <div className="course-boxes__box-right flex justify-center items-center ">
