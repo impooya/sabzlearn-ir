@@ -3,11 +3,13 @@ function MainInfoCoursesSection({ leftContent, rightContent }) {
     <>
       <main className="main">
         <div className="container">
-          <div className="row">
-            <div className="col-8">
+          <div className="flex gap-x-9 justify-center">
+            <div>
               <div className="course">{rightContent}</div>
             </div>
-            <div className="col-4">{leftContent}</div>
+            <div className="flex-none w-1/3  ">
+              <div className="courses-info top-6 sticky ">{leftContent}</div>
+            </div>
           </div>
         </div>
       </main>
