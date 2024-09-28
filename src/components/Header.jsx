@@ -205,7 +205,7 @@ function Header() {
           <div className="flex justify-center items-center gap-1 flex-wrap lg:flex-nowrap tracking-tighter">
             <a
               href="a"
-              className="bg-green-primery w-10 h-10 md:w-12 md:h-12 md:hidden flex justify-center items-center child:size-5 md:child:size-6 text-white rounded-lg"
+              className="bg-green-primery w-10 h-10 md:w-12 md:h-12 flex justify-center items-center child:size-5 md:child:size-6 text-white rounded-lg"
             >
               <FaSearch />
             </a>
