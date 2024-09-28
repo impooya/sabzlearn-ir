@@ -6,13 +6,16 @@ import { OverlayProvider } from "./contexts/OverlayState";
 import { SidebarProvider } from "./contexts/sidebarState";
 import { CategorySideProvider } from "./contexts/CategorySideState";
 import { WichSideBarProvider } from "./contexts/WichSideBarState";
+import { CourseDetailsProvider } from "./contexts/CourseDetailsState";
 
 createRoot(document.getElementById("root")).render(
   <OverlayProvider>
     <SidebarProvider>
       <CategorySideProvider>
         <WichSideBarProvider>
-          <RouterProvider router={router} />
+          <CourseDetailsProvider>
+            <RouterProvider router={router} />
+          </CourseDetailsProvider>
         </WichSideBarProvider>
       </CategorySideProvider>
     </SidebarProvider>
