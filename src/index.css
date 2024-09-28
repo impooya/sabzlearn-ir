@@ -45,12 +45,13 @@
   html {
     @apply scroll-smooth;
     ::-webkit-scrollbar {
-      width: 10px;
+      width: 5px;
     }
 
     /* Track */
     ::-webkit-scrollbar-track {
       background: #fff;
+      border-radius: 30px;
     }
 
     /* Handle */
