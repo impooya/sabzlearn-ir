@@ -9,31 +9,31 @@ function QuickAccess() {
         <ul className="mt-1">
           <li className=" flex items-center border-b border-solid border-b-[#eeeeee] transition-all duration-500 ease-in-out hover:pr-8 hover:bg-[#f8f9fa] hover:text-green-primery py-[0.9rem] pl-[1.3rem] pr-4 text-[#909aa7]">
             <FaAngleLeft className="hover:text-green-primery" />
-            <a href="#" className="text-lg mr-2">
+            <a href="#" className="text-sm md:text-lg mr-2">
               صفحه اصلی
             </a>
           </li>
           <li className=" flex items-center border-b border-solid border-b-[#eeeeee] transition-all duration-500 ease-in-out hover:pr-8 hover:bg-[#f8f9fa] hover:text-green-primery py-[0.9rem] pl-[1.3rem] pr-4 text-[#909aa7]">
             <FaAngleLeft className="hover:text-green-primery" />
-            <a href="#" className="text-lg mr-2">
+            <a href="#" className="text-sm md:text-lg mr-2">
               فرانت اند
             </a>
           </li>
           <li className=" flex items-center border-b border-solid border-b-[#eeeeee] transition-all duration-500 ease-in-out hover:pr-8 hover:bg-[#f8f9fa] hover:text-green-primery py-[0.9rem] pl-[1.3rem] pr-4 text-[#909aa7]">
             <FaAngleLeft className="hover:text-green-primery" />
-            <a href="#" className="text-lg mr-2">
+            <a href="#" className="text-sm md:text-lg mr-2">
               امنیت
             </a>
           </li>
           <li className=" flex items-center border-b border-solid border-b-[#eeeeee] transition-all duration-500 ease-in-out hover:pr-8 hover:bg-[#f8f9fa] hover:text-green-primery py-[0.9rem] pl-[1.3rem] pr-4 text-[#909aa7]">
             <FaAngleLeft className="hover:text-green-primery" />
-            <a href="#" className="text-lg mr-2">
+            <a href="#" className="text-sm md:text-lg mr-2">
               پایتون
             </a>
           </li>
           <li className=" flex items-center border-b border-solid border-b-[#eeeeee] transition-all duration-500 ease-in-out hover:pr-8 hover:bg-[#f8f9fa] hover:text-green-primery py-[0.9rem] pl-[1.3rem] pr-4 text-[#909aa7]">
             <FaAngleLeft className="hover:text-green-primery" />
-            <a href="#" className="text-lg mr-2">
+            <a href="#" className="text-sm md:text-lg mr-2">
               مهارت های نرم
             </a>
           </li>

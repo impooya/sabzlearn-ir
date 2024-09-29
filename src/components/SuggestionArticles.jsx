@@ -4,7 +4,7 @@ function SuggestionArticles() {
   return (
     <>
       <div className="my-16 py-14 px-10 rounded-lg bg-[#f0f2f7]">
-        <div className="grid grid-cols-2">
+        <div className="grid md:grid-cols-2 grid-cols-1 gap-y-12 ">
           <div>
             <div className=" suggestion-articles__right  relative flex items-center ">
               <a href="#">

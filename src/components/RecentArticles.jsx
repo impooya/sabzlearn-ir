@@ -9,7 +9,7 @@ function RecentArticles() {
           <li className="border-b border-solid border-b-[#eeeeee] py-2 px-0">
             <a
               href="#"
-              className=" hover:text-blue-500 transition-all delay-100"
+              className=" hover:text-blue-500 transition-all delay-100 text-sm md:text-lg"
             >
               نحوه نصب کتابخانه در پایتون | آموزش نصب کتابخانه پایتون
             </a>
@@ -17,7 +17,7 @@ function RecentArticles() {
           <li className="border-b border-solid border-b-[#eeeeee] py-2 px-0">
             <a
               href="#"
-              className=" hover:text-blue-500 transition-all delay-100"
+              className=" hover:text-blue-500 transition-all delay-100 text-sm md:text-lg"
             >
               نحوه نصب کتابخانه در پایتون | آموزش نصب کتابخانه پایتون
             </a>
@@ -25,7 +25,7 @@ function RecentArticles() {
           <li className="border-b border-solid border-b-[#eeeeee] py-2 px-0">
             <a
               href="#"
-              className=" hover:text-blue-500 transition-all delay-100"
+              className=" hover:text-blue-500 transition-all delay-100 text-sm md:text-lg"
             >
               نحوه نصب کتابخانه در پایتون | آموزش نصب کتابخانه پایتون
             </a>
@@ -33,7 +33,7 @@ function RecentArticles() {
           <li className="border-b border-solid border-b-[#eeeeee] py-2 px-0">
             <a
               href="#"
-              className=" hover:text-blue-500 transition-all delay-100"
+              className=" hover:text-blue-500 transition-all delay-100 text-sm md:text-lg"
             >
               نحوه نصب کتابخانه در پایتون | آموزش نصب کتابخانه پایتون
             </a>
@@ -41,7 +41,7 @@ function RecentArticles() {
           <li className="border-b border-solid border-b-[#eeeeee] py-2 px-0">
             <a
               href="#"
-              className=" hover:text-blue-500 transition-all delay-100"
+              className=" hover:text-blue-500 transition-all delay-100 text-sm md:text-lg"
             >
               نحوه نصب کتابخانه در پایتون | آموزش نصب کتابخانه پایتون
             </a>
@@ -49,7 +49,7 @@ function RecentArticles() {
           <li className="border-b border-solid border-b-[#eeeeee] py-2 px-0">
             <a
               href="#"
-              className=" hover:text-blue-500 transition-all delay-100"
+              className=" hover:text-blue-500 transition-all delay-100 text-sm md:text-lg"
             >
               نحوه نصب کتابخانه در پایتون | آموزش نصب کتابخانه پایتون
             </a>

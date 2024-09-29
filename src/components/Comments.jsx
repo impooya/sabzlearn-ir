@@ -3,7 +3,7 @@ function Comments() {
     <>
       <div className="flex flex-col ">
         <span className="text-dark-primery text-lg">دیدگاهتان را بنویسید</span>
-        <span className="my-5 mx-0 text-xl">
+        <span className="my-5 mx-0 text-sm md:text-xl">
           <a
             href="#"
             className="hover:text-[#1e83f0] transition-all duration-300 delay-100 ease-in-out"
@@ -19,12 +19,12 @@ function Comments() {
           بخش های موردنیاز علامت گذاری شده اند *
         </span>
         <div className="flex flex-col">
-          <span className="text-xl text-[#6c757d]">دیدگاه *</span>
+          <span className="text-lg md:text-xl text-[#6c757d]">دیدگاه *</span>
           <textarea className="h-[18.5rem] rounded-lg border border-solid border-[#dcdcdc] shadow-shade-primery"></textarea>
         </div>
         <button
           type="submit"
-          className="mt-8 max-w-[15rem] py-2 px-4 bg-green-primery text-white border-none rounded-lg text-xl mb-12"
+          className="mt-8  md:max-w-[15rem] py-2 px-4 bg-green-primery text-white border-none rounded-lg text-lg md:text-xl mb-12"
         >
           فرستادن دیدگاه
         </button>
