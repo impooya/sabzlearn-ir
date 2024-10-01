@@ -9,6 +9,7 @@ import { useContext } from "react";
 import { SidebarContext } from "../contexts/sidebarState";
 import { OverlayContext } from "../contexts/OverlayState";
 import { WichSideBarContext } from "../contexts/WichSideBarState";
+import { Link } from "react-router-dom";
 function Header() {
   const sidebarConfig = useContext(SidebarContext);
   const overlayConfig = useContext(OverlayContext);
@@ -215,12 +216,12 @@ function Header() {
             >
               <FaCartShopping />
             </a>
-            <a
-              href="a"
+            <Link
+              to={"/login"}
               className="w-32 border-2  border-green-primery text-green-primery hidden lg:flex justify-center items-center h-11 rounded-md text-sm hover:bg-green-primery hover:text-white transition-all "
             >
               Pooya Samarkar
-            </a>
+            </Link>
             <a
               href="#"
               className="bg-green-primery w-10 h-10 md:w-12 md:h-12 flex lg:hidden justify-center items-center child:size-5 md:child:size-6 text-white rounded-lg "

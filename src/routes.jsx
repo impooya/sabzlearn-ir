@@ -4,6 +4,8 @@ import Home from "./page/Home";
 import CourseInfo from "./page/CourseInfo";
 import Category from "./page/Category";
 import ArticleInfo from "./page/ArticleInfo";
+import Login from "./page/Login";
+import Register from "./page/Register";
 
 export const router = createBrowserRouter([
   {
@@ -25,6 +27,14 @@ export const router = createBrowserRouter([
       {
         path: "/article-info/:articleName",
         element: <ArticleInfo />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
       },
     ],
   },
