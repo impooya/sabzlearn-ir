@@ -14,10 +14,13 @@ import { IoReorderFour } from "react-icons/io5";
 import { CategoryContext } from "../contexts/CategorySideState";
 import { WichSideBarContext } from "../contexts/WichSideBarState";
 import { OverlayContext } from "../contexts/OverlayState";
+import { ImageLoaderContext } from "../contexts/ImageLoader";
+import ClipLoader from "react-spinners/ClipLoader";
 function Categories() {
   const categoryConfig = useContext(CategoryContext);
   const wichSideBarConfig = useContext(WichSideBarContext);
   const overlayConfig = useContext(OverlayContext);
+  const imageLoaderConfig = useContext(ImageLoaderContext);
   return (
     <>
       <section className="courses">
@@ -96,7 +99,11 @@ function Categories() {
                         src="/images/courses/fareelancer.png"
                         alt="Course img"
                         className="bg-cover rounded-t-2xl w-full"
+                        onLoad={imageLoaderConfig.onImageLoaded}
                       />
+                      {!imageLoaderConfig.isImgShow && (
+                        <ClipLoader color="#1edb4d" />
+                      )}
                     </a>
                     <div className="flex flex-col justify-center items-start px-4 gap-4 w-full">
                       <a

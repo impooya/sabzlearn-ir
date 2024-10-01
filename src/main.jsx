@@ -7,6 +7,7 @@ import { SidebarProvider } from "./contexts/sidebarState";
 import { CategorySideProvider } from "./contexts/CategorySideState";
 import { WichSideBarProvider } from "./contexts/WichSideBarState";
 import { CourseDetailsProvider } from "./contexts/CourseDetailsState";
+import { ImageLoaderProvider } from "./contexts/ImageLoader";
 
 createRoot(document.getElementById("root")).render(
   <OverlayProvider>
@@ -14,7 +15,9 @@ createRoot(document.getElementById("root")).render(
       <CategorySideProvider>
         <WichSideBarProvider>
           <CourseDetailsProvider>
-            <RouterProvider router={router} />
+            <ImageLoaderProvider>
+              <RouterProvider router={router} />
+            </ImageLoaderProvider>
           </CourseDetailsProvider>
         </WichSideBarProvider>
       </CategorySideProvider>

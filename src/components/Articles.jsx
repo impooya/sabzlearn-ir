@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import { FaArrowLeftLong } from "react-icons/fa6";
+import { ImageLoaderContext } from "../contexts/ImageLoader";
+import ClipLoader from "react-spinners/ClipLoader";
 
 function Articles() {
+  const imageLoaderConfig = useContext(ImageLoaderContext);
   return (
     <>
       <section className="mx-0 my-7 md:my-16">
@@ -35,7 +39,11 @@ function Articles() {
                         src="images/blog/3.jpg"
                         className="article-card__img rounded-t-2xl"
                         alt="Article Cover"
+                        onLoad={imageLoaderConfig.onImageLoaded}
                       />
+                      {!imageLoaderConfig.isImgShow && (
+                        <ClipLoader color="#1edb4d" />
+                      )}
                     </a>
                   </div>
                   <div className="article-card__content pt-4 pb-8 pr-12 pl-8">
@@ -66,7 +74,11 @@ function Articles() {
                         src="images/blog/3.jpg"
                         className="article-card__img rounded-t-2xl"
                         alt="Article Cover"
+                        onLoad={imageLoaderConfig.onImageLoaded}
                       />
+                      {!imageLoaderConfig.isImgShow && (
+                        <ClipLoader color="#1edb4d" />
+                      )}
                     </a>
                   </div>
                   <div className="article-card__content pt-4 pb-8 pr-12 pl-8">
@@ -97,7 +109,11 @@ function Articles() {
                         src="images/blog/3.jpg"
                         className="article-card__img rounded-t-2xl"
                         alt="Article Cover"
+                        onLoad={imageLoaderConfig.onImageLoaded}
                       />
+                      {!imageLoaderConfig.isImgShow && (
+                        <ClipLoader color="#1edb4d" />
+                      )}
                     </a>
                   </div>
                   <div className="article-card__content pt-4 pb-8 pr-12 pl-8">
