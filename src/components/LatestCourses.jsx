@@ -1,7 +1,7 @@
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { FaChalkboardTeacher } from "react-icons/fa";
 import { FaUsers } from "react-icons/fa";
-function Courses() {
+function LatestCourses() {
   return (
     <>
       <section className="mx-0 my-7 md:my-16">
@@ -496,4 +496,4 @@ function Courses() {
   );
 }
 
-export default Courses;
+export default LatestCourses;
