@@ -1,32 +1,15 @@
 import { FaArrowLeftLong } from "react-icons/fa6";
-import { FaChalkboardTeacher } from "react-icons/fa";
+import {
+  FaChalkboardTeacher,
+  FaLongArrowAltLeft,
+  FaLongArrowAltRight,
+} from "react-icons/fa";
 import { FaUsers } from "react-icons/fa";
-import { Link } from "react-router-dom";
-function LatestCourses() {
+function MainCourses() {
   return (
     <>
       <section className="mx-0 my-7 md:my-16">
         <div className="container">
-          <div className="flex items-center justify-between mb-7">
-            <div className="flex flex-col items-start justify-between">
-              <span className="text-lg md:text-[1.3rem] text-[#444446] pr-2 font-bold leading-[1.2] relative before:content-[''] md:before:block before:absolute before:bg-green-primery before:h-[3rem] before:w-1 before:rounded-md  before:-right-1 before:hidden before:rotate-12 after:content-[''] after:block after:w-44 md:after:w-60 after:h-4 after:absolute after:bg-green-primery/20 after:bottom-0 top-0 ">
-                جدیدترین دوره ها
-              </span>
-              <span className="text-[#9c9c9c] md:text-xl pr-2 text-sm">
-                سکوی پرتاپ شما به سمت موفقیت
-              </span>
-            </div>
-            <div>
-              <Link
-                to="/courses"
-                className="flex items-center justify-center text-white bg-green-primery text-xs py-1 px-1 md:text-lg md:px-4 md:py-2 rounded-lg hover:text-white gap-x-2"
-              >
-                تمامی دوره ها
-                <FaArrowLeftLong className="md:block hidden" />
-              </Link>
-            </div>
-          </div>
-
           <section className="w-full text-dark-primery ">
             <div className="container">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -491,10 +474,54 @@ function LatestCourses() {
               </div>
             </div>
           </section>
+          <div className="my-12">
+            <ul className="flex items-center justify-center">
+              <li className="courses__pagination-item">
+                <a
+                  href="#"
+                  className="rounded-lg w-7 h-7 md:w-16 md:h-16 flex justify-center items-center text-md md:text-2xl bg-[#f0f0f1] mx-2"
+                >
+                  <FaLongArrowAltRight />
+                </a>
+              </li>
+              <li className="courses__pagination-item">
+                <a
+                  href="#"
+                  className="rounded-lg w-7 h-7 md:w-16 md:h-16 flex justify-center items-center text-md md:text-2xl bg-[#f0f0f1] mx-2"
+                >
+                  1
+                </a>
+              </li>
+              <li className="courses__pagination-item">
+                <a
+                  href="#"
+                  className="rounded-lg w-7 h-7 md:w-16 md:h-16 flex justify-center items-center text-md md:text-2xl bg-[#f0f0f1] mx-2"
+                >
+                  2
+                </a>
+              </li>
+              <li className="courses__pagination-item  rounded-lg w-7 h-7 md:w-16 md:h-16 flex justify-center items-center text-md md:text-2xl bg-[#f0f0f1] mx-2">
+                <a
+                  href="#"
+                  className="courses__pagination-link courses__pagination-link--active"
+                >
+                  3
+                </a>
+              </li>
+              <li className="courses__pagination-item">
+                <a
+                  href="#"
+                  className="courses__pagination-link  rounded-lg w-7 h-7 md:w-16 md:h-16 flex justify-center items-center text-md md:text-2xl bg-[#f0f0f1] mx-2"
+                >
+                  <FaLongArrowAltLeft />
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
     </>
   );
 }
 
-export default LatestCourses;
+export default MainCourses;

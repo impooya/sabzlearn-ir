@@ -6,6 +6,7 @@ import Category from "./page/Category";
 import ArticleInfo from "./page/ArticleInfo";
 import Login from "./page/Login";
 import Register from "./page/Register";
+import MainCourses from "./components/MainCourses";
 
 export const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/courses",
+        element: <MainCourses />,
       },
     ],
   },
