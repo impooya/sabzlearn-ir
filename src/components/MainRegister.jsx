@@ -3,6 +3,7 @@ import { FaRegUser } from "react-icons/fa";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { MdOutlineEmail } from "react-icons/md";
 import { Link } from "react-router-dom";
+import Inputs from "./Inputs";
 
 function MainRegister() {
   return (
@@ -28,26 +29,30 @@ function MainRegister() {
           </div>
           <form action="#" className="w-full ">
             <div className=" relative">
-              <input
-                className="w-full border border-solid border-[#e6e6e6] py-4 px-[1.1rem] shadow-[0_1px_3px_0_rgba(0,0,0,0.06)] my-[0.8rem] mx-0 rounded text-sm xs:text-[1.4rem]"
+              <Inputs
                 type="text"
-                placeholder="نام کاربری "
+                placeholder="نام کاربری"
+                mainElement="input"
+                className="w-full border border-solid border-[#e6e6e6] py-4 px-[1.1rem] shadow-[0_1px_3px_0_rgba(0,0,0,0.06)] my-[0.8rem] mx-0 rounded text-sm xs:text-[1.4rem]"
               />
+
               <FaRegUser className="absolute left-6 top-8 text-2xl xs:text-[2.2rem] text-[#ccc]" />
             </div>
             <div className=" relative">
-              <input
-                className="w-full border border-solid border-[#e6e6e6] py-4 px-[1.1rem] shadow-[0_1px_3px_0_rgba(0,0,0,0.06)] my-[0.8rem] mx-0 rounded text-sm xs:text-[1.4rem]"
+              <Inputs
                 type="text"
                 placeholder="ادرس ایمیل"
+                mainElement="input"
+                className="w-full border border-solid border-[#e6e6e6] py-4 px-[1.1rem] shadow-[0_1px_3px_0_rgba(0,0,0,0.06)] my-[0.8rem] mx-0 rounded text-sm xs:text-[1.4rem]"
               />
               <MdOutlineEmail className="absolute left-6 top-8 text-2xl xs:text-[2.2rem] text-[#ccc]" />
             </div>
             <div className=" relative">
-              <input
-                className=" w-full border border-solid border-[#e6e6e6] py-4 px-[1.1rem] shadow-[0_1px_3px_0_rgba(0,0,0,0.06)] my-[0.8rem] mx-0 rounded text-sm xs:text-[1.4rem]"
+              <Inputs
                 type="text"
-                placeholder="رمز عبور"
+                placeholder="نام کاربری"
+                mainElement="input"
+                className="w-full border border-solid border-[#e6e6e6] py-4 px-[1.1rem] shadow-[0_1px_3px_0_rgba(0,0,0,0.06)] my-[0.8rem] mx-0 rounded text-sm xs:text-[1.4rem]"
               />
               <RiLockPasswordLine className="absolute left-6 top-8 text-2xl xs:text-[2.2rem] text-[#ccc]" />
             </div>
