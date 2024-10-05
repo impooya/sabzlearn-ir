@@ -1,6 +1,7 @@
 const requiredValue = "REQUIRED_VALUE";
 const minValue = "MIN_VALUE";
 const maxValue = "MAX_VALUE";
+const userValidRegex = "USER_REGEX";
 const emailValue = "EMAIL_VALUE";
 
 export const requiredValidator = () => ({
@@ -19,4 +20,9 @@ export const maxValidator = (max) => ({
 
 export const emailValidator = () => ({
   value: emailValue,
+});
+
+export const userRegexValidator = () => ({
+  value: userValidRegex,
+  regex: /^[a-zA-Z0-9_-]+$/,
 });

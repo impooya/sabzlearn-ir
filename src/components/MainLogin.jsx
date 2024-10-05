@@ -8,6 +8,7 @@ import {
   requiredValidator,
   maxValidator,
   minValidator,
+  userRegexValidator,
 } from "../Validator/rules";
 
 function MainLogin() {
@@ -41,6 +42,7 @@ function MainLogin() {
                   requiredValidator(),
                   minValidator(3),
                   maxValidator(8),
+                  userRegexValidator(),
                 ]}
               />
               <FaRegUser className="absolute left-6 top-8 text-2xl xs:text-[2.2rem] text-[#ccc]" />
@@ -55,6 +57,7 @@ function MainLogin() {
                   requiredValidator(),
                   minValidator(3),
                   maxValidator(8),
+                  userRegexValidator(),
                 ]}
               />
               <RiLockPasswordLine className="absolute left-6 top-8 text-2xl xs:text-[2.2rem] text-[#ccc]" />
