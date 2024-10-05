@@ -20,7 +20,7 @@ function Inputs({ mainElement, type, placeholder, className }) {
     isValid: false,
   });
   const onChangeHandler = (event) => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     dispatch({
       type: "CHANGE",
       value: event.target.value,

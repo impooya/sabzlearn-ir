@@ -3,6 +3,7 @@ import { FaRegUser } from "react-icons/fa";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { CiLogin } from "react-icons/ci";
 import Inputs from "./Inputs";
+import Button from "./Button";
 
 function MainLogin() {
   return (
@@ -43,7 +44,7 @@ function MainLogin() {
               />
               <RiLockPasswordLine className="absolute left-6 top-8 text-2xl xs:text-[2.2rem] text-[#ccc]" />
             </div>
-            <button
+            <Button
               className="login-form__btn w-full border-none rounded py-[1.2rem] px-0 mt-1.5 flex items-center bg-[#2bce56] relative "
               type="submit"
             >
@@ -51,7 +52,7 @@ function MainLogin() {
               <span className="login-form__btn-text text-xl text-white my-0 mx-auto">
                 ورود
               </span>
-            </button>
+            </Button>
             <div className="login-form__password-setting flex justify-between items-center my-4 mx-0">
               <label className="login-form__password-remember flex items-center">
                 <input className=" ml-2" type="checkbox" />

@@ -4,6 +4,7 @@ import { RiLockPasswordLine } from "react-icons/ri";
 import { MdOutlineEmail } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Inputs from "./Inputs";
+import Button from "./Button";
 
 function MainRegister() {
   return (
@@ -56,13 +57,13 @@ function MainRegister() {
               />
               <RiLockPasswordLine className="absolute left-6 top-8 text-2xl xs:text-[2.2rem] text-[#ccc]" />
             </div>
-            <button
+            <Button
               className=" w-full border-none rounded py-[1.2rem] px-0 mt-1.5 flex items-center bg-[#2bce56] relative "
               type="submit"
             >
               <CiLogin className=" text-white text-2xl absolute right-4" />
-              <span className="l text-white my-0 mx-auto text-xl">ورود</span>
-            </button>
+              <span className="l text-white my-0 mx-auto text-xl">ثبت‌نام</span>
+            </Button>
             <div className=" flex justify-between items-center my-4 mx-0">
               <label className=" flex items-center">
                 <input className=" ml-2" type="checkbox" />
