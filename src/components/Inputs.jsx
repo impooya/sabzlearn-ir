@@ -14,7 +14,8 @@ const inputReducer = (state, action) => {
   }
 };
 
-function Inputs({ mainElement, type, placeholder, className }) {
+function Inputs({ mainElement, type, placeholder, className, validator }) {
+  console.log(validator);
   const [mainInput, dispatch] = useReducer(inputReducer, {
     value: "",
     isValid: false,

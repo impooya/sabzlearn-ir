@@ -5,6 +5,11 @@ import { MdOutlineEmail } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Inputs from "./Inputs";
 import Button from "./Button";
+import {
+  maxValidator,
+  minValidator,
+  requiredValidator,
+} from "../Validator/rules";
 
 function MainRegister() {
   return (
@@ -34,6 +39,11 @@ function MainRegister() {
                 type="text"
                 placeholder="نام کاربری"
                 mainElement="input"
+                validator={[
+                  requiredValidator(),
+                  minValidator(3),
+                  maxValidator(8),
+                ]}
                 className="w-full border border-solid border-[#e6e6e6] py-4 px-[1.1rem] shadow-[0_1px_3px_0_rgba(0,0,0,0.06)] my-[0.8rem] mx-0 rounded text-sm xs:text-[1.4rem]"
               />
 
@@ -44,6 +54,11 @@ function MainRegister() {
                 type="text"
                 placeholder="ادرس ایمیل"
                 mainElement="input"
+                validator={[
+                  requiredValidator(),
+                  minValidator(3),
+                  maxValidator(8),
+                ]}
                 className="w-full border border-solid border-[#e6e6e6] py-4 px-[1.1rem] shadow-[0_1px_3px_0_rgba(0,0,0,0.06)] my-[0.8rem] mx-0 rounded text-sm xs:text-[1.4rem]"
               />
               <MdOutlineEmail className="absolute left-6 top-8 text-2xl xs:text-[2.2rem] text-[#ccc]" />
@@ -54,6 +69,11 @@ function MainRegister() {
                 placeholder="نام کاربری"
                 mainElement="input"
                 className="w-full border border-solid border-[#e6e6e6] py-4 px-[1.1rem] shadow-[0_1px_3px_0_rgba(0,0,0,0.06)] my-[0.8rem] mx-0 rounded text-sm xs:text-[1.4rem]"
+                validator={[
+                  requiredValidator(),
+                  minValidator(3),
+                  maxValidator(8),
+                ]}
               />
               <RiLockPasswordLine className="absolute left-6 top-8 text-2xl xs:text-[2.2rem] text-[#ccc]" />
             </div>
