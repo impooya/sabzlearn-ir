@@ -27,7 +27,7 @@ function MainLogin() {
     false
   );
 
-  console.log(formState);
+  // console.log(formState);
   const userLogin = (event) => {
     event.preventDefault();
     console.log("User Login");
