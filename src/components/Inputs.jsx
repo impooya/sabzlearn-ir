@@ -1,11 +1,12 @@
 import { useReducer } from "react";
+import validator from "../Validator/Validator";
 const inputReducer = (state, action) => {
   switch (action.type) {
     case "CHANGE": {
       return {
         ...state,
         value: action.value,
-        isValid: action.isValid,
+        isValid: validator(action.value, action.validation),
       };
     }
     default: {
@@ -14,8 +15,8 @@ const inputReducer = (state, action) => {
   }
 };
 
-function Inputs({ mainElement, type, placeholder, className, validator }) {
-  console.log(validator);
+function Inputs({ mainElement, type, placeholder, className, validation }) {
+  // console.log(validation);
   const [mainInput, dispatch] = useReducer(inputReducer, {
     value: "",
     isValid: false,
@@ -25,6 +26,7 @@ function Inputs({ mainElement, type, placeholder, className, validator }) {
     dispatch({
       type: "CHANGE",
       value: event.target.value,
+      validation,
       isValid: true,
     });
   };
