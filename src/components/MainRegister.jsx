@@ -11,8 +11,32 @@ import {
   minValidator,
   requiredValidator,
 } from "../Validator/rules";
+import { useForm } from "../Hooks/useForm";
 
 function MainRegister() {
+  const [formState, onInputHandler] = useForm(
+    {
+      username: {
+        value: "",
+        isValid: false,
+      },
+      password: {
+        value: "",
+        isValid: false,
+      },
+      email: {
+        value: "",
+        isValid: false,
+      },
+    },
+    false
+  );
+
+  console.log(formState);
+  const userLogin = (event) => {
+    event.preventDefault();
+    console.log("User Login");
+  };
   return (
     <>
       <section className="flex justify-center relative overflow-hidden before:content-[''] before:absolute before:-top-20 before:w-[150%] before:bg-[#2bce56] before:h-[380px] before:z-[-1] before:rotate-[4deg] after:content-[''] after:absolute after:w-[150%] after:h-[380px] after:bg-[rgb(43,206,86,0.6)] after:z-[-9999] after:-rotate-[4deg]">
@@ -38,6 +62,7 @@ function MainRegister() {
             <div className=" relative">
               <Inputs
                 type="text"
+                id="username"
                 placeholder="نام کاربری"
                 mainElement="input"
                 validation={[
@@ -45,6 +70,7 @@ function MainRegister() {
                   minValidator(8),
                   maxValidator(20),
                 ]}
+                onInputHandler={onInputHandler}
                 className="w-full border border-solid border-[#e6e6e6] py-4 px-[1.1rem] shadow-[0_1px_3px_0_rgba(0,0,0,0.06)] my-[0.8rem] mx-0 rounded text-sm xs:text-[1.4rem] outline-none"
               />
 
@@ -53,6 +79,7 @@ function MainRegister() {
             <div className=" relative">
               <Inputs
                 type="text"
+                id="email"
                 placeholder="ادرس ایمیل"
                 mainElement="input"
                 validation={[
@@ -61,6 +88,7 @@ function MainRegister() {
                   maxValidator(20),
                   emailValidator(),
                 ]}
+                onInputHandler={onInputHandler}
                 className="w-full border border-solid border-[#e6e6e6] py-4 px-[1.1rem] shadow-[0_1px_3px_0_rgba(0,0,0,0.06)] my-[0.8rem] mx-0 rounded text-sm xs:text-[1.4rem] outline-none"
               />
               <MdOutlineEmail className="absolute left-6 top-8 text-2xl xs:text-[2.2rem] text-[#ccc]" />
@@ -68,6 +96,7 @@ function MainRegister() {
             <div className=" relative">
               <Inputs
                 type="text"
+                id="password"
                 placeholder="رمز عبور"
                 mainElement="input"
                 className="w-full border border-solid border-[#e6e6e6] py-4 px-[1.1rem] shadow-[0_1px_3px_0_rgba(0,0,0,0.06)] my-[0.8rem] mx-0 rounded text-sm xs:text-[1.4rem] outline-none"
@@ -76,12 +105,15 @@ function MainRegister() {
                   minValidator(8),
                   maxValidator(20),
                 ]}
+                onInputHandler={onInputHandler}
               />
               <RiLockPasswordLine className="absolute left-6 top-8 text-2xl xs:text-[2.2rem] text-[#ccc]" />
             </div>
             <Button
-              className=" w-full border-none rounded py-[1.2rem] px-0 mt-1.5 flex items-center bg-[#2bce56] relative "
+              className=" w-full border-none rounded py-[1.2rem] px-0 mt-1.5 flex items-center bg-[#2bce56] relative disabled:bg-red-400"
               type="submit"
+              onClick={userLogin}
+              disabled={!formState.isFormValid}
             >
               <CiLogin className=" text-white text-2xl absolute right-4" />
               <span className="l text-white my-0 mx-auto text-xl">ثبت‌نام</span>

@@ -86,9 +86,10 @@ function MainLogin() {
               <RiLockPasswordLine className="absolute left-6 top-8 text-2xl xs:text-[2.2rem] text-[#ccc]" />
             </div>
             <Button
-              className="login-form__btn w-full border-none rounded py-[1.2rem] px-0 mt-1.5 flex items-center bg-[#2bce56] relative "
+              className="login-form__btn w-full border-none rounded py-[1.2rem] px-0 mt-1.5 flex items-center bg-[#2bce56] relative disabled:bg-red-400"
               type="submit"
-              onSubmit={userLogin}
+              onClick={userLogin}
+              disabled={!formState.isFormValid}
             >
               <CiLogin className=" text-white text-2xl absolute right-4" />
               <span className="login-form__btn-text text-xl text-white my-0 mx-auto">
