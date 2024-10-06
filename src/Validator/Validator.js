@@ -3,7 +3,7 @@ import rules from "./rules";
 const validator = (value, validations) => {
   //   console.log("valid file =>", value, validations);
   let validationResults = [];
-
+  const emailPattern = /^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/g;
   for (const validator of validations) {
     if (validator.value === rules.requiredValue) {
       value.trim().length === 0 && validationResults.push(false);
@@ -15,7 +15,7 @@ const validator = (value, validations) => {
       value.trim().length > validator.max && validationResults.push(false);
     }
     if (validator.value === rules.emailValue) {
-      !value.trim().includes("@") && validationResults.push(false);
+      !emailPattern.test(value) && validationResults.push(false);
     }
   }
 
