@@ -5,6 +5,7 @@ import { MdOutlineEmail } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Inputs from "./Inputs";
 import Button from "./Button";
+import axios from "axios";
 import {
   emailValidator,
   maxValidator,
@@ -12,6 +13,7 @@ import {
   requiredValidator,
 } from "../Validator/rules";
 import { useForm } from "../Hooks/useForm";
+import { useMutation } from "@tanstack/react-query";
 
 function MainRegister() {
   const [formState, onInputHandler] = useForm(
@@ -36,9 +38,31 @@ function MainRegister() {
     false
   );
 
-  // console.log(formState);
-  const userLogin = (event) => {
+  console.log(formState);
+  const { mutate: registerNewUser } = useMutation({
+    mutationKey: ["new-user"],
+    mutationFn: (newUser) => {
+      return axios.post("http://localhost:4000/v1/auth/register", newUser);
+    },
+    onSuccess: (res) => {
+      console.log(res);
+    },
+    onError: (err) => {
+      console.error(err);
+    },
+  });
+  const userRegister = (event) => {
     event.preventDefault();
+    const newUser = {
+      username: formState.inputs.username.value,
+      name: formState.inputs.name.value,
+      email: formState.inputs.email.value,
+      password: formState.inputs.password.value,
+      phone: "09123456789",
+      confirmPassword: "1234567890",
+    };
+    console.log(newUser);
+    registerNewUser(newUser);
     console.log("User Login");
   };
   return (
@@ -133,7 +157,7 @@ function MainRegister() {
             <Button
               className=" w-full border-none rounded py-[1.2rem] px-0 mt-1.5 flex items-center bg-[#2bce56] relative disabled:bg-red-400"
               type="submit"
-              onClick={userLogin}
+              onClick={userRegister}
               disabled={!formState.isFormValid}
             >
               <CiLogin className=" text-white text-2xl absolute right-4" />
