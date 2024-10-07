@@ -1,4 +1,4 @@
-import { CiLogin } from "react-icons/ci";
+import { CiLogin, CiPhone } from "react-icons/ci";
 import { FaRegUser } from "react-icons/fa";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { MdOutlineEmail } from "react-icons/md";
@@ -11,6 +11,7 @@ import {
   maxValidator,
   minValidator,
   requiredValidator,
+  phoneValidator,
 } from "../Validator/rules";
 import { useForm } from "../Hooks/useForm";
 import { useMutation } from "@tanstack/react-query";
@@ -34,18 +35,26 @@ function MainRegister() {
         value: "",
         isValid: false,
       },
+      phone: {
+        value: "",
+        isValid: false,
+      },
+      confirmPassword: {
+        value: "",
+        isValid: false,
+      },
     },
     false
   );
 
-  console.log(formState);
+  // console.log(formState);
   const { mutate: registerNewUser } = useMutation({
     mutationKey: ["new-user"],
     mutationFn: (newUser) => {
       return axios.post("http://localhost:4000/v1/auth/register", newUser);
     },
-    onSuccess: (res) => {
-      console.log(res);
+    onSuccess: () => {
+      // console.log(res);
     },
     onError: (err) => {
       console.error(err);
@@ -58,12 +67,16 @@ function MainRegister() {
       name: formState.inputs.name.value,
       email: formState.inputs.email.value,
       password: formState.inputs.password.value,
-      phone: "09123456789",
-      confirmPassword: "1234567890",
+      phone: formState.inputs.password.value,
+      confirmPassword: formState.inputs.confirmPassword.value,
     };
-    console.log(newUser);
-    registerNewUser(newUser);
-    console.log("User Login");
+    // console.log(newUser);
+    if (newUser.confirmPassword === newUser.password) {
+      registerNewUser(newUser);
+      // console.log("User Login");
+    } else {
+      alert("رمز عبور شما تطابق ندارد");
+    }
   };
   return (
     <>
@@ -107,6 +120,19 @@ function MainRegister() {
             <div className=" relative">
               <Inputs
                 type="text"
+                id="phone"
+                placeholder="شماره تلفن"
+                mainElement="input"
+                validation={[requiredValidator(), phoneValidator()]}
+                onInputHandler={onInputHandler}
+                className="w-full border border-solid border-[#e6e6e6] py-4 px-[1.1rem] shadow-[0_1px_3px_0_rgba(0,0,0,0.06)] my-[0.8rem] mx-0 rounded text-sm xs:text-[1.4rem] outline-none"
+              />
+
+              <CiPhone className="absolute left-6 top-8 text-2xl xs:text-[2.2rem] text-[#ccc]" />
+            </div>
+            <div className=" relative">
+              <Inputs
+                type="text"
                 id="username"
                 placeholder="نام کاربری"
                 mainElement="input"
@@ -143,6 +169,22 @@ function MainRegister() {
                 type="text"
                 id="password"
                 placeholder="رمز عبور"
+                mainElement="input"
+                className="w-full border border-solid border-[#e6e6e6] py-4 px-[1.1rem] shadow-[0_1px_3px_0_rgba(0,0,0,0.06)] my-[0.8rem] mx-0 rounded text-sm xs:text-[1.4rem] outline-none"
+                validation={[
+                  requiredValidator(),
+                  minValidator(8),
+                  maxValidator(20),
+                ]}
+                onInputHandler={onInputHandler}
+              />
+              <RiLockPasswordLine className="absolute left-6 top-8 text-2xl xs:text-[2.2rem] text-[#ccc]" />
+            </div>
+            <div className=" relative">
+              <Inputs
+                type="text"
+                id="confirmPassword"
+                placeholder=" تکرار رمز عبور "
                 mainElement="input"
                 className="w-full border border-solid border-[#e6e6e6] py-4 px-[1.1rem] shadow-[0_1px_3px_0_rgba(0,0,0,0.06)] my-[0.8rem] mx-0 rounded text-sm xs:text-[1.4rem] outline-none"
                 validation={[
