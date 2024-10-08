@@ -15,6 +15,8 @@ import {
 } from "../Validator/rules";
 import { useForm } from "../Hooks/useForm";
 import { useMutation } from "@tanstack/react-query";
+import { AuthContext } from "../contexts/authContext";
+import { useContext } from "react";
 
 function MainRegister() {
   const [formState, onInputHandler] = useForm(
@@ -46,6 +48,8 @@ function MainRegister() {
     },
     false
   );
+  const authConfig = useContext(AuthContext);
+  console.log(authConfig);
 
   // console.log(formState);
   const { mutate: registerNewUser } = useMutation({
@@ -55,6 +59,7 @@ function MainRegister() {
     },
     onSuccess: (res) => {
       console.log(res);
+      authConfig.login(res.data.user, res.data.accessToken);
     },
     onError: (err) => {
       console.error(err);
