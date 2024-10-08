@@ -53,8 +53,8 @@ function MainRegister() {
     mutationFn: (newUser) => {
       return axios.post("http://localhost:4000/v1/auth/register", newUser);
     },
-    onSuccess: () => {
-      // console.log(res);
+    onSuccess: (res) => {
+      console.log(res);
     },
     onError: (err) => {
       console.error(err);
