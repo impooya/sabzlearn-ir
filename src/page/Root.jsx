@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Header from "../components/Header";
 import SideBar from "../components/SideBar";
 import Overlay from "../components/Overlay";

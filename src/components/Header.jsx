@@ -10,10 +10,12 @@ import { SidebarContext } from "../contexts/sidebarState";
 import { OverlayContext } from "../contexts/OverlayState";
 import { WichSideBarContext } from "../contexts/WichSideBarState";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../contexts/authContext";
 function Header() {
   const sidebarConfig = useContext(SidebarContext);
   const overlayConfig = useContext(OverlayContext);
   const wichSideBarConfig = useContext(WichSideBarContext);
+  const authConfig = useContext(AuthContext);
   return (
     <>
       {/*top of main header*/}
@@ -216,18 +218,28 @@ function Header() {
             >
               <FaCartShopping />
             </a>
+            {authConfig.isLoggedIn ? (
+              <Link
+                to={"/login"}
+                className="w-32 border-2  border-green-primery text-green-primery hidden lg:flex justify-center items-center h-11 rounded-md text-sm hover:bg-green-primery hover:text-white transition-all "
+              >
+                {authConfig.userInfos?.name}
+              </Link>
+            ) : (
+              <Link
+                to={"/register"}
+                className="w-32 border-2  border-green-primery text-green-primery hidden lg:flex justify-center items-center h-11 rounded-md text-sm hover:bg-green-primery hover:text-white transition-all "
+              >
+                وارد شوید/ثبت‌نام کنید
+              </Link>
+            )}
+
             <Link
-              to={"/login"}
-              className="w-32 border-2  border-green-primery text-green-primery hidden lg:flex justify-center items-center h-11 rounded-md text-sm hover:bg-green-primery hover:text-white transition-all "
-            >
-              Pooya Samarkar
-            </Link>
-            <a
-              href="#"
+              href="/login"
               className="bg-green-primery w-10 h-10 md:w-12 md:h-12 flex lg:hidden justify-center items-center child:size-5 md:child:size-6 text-white rounded-lg "
             >
               <FaRegUser />
-            </a>
+            </Link>
           </div>
         </section>
       </header>

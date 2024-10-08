@@ -23,7 +23,7 @@ function AuthProvider({ children }) {
     setToken(null);
     setUserInfos({});
     localStorage.removeItem("user");
-  });
+  }, []);
 
   return (
     <AuthContext.Provider
