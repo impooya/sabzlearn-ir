@@ -8,9 +8,11 @@ import {
   requiredValidator,
   maxValidator,
   minValidator,
-  emailValidator,
+  // emailValidator,
 } from "../Validator/rules";
 import { useForm } from "../Hooks/useForm";
+import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
 
 function MainLogin() {
   const [formState, onInputHandler] = useForm(
@@ -26,11 +28,34 @@ function MainLogin() {
     },
     false
   );
-
+  const { mutate: loginUser } = useMutation({
+    mutationKey: ["user-login"],
+    mutationFn: (loginUser) => {
+      return axios.post("http://localhost:4000/v1/auth/login", loginUser, {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      });
+    },
+    onSuccess: (res) => {
+      console.log(res);
+    },
+    onError: (err) => {
+      if (err.response.data && !err.response.data.message) {
+        alert(err.response.data);
+      } else if (err.response.data.message) {
+        alert(err.response.data.message);
+      }
+    },
+  });
   // console.log(formState);
   const userLogin = (event) => {
     event.preventDefault();
-    console.log("User Login");
+    const login = {
+      identifier: formState.inputs.username.value,
+      password: formState.inputs.password.value,
+    };
+    loginUser(login);
   };
   return (
     <>
@@ -63,7 +88,7 @@ function MainLogin() {
                   requiredValidator(),
                   minValidator(8),
                   maxValidator(20),
-                  emailValidator(),
+                  // emailValidator(),
                 ]}
                 onInputHandler={onInputHandler}
               />
