@@ -5,6 +5,7 @@ import { CiLogin } from "react-icons/ci";
 import Inputs from "./Inputs";
 import Button from "./Button";
 import Swal from "sweetalert2";
+import ReCAPTCHA from "react-google-recaptcha";
 import {
   requiredValidator,
   maxValidator,
@@ -136,6 +137,10 @@ function MainLogin() {
               />
               <RiLockPasswordLine className="absolute left-6 top-8 text-2xl xs:text-[2.2rem] text-[#ccc]" />
             </div>
+            <ReCAPTCHA
+              sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+              onChange={() => console.log("ok")}
+            />
             <Button
               className="login-form__btn w-full border-none rounded py-[1.2rem] px-0 mt-1.5 flex items-center bg-[#2bce56] relative disabled:bg-red-400"
               type="submit"

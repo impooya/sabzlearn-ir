@@ -2,7 +2,7 @@ import { CiLogin } from "react-icons/ci";
 import { FaRegUser } from "react-icons/fa";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { MdOutlineEmail, MdOutlinePhone } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Inputs from "./Inputs";
 import Button from "./Button";
 import axios from "axios";
@@ -16,9 +16,12 @@ import {
 import { useForm } from "../Hooks/useForm";
 import { useMutation } from "@tanstack/react-query";
 import { AuthContext } from "../contexts/authContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
+import Swal from "sweetalert2";
 
 function MainRegister() {
+  const navigate = useNavigate();
   const [formState, onInputHandler] = useForm(
     {
       name: {
@@ -49,6 +52,8 @@ function MainRegister() {
     false
   );
   const authConfig = useContext(AuthContext);
+  const [isConfirmedGoogleReCAPTCHA, setIsConfirmedGoogleReCAPTCHA] =
+    useState(false);
   // console.log(authConfig);
 
   // console.log(formState);
@@ -58,8 +63,18 @@ function MainRegister() {
       return axios.post("http://localhost:4000/v1/auth/register", newUser);
     },
     onSuccess: (res) => {
-      console.log(res);
+      // console.log(res);
       authConfig.login(res.data.user, res.data.accessToken);
+      Swal.fire({
+        icon: "success",
+        text: "لاگین با موفقیت انجام شد",
+        confirmButtonText: "رفتن به پنل",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          console.log(result);
+          navigate("/");
+        }
+      });
     },
     onError: (err) => {
       console.error(err);
@@ -76,11 +91,18 @@ function MainRegister() {
       confirmPassword: formState.inputs.confirmPassword.value,
     };
     // console.log(newUser);
-    if (newUser.confirmPassword === newUser.password) {
+    if (
+      newUser.confirmPassword === newUser.password &&
+      isConfirmedGoogleReCAPTCHA
+    ) {
       registerNewUser(newUser);
       // console.log("User Login");
     } else {
-      alert("رمز عبور شما تطابق ندارد");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "رمز عبور شما تطابق ندارد",
+      });
     }
   };
   return (
@@ -201,11 +223,17 @@ function MainRegister() {
               />
               <RiLockPasswordLine className="absolute left-6 top-8 text-2xl xs:text-[2.2rem] text-[#ccc]" />
             </div>
+            <ReCAPTCHA
+              sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+              onChange={() => {
+                setIsConfirmedGoogleReCAPTCHA(true);
+              }}
+            />
             <Button
               className=" w-full border-none rounded py-[1.2rem] px-0 mt-1.5 flex items-center bg-[#2bce56] relative disabled:bg-red-400"
               type="submit"
               onClick={userRegister}
-              disabled={!formState.isFormValid}
+              disabled={!formState.isFormValid || !isConfirmedGoogleReCAPTCHA}
             >
               <CiLogin className=" text-white text-2xl absolute right-4" />
               <span className="l text-white my-0 mx-auto text-xl">ثبت‌نام</span>
