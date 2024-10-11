@@ -23,10 +23,25 @@ function Header() {
     const linksData = await links.data;
     return linksData;
   };
+  const getAllMenus = async () => {
+    const menus = await axios.get("http://localhost:4000/v1/menus");
+    const menusData = await menus.data;
+    return menusData;
+  };
+
   const { data, isError, isLoading } = useQuery({
     queryKey: ["topbar-links"],
     queryFn: getAllTopBarLinks,
   });
+  const {
+    data: menus,
+    isError: isMenusErr,
+    isLoading: isMenusLoading,
+  } = useQuery({
+    queryKey: ["menus"],
+    queryFn: getAllMenus,
+  });
+  console.log(menus);
   return (
     <>
       {/*top of main header*/}
@@ -84,86 +99,27 @@ function Header() {
               <li>
                 <a href="a">صفحه اصلی</a>
               </li>
-              <li className="group relative">
-                <span className="flex justify-center items-center gap-1">
-                  <a href="#">فرانت اند</a>
-                  <IoIosArrowDown />
-                </span>
-                <ul className="absolute flex flex-col justify-center items-start gap-y-3 top-full right-0 rounded-lg w-96 bg-white shadow-xl py-4 pr-4 invisible opacity-0 group-hover:opacity-100 group-hover:visible transition-all child-hover:text-blue-600 child:transition-all border-b-green-primery border-b-4 delay-100">
-                  <li>
-                    <a href="#">آموزش Html</a>
+              {isMenusLoading ? (
+                <span>در حال بارگذاری...</span>
+              ) : isMenusErr ? (
+                <span>خطایی رخ داد...</span>
+              ) : (
+                menus?.map((menu) => (
+                  <li className="group relative" key={menu._id}>
+                    <span className="flex justify-center items-center gap-1">
+                      <a href="#">{menu.title}</a>
+                      <IoIosArrowDown />
+                    </span>
+                    <ul className="absolute flex flex-col justify-center items-start gap-y-3 top-full right-0 rounded-lg w-96 bg-white shadow-xl py-4 pr-4 invisible opacity-0 group-hover:opacity-100 group-hover:visible transition-all child-hover:text-blue-600 child:transition-all border-b-green-primery border-b-4 delay-100">
+                      {menu.submenus.map((submenu) => (
+                        <li key={submenu._id}>
+                          <a href="#">{submenu.title}</a>
+                        </li>
+                      ))}
+                    </ul>
                   </li>
-                  <li>
-                    <a href="#">آموزش Css</a>
-                  </li>
-                  <li>
-                    <a href="#">آموزش جاوا اسکریپت</a>
-                  </li>
-                  <li>
-                    <a href="#">آموزش Flex Box</a>
-                  </li>
-                  <li>
-                    <a href="#">آموزش جامع ری اکت</a>
-                  </li>
-                </ul>
-              </li>
-              <li className="group relative">
-                <span className="flex justify-center items-center gap-1">
-                  <a href="#">امنیت</a>
-                  <IoIosArrowDown />
-                </span>
-                <ul className="absolute flex flex-col justify-center items-start gap-y-3 top-full left-0 right-0 rounded-lg w-96 bg-white shadow-xl py-4 pr-4 invisible opacity-0 group-hover:opacity-100 group-hover:visible transition-all child-hover:text-blue-600 child:transition-all border-b-green-primery border-b-4 delay-100">
-                  <li>
-                    <a href="#">آموزش کالی لینوکس</a>
-                  </li>
-                  <li>
-                    <a href="#">آموزش پایتون سیاه</a>
-                  </li>
-                  <li>
-                    <a href="#">آموزش جاوا اسکریپت سیاه</a>
-                  </li>
-                  <li>
-                    <a href="#">اموزش شبکه</a>
-                  </li>
-                </ul>
-              </li>
-              <li className="group relative">
-                <span className="flex justify-center items-center gap-1">
-                  <a href="#">مقالات</a>
-                  <IoIosArrowDown />
-                </span>
-                <ul className="absolute flex flex-col justify-center items-start gap-y-3 top-full left-0 right-0 rounded-lg w-96 bg-white shadow-xl py-4 pr-4 invisible opacity-0 group-hover:opacity-100 group-hover:visible transition-all child-hover:text-blue-600 child:transition-all border-b-green-primery border-b-4 delay-100">
-                  <li>
-                    <a href="#">توسعه وب</a>
-                  </li>
-                  <li>
-                    <a href="#">جاوا اسکریپت</a>
-                  </li>
-                  <li>
-                    <a href="#">فرانت اند</a>
-                  </li>
-                </ul>
-              </li>
-              <li className="group relative">
-                <span className="flex justify-center items-center gap-1">
-                  <a href="#">پایتون</a>
-                  <IoIosArrowDown />
-                </span>
-                <ul className="absolute flex flex-col justify-center items-start gap-y-3 top-full left-0 right-0 rounded-lg w-96 bg-white shadow-xl py-4 pr-4 invisible opacity-0 group-hover:opacity-100 group-hover:visible transition-all child-hover:text-blue-600 child:transition-all border-b-green-primery border-b-4 delay-100">
-                  <li>
-                    <a href="#">دوره متخصص پایتون</a>
-                  </li>
-                  <li>
-                    <a href="#">دوره هوش مصنوعی با پایتون</a>
-                  </li>
-                  <li>
-                    <a href="#">دوره متخصص جنگو</a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a href="#">مهارت های نرم</a>
-              </li>
+                ))
+              )}
             </ul>
             <button
               className="lg:hidden  w-10 h-10 bg-green-primery text-white rounded-lg flex justify-center items-center child:size-5 cursor-pointer"
