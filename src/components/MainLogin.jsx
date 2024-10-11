@@ -15,12 +15,14 @@ import {
 import { useForm } from "../Hooks/useForm";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../contexts/authContext";
 
 function MainLogin() {
   const authConfig = useContext(AuthContext);
   const navigate = useNavigate();
+  const [isConfirmedGoogleReCAPTCHA, setIsConfirmedGoogleReCAPTCHA] =
+    useState(false);
   const [formState, onInputHandler] = useForm(
     {
       username: {
@@ -139,13 +141,13 @@ function MainLogin() {
             </div>
             <ReCAPTCHA
               sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
-              onChange={() => console.log("ok")}
+              onChange={() => setIsConfirmedGoogleReCAPTCHA(true)}
             />
             <Button
               className="login-form__btn w-full border-none rounded py-[1.2rem] px-0 mt-1.5 flex items-center bg-[#2bce56] relative disabled:bg-red-400"
               type="submit"
               onClick={userLogin}
-              disabled={!formState.isFormValid}
+              disabled={!formState.isFormValid || !isConfirmedGoogleReCAPTCHA}
             >
               <CiLogin className=" text-white text-2xl absolute right-4" />
               <span className="login-form__btn-text text-xl text-white my-0 mx-auto">
