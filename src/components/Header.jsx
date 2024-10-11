@@ -64,7 +64,11 @@ function Header() {
                 shuffleAllTopBarMenu(data, 5).map((link) => (
                   <li key={link._id}>
                     <Link
-                      to={link.href}
+                      to={
+                        link.href.includes("/course-info/")
+                          ? link.href
+                          : `/course-info/${link.href}`
+                      }
                       className="hover:text-blue-300 transition-all delay-75 text-center tracking-tighter"
                     >
                       {link.title}
