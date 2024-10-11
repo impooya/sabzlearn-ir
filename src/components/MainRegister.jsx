@@ -58,7 +58,7 @@ function MainRegister() {
       return axios.post("http://localhost:4000/v1/auth/register", newUser);
     },
     onSuccess: (res) => {
-      // console.log(res);
+      console.log(res);
       authConfig.login(res.data.user, res.data.accessToken);
     },
     onError: (err) => {

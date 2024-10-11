@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaRegUser } from "react-icons/fa";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { CiLogin } from "react-icons/ci";
 import Inputs from "./Inputs";
 import Button from "./Button";
+import Swal from "sweetalert2";
 import {
   requiredValidator,
   maxValidator,
@@ -13,8 +14,12 @@ import {
 import { useForm } from "../Hooks/useForm";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
+import { useContext } from "react";
+import { AuthContext } from "../contexts/authContext";
 
 function MainLogin() {
+  const authConfig = useContext(AuthContext);
+  const navigate = useNavigate();
   const [formState, onInputHandler] = useForm(
     {
       username: {
@@ -39,12 +44,33 @@ function MainLogin() {
     },
     onSuccess: (res) => {
       console.log(res);
+      authConfig.login({}, res.data.accessToken);
+      Swal.fire({
+        icon: "success",
+        text: "لاگین با موفقیت انجام شد",
+        confirmButtonText: "رفتن به پنل",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          console.log(result);
+          navigate("/");
+        }
+      });
     },
     onError: (err) => {
       if (err.response.data && !err.response.data.message) {
-        alert(err.response.data);
+        // alert(err.response.data);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: err.response.data,
+        });
       } else if (err.response.data.message) {
-        alert(err.response.data.message);
+        // alert(err.response.data.message);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: err.response.data.message,
+        });
       }
     },
   });
