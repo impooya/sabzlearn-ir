@@ -41,6 +41,13 @@ function Header() {
     queryKey: ["menus"],
     queryFn: getAllMenus,
   });
+  const shuffleAllTopBarMenu = (arr, roundomCount) => {
+    const shuffled = [...arr].sort(() => {
+      return 0.5 - Math.random();
+    });
+    return shuffled.slice(0, roundomCount);
+  };
+
   return (
     <>
       {/*top of main header*/}
@@ -54,15 +61,14 @@ function Header() {
               ) : isError ? (
                 <span>خطایی رخ داد...</span>
               ) : (
-                data?.map((link) => (
+                shuffleAllTopBarMenu(data, 5).map((link) => (
                   <li key={link._id}>
-                    <a
-                      href="#"
+                    <Link
+                      to={link.href}
                       className="hover:text-blue-300 transition-all delay-75 text-center tracking-tighter"
                     >
                       {link.title}
-                    </a>
-                    &nbsp;/
+                    </Link>
                   </li>
                 ))
               )}
