@@ -11,11 +11,22 @@ import { OverlayContext } from "../contexts/OverlayState";
 import { WichSideBarContext } from "../contexts/WichSideBarState";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../contexts/authContext";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 function Header() {
   const sidebarConfig = useContext(SidebarContext);
   const overlayConfig = useContext(OverlayContext);
   const wichSideBarConfig = useContext(WichSideBarContext);
   const authConfig = useContext(AuthContext);
+  const getAllTopBarLinks = async () => {
+    const links = await axios.get("http://localhost:4000/v1/menus/topbar");
+    const linksData = await links.data;
+    return linksData;
+  };
+  const { data, isError, isLoading } = useQuery({
+    queryKey: ["topbar-links"],
+    queryFn: getAllTopBarLinks,
+  });
   return (
     <>
       {/*top of main header*/}
@@ -23,63 +34,24 @@ function Header() {
         <section className="hidden md:flex justify-between items-center  w-full text-dark-primery bg-gray-primery p-5">
           {/*learn courses btn in top of main header*/}
           <div className="w-auto">
-            <ul className=" flex w-full gap-3 justify-center items-center">
-              <li>
-                <a
-                  href="#"
-                  className="hover:text-blue-300 transition-all delay-75 text-center tracking-tighter"
-                >
-                  آموزش Html
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="hover:text-blue-300 transition-all delay-75 text-center tracking-tighter"
-                >
-                  آموزش Css
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="hover:text-blue-300 transition-all delay-75 text-center tracking-tighter"
-                >
-                  آموزش جاوا اسکریپت
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="hover:text-blue-300 transition-all delay-75 text-center tracking-tighter "
-                >
-                  آموزش بوت استرپ
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="hover:text-blue-300 transition-all delay-75 text-center tracking-tighter"
-                >
-                  آموزش پایتون
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="hover:text-blue-300 transition-all delay-75 text-center tracking-tighter"
-                >
-                  آموزش ری اکت
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="hover:text-blue-300 transition-all delay-75 text-center tracking-tighter"
-                >
-                  20000 تومان
-                </a>
-              </li>
+            <ul className=" flex w-full gap-3 justify-start items-center flex-wrap">
+              {isLoading ? (
+                <span>در حال بارگذاری...</span>
+              ) : isError ? (
+                <span>خطایی رخ داد...</span>
+              ) : (
+                data?.map((link) => (
+                  <li key={link._id}>
+                    <a
+                      href="#"
+                      className="hover:text-blue-300 transition-all delay-75 text-center tracking-tighter"
+                    >
+                      {link.title}
+                    </a>
+                    &nbsp;/
+                  </li>
+                ))
+              )}
             </ul>
           </div>
           {/*phone number and email website */}
