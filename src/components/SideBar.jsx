@@ -79,8 +79,8 @@ function SideBar() {
                       <ul
                         className={`flex flex-col gap-3 justify-start items-start pr-6 mt-3 ${
                           sidebarConfig.getIdItemForSideBar === menu._id
-                            ? "min-h-fit overflow-visible"
-                            : "h-0 overflow-hidden"
+                            ? "max-h-64 overflow-visible"
+                            : "max-h-0 overflow-hidden"
                         } transition-all`}
                       >
                         {menu.submenus.map((submenu) => (
