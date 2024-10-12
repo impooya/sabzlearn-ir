@@ -60,7 +60,7 @@ function SideBar() {
               <span>خطایی رخ داد...</span>
             ) : (
               <ul className="flex flex-col justify-start items-start gap-3">
-                <a href="#">صفحه اصلی</a>
+                <Link to={"/"}>صفحه اصلی</Link>
                 {menus?.map((menu) => (
                   <li key={menu._id} className="w-full group">
                     <span className="flex justify-between items-center gap-1 w-full">
