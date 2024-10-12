@@ -106,7 +106,7 @@ function Header() {
             <img src="\images\logo\Logo.png" className="lg:block hidden" />
             <ul className="hidden lg:flex justify-center items-center gap-3">
               <li>
-                <a href="a">صفحه اصلی</a>
+                <Link to={"/"}>صفحه اصلی</Link>
               </li>
               {isMenusLoading ? (
                 <span>در حال بارگذاری...</span>
@@ -116,14 +116,25 @@ function Header() {
                 menus?.map((menu) => (
                   <li className="group relative" key={menu._id}>
                     <span className="flex justify-center items-center gap-1">
-                      <a href="#">{menu.title}</a>
+                      <Link to={`/category-info/${menu.href}`}>
+                        {menu.title}
+                      </Link>
                       <IoIosArrowDown />
                     </span>
 
                     <ul className="absolute flex flex-col justify-center items-start gap-y-3 top-full right-0 rounded-lg w-96 bg-white shadow-xl py-4 pr-4 invisible opacity-0 group-hover:opacity-100 group-hover:visible transition-all child-hover:text-blue-600 child:transition-all border-b-green-primery border-b-4 delay-100">
                       {menu.submenus.map((submenu) => (
                         <li key={submenu._id}>
-                          <a href="#">{submenu.title}</a>
+                          <Link
+                            to={
+                              submenu.href.includes("/course-info/") ||
+                              submenu.href.includes("course-info/")
+                                ? submenu.href
+                                : `/course-info/${submenu.href}`
+                            }
+                          >
+                            {submenu.title}
+                          </Link>
                         </li>
                       ))}
                     </ul>

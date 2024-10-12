@@ -4,6 +4,7 @@ import { SidebarContext } from "../contexts/sidebarState";
 import { OverlayContext } from "../contexts/OverlayState";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "react-router-dom";
 
 function SideBar() {
   const sidebarConfig = useContext(SidebarContext);
@@ -63,7 +64,9 @@ function SideBar() {
                 {menus?.map((menu) => (
                   <li key={menu._id} className="w-full group">
                     <span className="flex justify-between items-center gap-1 w-full">
-                      <a href="#">{menu.title}</a>
+                      <Link to={`/category-info/${menu.href}`}>
+                        {menu.title}
+                      </Link>
                       {menu.submenus && (
                         <IoIosArrowDown
                           onClick={() => handleToggle(menu._id)}
@@ -85,7 +88,16 @@ function SideBar() {
                       >
                         {menu.submenus.map((submenu) => (
                           <li key={submenu._id}>
-                            <a href="#">{submenu.title}</a>
+                            <Link
+                              to={
+                                submenu.href.includes("/course-info/") ||
+                                submenu.href.includes("course-info/")
+                                  ? submenu.href
+                                  : `/course-info/${submenu.href}`
+                              }
+                            >
+                              {submenu.title}
+                            </Link>
                           </li>
                         ))}
                       </ul>
