@@ -13,6 +13,7 @@ function AuthProvider({ children }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [token, setToken] = useState(false);
   const [userInfos, setUserInfos] = useState({});
+
   const login = useCallback((userInfos, token) => {
     setToken(token);
     setIsLoggedIn(true);

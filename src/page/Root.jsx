@@ -2,12 +2,15 @@
 import Header from "../components/Header";
 import SideBar from "../components/SideBar";
 import Overlay from "../components/Overlay";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../contexts/authContext";
 
 export default function Root() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const authConfig = useContext(AuthContext);
   useEffect(() => {
     const localStorageData = JSON.parse(localStorage.getItem("user"));
@@ -24,6 +27,14 @@ export default function Root() {
         });
     }
   }, [authConfig.login]);
+  useEffect(() => {
+    if (
+      authConfig.isLoggedIn &&
+      (location.pathname === "/login" || location.pathname === "/register")
+    ) {
+      navigate("/");
+    }
+  }, [authConfig.isLoggedIn, location.pathname, navigate]);
   return (
     <>
       <Header />

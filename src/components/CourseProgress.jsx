@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { FaChartLine } from "react-icons/fa";
+import { singleCourseDataContext } from "../contexts/getSingleCourseData";
 
 function CourseProgress() {
+  const getSingleCourseDataConfig = useContext(singleCourseDataContext);
   return (
     <>
       <>
@@ -15,7 +18,11 @@ function CourseProgress() {
           <div className="w-full bg-gray-200 rounded-full h-2.5">
             <div
               className="bg-green-primery h-2.5 rounded-full"
-              style={{ width: "45%" }}
+              style={{
+                width: `${
+                  getSingleCourseDataConfig.data?.isComplete ? "100%" : "45%"
+                }`,
+              }}
             />
           </div>
         </div>

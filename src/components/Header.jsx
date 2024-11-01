@@ -65,7 +65,8 @@ function Header() {
                   <li key={link._id}>
                     <Link
                       to={
-                        link.href.includes("/course-info/")
+                        link.href.includes("/course-info/") ||
+                        link.href.includes("course-info/")
                           ? link.href
                           : `/course-info/${link.href}`
                       }
@@ -169,7 +170,7 @@ function Header() {
             </a>
             {authConfig.isLoggedIn ? (
               <Link
-                to={"/login"}
+                to={authConfig.isLoggedIn ? "/" : "/login"}
                 className="w-32 border-2  border-green-primery text-green-primery hidden lg:flex justify-center items-center h-11 rounded-md text-sm hover:bg-green-primery hover:text-white transition-all "
               >
                 {authConfig.userInfos?.name}

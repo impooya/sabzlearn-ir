@@ -1,6 +1,15 @@
+import { useContext, useEffect } from "react";
 import { FaFacebook, FaTelegramPlane, FaTwitter } from "react-icons/fa";
+import { useParams } from "react-router-dom";
+import { singleCourseDataContext } from "../contexts/getSingleCourseData";
 
 function MainInfoCourse() {
+  const { courseName } = useParams();
+  const getSingleCourseDataConfig = useContext(singleCourseDataContext);
+  useEffect(() => {
+    getSingleCourseDataConfig.setCourseName(courseName);
+  });
+
   return (
     <>
       <section className="rounded-lg mt-4 p-8 shadow-shade-primery">
@@ -14,15 +23,10 @@ function MainInfoCourse() {
                 آموزش برنامه نویسی فرانت اند
               </a>
               <h1 className="course-info__title my-3 xs:my-6 font-IRANSansBold text-lg xs:text-2xl text-[#464749]">
-                آموزش 20 کتابخانه جاوااسکریپت برای بازار کار
+                {getSingleCourseDataConfig.data?.name}
               </h1>
               <p className="course-info__text mb-4 xs:mb-10 text-sm xs:text-xl text-[#7b868a]">
-                امروزه کتابخانه‌ها کد نویسی را خیلی آسان و لذت بخش تر کرده اند.
-                به قدری که حتی امروزه هیچ شرکت برنامه نویسی پروژه های خود را با
-                Vanilla Js پیاده سازی نمی کند و همیشه از کتابخانه ها و فریمورک
-                های موجود استفاده می کند. پس شما هم اگه میخواید یک برنامه نویس
-                عالی فرانت اند باشید، باید کتابخانه های کاربردی که در بازار کار
-                استفاده می شوند را به خوبی بلد باشید
+                {getSingleCourseDataConfig.data?.description}
               </p>
               <div className="flex items-center ">
                 <a
@@ -49,7 +53,7 @@ function MainInfoCourse() {
             <div className="">
               <video
                 src=""
-                poster="/images/courses/js_project.png"
+                poster={`/images/courses/${getSingleCourseDataConfig.data?.cover}`}
                 className=" w-full rounded-2xl"
                 controls
               ></video>

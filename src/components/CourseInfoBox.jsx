@@ -1,8 +1,12 @@
 import { FaClock, FaGraduationCap, FaPlay, FaUser } from "react-icons/fa";
 import { SlCalender } from "react-icons/sl";
 import { FaCircleInfo } from "react-icons/fa6";
+import { useContext } from "react";
+import { singleCourseDataContext } from "../contexts/getSingleCourseData";
 
 function CourseInfoBox() {
+  const getSingleCourseDataConfig = useContext(singleCourseDataContext);
+
   return (
     <>
       <div className="course-boxes">
@@ -17,7 +21,9 @@ function CourseInfoBox() {
                   وضعیت دوره:
                 </span>
                 <span className="course-boxes__box-left--subtitle text-[#7d7e7f]">
-                  به اتمام رسیده
+                  {getSingleCourseDataConfig.data?.isComplete === 1
+                    ? "به اتمام رسیده"
+                    : "در حال برگزاری..."}
                 </span>
               </div>
             </div>
@@ -32,7 +38,7 @@ function CourseInfoBox() {
                   مدت زمان دوره:
                 </span>
                 <span className="course-boxes__box-left--subtitle text-[#7d7e7f]">
-                  19 ساعت
+                  12 ساعت
                 </span>
               </div>
             </div>
@@ -47,7 +53,7 @@ function CourseInfoBox() {
                   آخرین بروزرسانی:
                 </span>
                 <span className="course-boxes__box-left--subtitle text-[#7d7e7f]">
-                  1401/03/02
+                  {getSingleCourseDataConfig.localIranTime}
                 </span>
               </div>
             </div>
@@ -62,7 +68,7 @@ function CourseInfoBox() {
                   روش پشتیبانی
                 </span>
                 <span className="course-boxes__box-left--subtitle text-[#7d7e7f]">
-                  آنلاین
+                  {getSingleCourseDataConfig.data?.support}
                 </span>
               </div>
             </div>

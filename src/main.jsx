@@ -11,7 +11,10 @@ import { ImageLoaderProvider } from "./contexts/ImageLoader";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { AuthProvider } from "./contexts/authContext";
+import { GetSingleCourseDataProvider } from "./contexts/getSingleCourseData";
+
 const queryClient = new QueryClient();
+
 createRoot(document.getElementById("root")).render(
   <QueryClientProvider client={queryClient}>
     <OverlayProvider>
@@ -20,10 +23,12 @@ createRoot(document.getElementById("root")).render(
           <WichSideBarProvider>
             <CourseDetailsProvider>
               <ImageLoaderProvider>
-                <AuthProvider>
-                  <RouterProvider router={router} />
-                  <ReactQueryDevtools initialIsOpen={false} />
-                </AuthProvider>
+                <GetSingleCourseDataProvider>
+                  <AuthProvider>
+                    <RouterProvider router={router} />
+                    <ReactQueryDevtools initialIsOpen={false} />
+                  </AuthProvider>
+                </GetSingleCourseDataProvider>
               </ImageLoaderProvider>
             </CourseDetailsProvider>
           </WichSideBarProvider>
