@@ -13,6 +13,7 @@ import TeacherDetails from "../components/TeacherDetails";
 import TopBanner from "../components/TopBanner";
 import { useContext } from "react";
 import { singleCourseDataContext } from "../contexts/getSingleCourseData";
+import CommentsTextArea from "../components/CommentsTextArea";
 
 function CourseInfo() {
   const isFetching = useIsFetching({ queryKey: [["single-course-info"]] });
@@ -40,6 +41,7 @@ function CourseInfo() {
                 <CourseProgress />
                 <IntroductionCourse />
                 <TeacherDetails />
+                <CommentsTextArea />
               </>
             }
             leftContent={
