@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
 import { Link, useNavigate, useParams } from "react-router-dom";
@@ -22,10 +21,13 @@ function Pagination({ items, itemsCount, pathname, setShownCourses }) {
   }, [page, items, itemsCount, setShownCourses]);
 
   useEffect(() => {
-    if (Number(page) > pageCount) {
-      navigate("/courses/1");
-    }
-  }, [page, pageCount, navigate]);
+    (pathname.includes("courses") &&
+      Number(page) > pageCount &&
+      navigate("/courses/1")) ||
+      (pathname.includes("category-info") &&
+        Number(page) > pageCount &&
+        navigate("/category-info/frontend/1"));
+  }, [page, pageCount, navigate, pathname]);
 
   useEffect(() => {
     document.documentElement.scrollTo({
@@ -49,7 +51,7 @@ function Pagination({ items, itemsCount, pathname, setShownCourses }) {
         <li className="courses__pagination-item">
           {prevPage() && (
             <Link
-              to={`/courses/${Number(page) - 1}`}
+              to={`${pathname}/${Number(page) - 1}`}
               className="rounded-lg w-7 h-7 md:w-16 md:h-16 flex justify-center items-center text-md md:text-2xl bg-[#f0f0f1] mx-2 hover:bg-green-primery hover:text-white transition-all"
             >
               <FaLongArrowAltRight />
@@ -60,7 +62,7 @@ function Pagination({ items, itemsCount, pathname, setShownCourses }) {
         {pageNumbers.map((count) => (
           <li className="courses__pagination-item" key={count.id}>
             <Link
-              to={`/courses/${count.page}`}
+              to={`${pathname}/${count.page}`}
               className={`rounded-lg w-7 h-7 md:w-16 md:h-16 flex justify-center items-center text-md md:text-2xl bg-[#f0f0f1] mx-2 hover:bg-green-primery hover:text-white transition-all ${
                 Number(page) === count.page ? "bg-green-primery text-white" : ""
               }`}
@@ -73,7 +75,7 @@ function Pagination({ items, itemsCount, pathname, setShownCourses }) {
         <li className="courses__pagination-item">
           {nextPage() && (
             <Link
-              to={`/courses/${Number(page) + 1}`}
+              to={`${pathname}/${Number(page) + 1}`}
               className="rounded-lg w-7 h-7 md:w-16 md:h-16 flex justify-center items-center text-md md:text-2xl bg-[#f0f0f1] mx-2 hover:bg-green-primery hover:text-white transition-all"
             >
               <FaLongArrowAltLeft />

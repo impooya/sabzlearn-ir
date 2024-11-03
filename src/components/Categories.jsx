@@ -4,8 +4,6 @@ import {
   FaBorderAll,
   FaChalkboardTeacher,
   FaChevronDown,
-  FaLongArrowAltLeft,
-  FaLongArrowAltRight,
   FaSearch,
   FaUsers,
 } from "react-icons/fa";
@@ -16,7 +14,8 @@ import { WichSideBarContext } from "../contexts/WichSideBarState";
 import { OverlayContext } from "../contexts/OverlayState";
 import { ImageLoaderContext } from "../contexts/ImageLoader";
 import ClipLoader from "react-spinners/ClipLoader";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import Pagination from "./Pagination";
 function Categories() {
   const categoryConfig = useContext(CategoryContext);
   const wichSideBarConfig = useContext(WichSideBarContext);
@@ -24,17 +23,13 @@ function Categories() {
   const imageLoaderConfig = useContext(ImageLoaderContext);
   const [courses, setCourses] = useState([]);
   const { categoryName } = useParams();
-  const location = useLocation();
-
-  console.log(location);
-
+  const [shownCourses, setShownCourses] = useState([]);
   useEffect(() => {
     fetch(`http://localhost:4000/v1/courses/category/${categoryName}`)
       .then((res) => {
         return res.json();
       })
       .then((result) => {
-        console.log(result);
         setCourses(result);
       })
       .catch((err) => {
@@ -132,7 +127,7 @@ function Categories() {
               <section className="mt-6">
                 <div className="container">
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                    {courses?.map((course) => (
+                    {shownCourses?.map((course) => (
                       <div
                         key={course._id}
                         className="shadow-2xl rounded-2xl w-full  hover:-translate-y-2 transition-all easear duration-[400ms]"
@@ -231,50 +226,12 @@ function Categories() {
                 </div>
               </section>
 
-              <div className="my-12">
-                <ul className="flex items-center justify-center">
-                  <li className="courses__pagination-item">
-                    <a
-                      href="#"
-                      className="rounded-lg w-7 h-7 md:w-16 md:h-16 flex justify-center items-center text-md md:text-2xl bg-[#f0f0f1] mx-2"
-                    >
-                      <FaLongArrowAltRight />
-                    </a>
-                  </li>
-                  <li className="courses__pagination-item">
-                    <a
-                      href="#"
-                      className="rounded-lg w-7 h-7 md:w-16 md:h-16 flex justify-center items-center text-md md:text-2xl bg-[#f0f0f1] mx-2"
-                    >
-                      1
-                    </a>
-                  </li>
-                  <li className="courses__pagination-item">
-                    <a
-                      href="#"
-                      className="rounded-lg w-7 h-7 md:w-16 md:h-16 flex justify-center items-center text-md md:text-2xl bg-[#f0f0f1] mx-2"
-                    >
-                      2
-                    </a>
-                  </li>
-                  <li className="courses__pagination-item  rounded-lg w-7 h-7 md:w-16 md:h-16 flex justify-center items-center text-md md:text-2xl bg-[#f0f0f1] mx-2">
-                    <a
-                      href="#"
-                      className="courses__pagination-link courses__pagination-link--active"
-                    >
-                      3
-                    </a>
-                  </li>
-                  <li className="courses__pagination-item">
-                    <a
-                      href="#"
-                      className="courses__pagination-link  rounded-lg w-7 h-7 md:w-16 md:h-16 flex justify-center items-center text-md md:text-2xl bg-[#f0f0f1] mx-2"
-                    >
-                      <FaLongArrowAltLeft />
-                    </a>
-                  </li>
-                </ul>
-              </div>
+              <Pagination
+                items={courses || []}
+                itemsCount={3}
+                pathname={`/category-info/${categoryName}`}
+                setShownCourses={setShownCourses}
+              />
             </>
           )}
         </div>

@@ -22,7 +22,7 @@ export const router = createBrowserRouter([
         element: <CourseInfo />,
       },
       {
-        path: "/category-info/:categoryName",
+        path: "/category-info/:categoryName/:page",
         element: <Category />,
       },
       {

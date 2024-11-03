@@ -117,7 +117,7 @@ function Header() {
                 menus?.map((menu) => (
                   <li className="group relative" key={menu._id}>
                     <span className="flex justify-center items-center gap-1">
-                      <Link to={`/category-info/${menu.href}`}>
+                      <Link to={`/category-info/${menu.href}/1`}>
                         {menu.title}
                       </Link>
                       <IoIosArrowDown />
