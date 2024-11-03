@@ -123,7 +123,7 @@ function Header() {
                       <IoIosArrowDown />
                     </span>
 
-                    <ul className="absolute flex flex-col justify-center items-start gap-y-3 top-full right-0 rounded-lg w-96 bg-white shadow-xl py-4 pr-4 invisible opacity-0 group-hover:opacity-100 group-hover:visible transition-all child-hover:text-blue-600 child:transition-all border-b-green-primery border-b-4 delay-100">
+                    <ul className="absolute z-[9999] flex flex-col justify-center items-start gap-y-3 top-full right-0 rounded-lg w-96 bg-white shadow-xl py-4 pr-4 invisible opacity-0 group-hover:opacity-100 group-hover:visible transition-all child-hover:text-blue-600 child:transition-all border-b-green-primery border-b-4 delay-100">
                       {menu.submenus.map((submenu) => (
                         <li key={submenu._id}>
                           <Link

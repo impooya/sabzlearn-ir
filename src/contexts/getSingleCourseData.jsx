@@ -26,7 +26,9 @@ function GetSingleCourseDataProvider({ children }) {
           `http://localhost:4000/v1/courses/${courseName}`,
           {
             headers: {
-              Authorization: `Bearer ${localStorageData.token}`,
+              Authorization: `Bearer ${
+                localStorageData === null ? null : localStorageData.token
+              }`,
             },
           }
         );
@@ -82,4 +84,5 @@ function GetSingleCourseDataProvider({ children }) {
   );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export { GetSingleCourseDataProvider, singleCourseDataContext };

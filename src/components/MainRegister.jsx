@@ -87,7 +87,7 @@ function MainRegister() {
       name: formState.inputs.name.value,
       email: formState.inputs.email.value,
       password: formState.inputs.password.value,
-      phone: formState.inputs.password.value,
+      phone: formState.inputs.phone.value,
       confirmPassword: formState.inputs.confirmPassword.value,
     };
     // console.log(newUser);
