@@ -1,3 +1,6 @@
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import { useEffect } from "react";
 import { CiFolderOn } from "react-icons/ci";
 import { CiUser } from "react-icons/ci";
 import { CiClock2 } from "react-icons/ci";
@@ -7,12 +10,43 @@ import {
   FaTelegramPlane,
   FaTwitter,
 } from "react-icons/fa";
+import { useParams } from "react-router-dom";
 function MainArticle() {
+  const { articleName } = useParams();
+  async function getOneArticelInfos() {
+    const res = await axios.get(
+      `http://localhost:4000/v1/articles/${articleName}`
+    );
+    const data = await res.data;
+    return data;
+  }
+  useEffect(() => {
+    document.documentElement.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, [articleName]);
+  const {
+    data: singleArticle,
+    isError,
+    isLoading,
+  } = useQuery({
+    queryKey: ["article", articleName],
+    queryFn: getOneArticelInfos,
+  });
+  if (isLoading) {
+    return <span>در حال لود شدن...</span>;
+  }
+
+  if (isError) {
+    return <span>خطا در بارگذاری اطلاعات...</span>;
+  }
   return (
     <>
       <div className=" p-8 rounded-lg shadow-shade-primery">
         <h1 className="article__title text-2xl font-IRANSansBold text-dark-primery border-b-2 border-solid border-b-[#f3f3f3] pb-4">
-          معرفی بهترین سایت آموزش جاوا اسکریپت [ تجربه محور ] + آموزش رایگان
+          {singleArticle?.title}
         </h1>
         <div className="article__header flex items-center pt-4 flex-wrap md:flex-nowrap">
           <div className="flex items-center justify-center gap-2 ml-4 ">
@@ -21,19 +55,19 @@ function MainArticle() {
               href="#"
               className="article-header__text md:text-sm  text-[#8f8f8f]"
             >
-              جاوا اسکریپت
+              {singleArticle?.categoryID.title}
             </a>
           </div>
           <div className="flex items-center justify-center gap-2 ml-4">
             <CiUser className="text-lg text-[#c7c7c7]" />
             <span className="article-header__text md:text-sm  text-[#8f8f8f]">
-              ارسال شده توسط قدیر
+              {singleArticle?.creator.name}
             </span>
           </div>
           <div className="flex items-center justify-center gap-2 ml-4">
             <CiClock2 className="text-lg text-[#c7c7c7]" />
             <span className="article-header__text md:text-sm  text-[#8f8f8f]">
-              ارسال شده توسط قدیر
+              {singleArticle?.creator.name}
             </span>
           </div>
           <div className="flex items-center justify-center gap-2 ml-4">

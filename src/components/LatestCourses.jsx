@@ -35,7 +35,6 @@ function LatestCourses() {
             <div>
               <Link
                 to="/courses/1"
-                preventScrollReset={true}
                 className="flex items-center justify-center text-white bg-green-primery text-xs py-1 px-1 md:text-lg md:px-4 md:py-2 rounded-lg hover:text-white gap-x-2"
               >
                 تمامی دوره ها

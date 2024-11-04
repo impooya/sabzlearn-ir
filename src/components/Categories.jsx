@@ -22,8 +22,11 @@ function Categories() {
   const overlayConfig = useContext(OverlayContext);
   const imageLoaderConfig = useContext(ImageLoaderContext);
   const [courses, setCourses] = useState([]);
+  const [orderedCourses, setOrderedCourses] = useState([]);
+  const [status, setStatus] = useState("default");
   const { categoryName } = useParams();
   const [shownCourses, setShownCourses] = useState([]);
+  const [statusTitle, setStatusTitle] = useState("مرتب سازی پیش فرض");
   useEffect(() => {
     fetch(`http://localhost:4000/v1/courses/category/${categoryName}`)
       .then((res) => {
@@ -31,12 +34,60 @@ function Categories() {
       })
       .then((result) => {
         setCourses(result);
+        setOrderedCourses(result);
       })
       .catch((err) => {
         console.log(err);
       });
   }, [categoryName]);
 
+  useEffect(() => {
+    switch (status) {
+      case "free": {
+        const freeCourses = courses.filter((course) => course.price === 0);
+        setOrderedCourses(freeCourses);
+        break;
+      }
+      case "money": {
+        const notFreeCourses = courses.filter((course) => course.price !== 0);
+        setOrderedCourses(notFreeCourses);
+        break;
+      }
+
+      case "last": {
+        setOrderedCourses(courses);
+        break;
+      }
+      case "first": {
+        const reversedCourses = courses.slice().reverse();
+        setOrderedCourses(reversedCourses);
+        break;
+      }
+      case "cheap": {
+        let cheapCourses = courses.slice().sort((x, y) => {
+          return x.price - y.price;
+        });
+        setOrderedCourses(cheapCourses);
+        break;
+      }
+
+      case "expensive": {
+        let expensiveCourses = courses.slice().sort((x, y) => {
+          return y.price - x.price;
+        });
+        setOrderedCourses(expensiveCourses);
+        break;
+      }
+
+      default: {
+        setOrderedCourses(courses);
+      }
+    }
+  }, [status, courses]);
+
+  const statusTitleChangeHandler = (event) => {
+    setStatusTitle(event.target.textContent);
+  };
   return (
     <>
       <section className="courses">
@@ -71,7 +122,7 @@ function Categories() {
 
                   <div className="courses-top-bar__selection cursor-pointer relative group">
                     <span className="courses-top-bar__selection-title hidden md:flex items-center justify-center gap-x-2 h-14 rounded-md py-3 px-8 border border-solid border-[#e5e5e5] text-[#7d7e7f] hover:text-white hover:bg-[#1e83f0] transition-all duration-300 ease-out delay-100 ">
-                      مرتب سازی پیش فرض
+                      {statusTitle}
                       <FaChevronDown />
                     </span>
                     <button
@@ -85,22 +136,67 @@ function Categories() {
                       <IoReorderFour />
                     </button>
                     <ul className="courses-top-bar__selection-list md:block hidden  opacity-0 invisible absolute shadow-md bg-white w-full py-3 rounded-bl rounded-br border-b-4 border-solid border-b-green-primery z-[9999] transition-all duration-300 ease-out group-hover:opacity-100 group-hover:visible">
-                      <li className="courses-top-bar__selection-item courses-top-bar__selection-item--active text-[#5f5f5f] text-md py-3 px-5 hover:bg-[#ddd] transition-all duration-200 ease-in-out delay-100">
+                      <li
+                        onClick={(event) => {
+                          setStatus("default");
+                          statusTitleChangeHandler(event);
+                        }}
+                        className="courses-top-bar__selection-item courses-top-bar__selection-item--active text-[#5f5f5f] text-md py-3 px-5 hover:bg-[#ddd] transition-all duration-200 ease-in-out delay-100"
+                      >
                         مرتب سازی پیش فرض
                       </li>
-                      <li className="courses-top-bar__selection-item text-[#5f5f5f] text-md py-3 px-5 hover:bg-[#ddd] transition-all duration-200 ease-in-out delay-100">
-                        مرتب سازی بر اساس محبوبیت
+                      <li
+                        onClick={(event) => {
+                          setStatus("free");
+                          statusTitleChangeHandler(event);
+                        }}
+                        className="courses-top-bar__selection-item text-[#5f5f5f] text-md py-3 px-5 hover:bg-[#ddd] transition-all duration-200 ease-in-out delay-100"
+                      >
+                        مرتب سازی بر اساس دوره های رایگان
                       </li>
-                      <li className="courses-top-bar__selection-item text-[#5f5f5f] text-md py-3 px-5 hover:bg-[#ddd] transition-all duration-200 ease-in-out delay-100">
-                        مرتب سازی بر اساس امتیاز
+                      <li
+                        onClick={(event) => {
+                          setStatus("money");
+                          statusTitleChangeHandler(event);
+                        }}
+                        className="courses-top-bar__selection-item text-[#5f5f5f] text-md py-3 px-5 hover:bg-[#ddd] transition-all duration-200 ease-in-out delay-100"
+                      >
+                        مرتب سازی بر اساس دوره های پولی
                       </li>
-                      <li className="courses-top-bar__selection-item text-[#5f5f5f] text-md py-3 px-5 hover:bg-[#ddd] transition-all duration-200 ease-in-out delay-100">
+                      <li
+                        onClick={(event) => {
+                          setStatus("last");
+                          statusTitleChangeHandler(event);
+                        }}
+                        className="courses-top-bar__selection-item text-[#5f5f5f] text-md py-3 px-5 hover:bg-[#ddd] transition-all duration-200 ease-in-out delay-100"
+                      >
                         مرتب سازی بر اساس آخرین
                       </li>
-                      <li className="courses-top-bar__selection-item text-[#5f5f5f] text-md py-3 px-5 hover:bg-[#ddd] transition-all duration-200 ease-in-out delay-100">
+                      <li
+                        onClick={(event) => {
+                          setStatus("first");
+                          statusTitleChangeHandler(event);
+                        }}
+                        className="courses-top-bar__selection-item text-[#5f5f5f] text-md py-3 px-5 hover:bg-[#ddd] transition-all duration-200 ease-in-out delay-100"
+                      >
+                        مرتب سازی بر اساس اولین
+                      </li>
+                      <li
+                        onClick={(event) => {
+                          setStatus("cheap");
+                          statusTitleChangeHandler(event);
+                        }}
+                        className="courses-top-bar__selection-item text-[#5f5f5f] text-md py-3 px-5 hover:bg-[#ddd] transition-all duration-200 ease-in-out delay-100"
+                      >
                         مرتب سازی بر اساس ارزان ترین
                       </li>
-                      <li className="courses-top-bar__selection-item text-[#5f5f5f] text-md py-3 px-5 hover:bg-[#ddd] transition-all duration-200 ease-in-out delay-100">
+                      <li
+                        onClick={(event) => {
+                          setStatus("expensive");
+                          statusTitleChangeHandler(event);
+                        }}
+                        className="courses-top-bar__selection-item text-[#5f5f5f] text-md py-3 px-5 hover:bg-[#ddd] transition-all duration-200 ease-in-out delay-100"
+                      >
                         مرتب سازی بر اساس گران ترین
                       </li>
                     </ul>
@@ -150,7 +246,6 @@ function Categories() {
                           <div className="flex flex-col justify-center items-start px-4 gap-4 w-full">
                             <Link
                               to={`/course-info/${course.shortName}`}
-                              preventScrollReset={true}
                               className="hover:text-blue-600 transition-all delay-100"
                             >
                               {course.name}
@@ -227,7 +322,7 @@ function Categories() {
               </section>
 
               <Pagination
-                items={courses || []}
+                items={orderedCourses}
                 itemsCount={3}
                 pathname={`/category-info/${categoryName}`}
                 setShownCourses={setShownCourses}
