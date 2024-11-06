@@ -15,6 +15,8 @@ import { GetSingleCourseDataProvider } from "./contexts/getSingleCourseData";
 
 const queryClient = new QueryClient();
 
+//css file  when use main site remove this file but when use admin panel use bootstrap
+// import "bootstrap/dist/css/bootstrap.min.css";
 createRoot(document.getElementById("root")).render(
   <QueryClientProvider client={queryClient}>
     <OverlayProvider>

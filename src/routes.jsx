@@ -9,6 +9,12 @@ import Register from "./page/Register";
 import MainCourses from "./components/MainCourses";
 import Contact from "./page/Contact/Contact";
 
+import AdminPanelHome from "./page/AdminPanel/AdminPanelHome";
+import Users from "./page/AdminPanel/Users/Users";
+import Courses from "./page/AdminPanel/Courses/Courses";
+import Menus from "./page/AdminPanel/Menus/Menus";
+import Articles from "./page/AdminPanel/Articles/Articles";
+
 export const router = createBrowserRouter([
   {
     element: <Root />,
@@ -47,6 +53,19 @@ export const router = createBrowserRouter([
         path: "/contact",
         element: <Contact />,
       },
+    ],
+  },
+  {
+    path: "/p-admin",
+    element: <AdminPanelHome />,
+    children: [
+      {
+        path: "users",
+        element: <Users />,
+      },
+      { path: "courses", element: <Courses /> },
+      { path: "menus", element: <Menus /> },
+      { path: "articles", element: <Articles /> },
     ],
   },
 ]);
