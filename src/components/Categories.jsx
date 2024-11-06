@@ -27,6 +27,8 @@ function Categories() {
   const { categoryName } = useParams();
   const [shownCourses, setShownCourses] = useState([]);
   const [statusTitle, setStatusTitle] = useState("مرتب سازی پیش فرض");
+  const [searchValue, setSearchValue] = useState("");
+  const [courseDisplay, setCourseDisplay] = useState("row");
   useEffect(() => {
     fetch(`http://localhost:4000/v1/courses/category/${categoryName}`)
       .then((res) => {
@@ -88,6 +90,14 @@ function Categories() {
   const statusTitleChangeHandler = (event) => {
     setStatusTitle(event.target.textContent);
   };
+  const searchValueChangeHandler = (event) => {
+    setSearchValue(event.target.value);
+    const filteredCourses = courses.filter((course) =>
+      course.name.includes(searchValue)
+    );
+    setOrderedCourses(filteredCourses);
+  };
+
   return (
     <>
       <section className="courses">
@@ -113,10 +123,24 @@ function Categories() {
             <>
               <div className="courses-top-bar flex-col md:flex-row gap-y-4 flex justify-between items-center p-8 shadow-lg ">
                 <div className="courses-top-bar__right flex items-center">
-                  <div className="py-3 px-4 flex items-center justify-center w-16 h-14 rounded-md text-black cursor-pointer border border-[#e5e5e5] ml-4 child:text-2xl active:text-white active:bg-[#1e83f0]">
+                  <div
+                    onClick={() => {
+                      setCourseDisplay("row");
+                    }}
+                    className={`py-3 px-4 flex items-center justify-center w-16 h-14 rounded-md text-black cursor-pointer border border-[#e5e5e5] ml-4 child:text-2xl active:text-white ${
+                      courseDisplay === "row" ? "bg-[#1e83f0]" : ""
+                    }`}
+                  >
                     <FaBorderAll />
                   </div>
-                  <div className="courses-top-bar__column-btn py-3 px-4 flex items-center justify-center w-16 h-14 rounded-md text-black cursor-pointer border border-[#e5e5e5] ml-4 child:text-2xl">
+                  <div
+                    onClick={() => {
+                      setCourseDisplay("col");
+                    }}
+                    className={`py-3 px-4 flex items-center justify-center w-16 h-14 rounded-md text-black cursor-pointer border border-[#e5e5e5] ml-4 child:text-2xl active:text-white ${
+                      courseDisplay === "col" ? "bg-[#1e83f0]" : ""
+                    }`}
+                  >
                     <FaAlignLeft />
                   </div>
 
@@ -212,6 +236,8 @@ function Categories() {
                       type="text"
                       className="text-lg w-full border border-solid border-[#dcdcdc] pl-9 py-2 pr-3"
                       placeholder="جستجوی دوره ..."
+                      value={searchValue}
+                      onChange={searchValueChangeHandler}
                     />
                     <button className="absolute left-4 top-4 text-[#7d7e7f] text-xl cursor-pointer ">
                       <FaSearch />
@@ -222,7 +248,11 @@ function Categories() {
 
               <section className="mt-6">
                 <div className="container">
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                  <div
+                    className={`grid grid-cols-1  gap-5 ${
+                      courseDisplay === "col" ? "grid-cols-3" : "grid-cols-1"
+                    }`}
+                  >
                     {shownCourses?.map((course) => (
                       <div
                         key={course._id}

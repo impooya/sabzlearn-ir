@@ -7,6 +7,7 @@ import ArticleInfo from "./page/ArticleInfo";
 import Login from "./page/Login";
 import Register from "./page/Register";
 import MainCourses from "./components/MainCourses";
+import Contact from "./page/Contact/Contact";
 
 export const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ export const router = createBrowserRouter([
       {
         path: "/courses/:page",
         element: <MainCourses />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
       },
     ],
   },

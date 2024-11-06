@@ -5,7 +5,7 @@ import { FaCartShopping } from "react-icons/fa6";
 import { FaSearch } from "react-icons/fa";
 import { FaRegUser } from "react-icons/fa";
 import { IoMdMenu } from "react-icons/io";
-import { useContext } from "react";
+import { useContext, useMemo } from "react";
 import { SidebarContext } from "../contexts/sidebarState";
 import { OverlayContext } from "../contexts/OverlayState";
 import { WichSideBarContext } from "../contexts/WichSideBarState";
@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../contexts/authContext";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-function Header() {
+export default function Header() {
   const sidebarConfig = useContext(SidebarContext);
   const overlayConfig = useContext(OverlayContext);
   const wichSideBarConfig = useContext(WichSideBarContext);
@@ -47,6 +47,25 @@ function Header() {
     });
     return shuffled.slice(0, roundomCount);
   };
+  const memoizedTopBarLinks = useMemo(() => {
+    if (isLoading) return <span>در حال بارگذاری...</span>;
+    if (isError) return <span>خطایی رخ داد...</span>;
+    return shuffleAllTopBarMenu(data, 5).map((link) => (
+      <li key={link._id}>
+        <Link
+          to={
+            link.href.includes("/course-info/") ||
+            link.href.includes("course-info/")
+              ? link.href
+              : `/course-info/${link.href}`
+          }
+          className="hover:text-blue-300 transition-all delay-75 text-center tracking-tighter"
+        >
+          {link.title}
+        </Link>
+      </li>
+    ));
+  }, [data, isError, isLoading]);
 
   return (
     <>
@@ -56,27 +75,7 @@ function Header() {
           {/*learn courses btn in top of main header*/}
           <div className="w-auto">
             <ul className=" flex w-full gap-3 justify-start items-center flex-wrap">
-              {isLoading ? (
-                <span>در حال بارگذاری...</span>
-              ) : isError ? (
-                <span>خطایی رخ داد...</span>
-              ) : (
-                shuffleAllTopBarMenu(data, 5).map((link) => (
-                  <li key={link._id}>
-                    <Link
-                      to={
-                        link.href.includes("/course-info/") ||
-                        link.href.includes("course-info/")
-                          ? link.href
-                          : `/course-info/${link.href}`
-                      }
-                      className="hover:text-blue-300 transition-all delay-75 text-center tracking-tighter"
-                    >
-                      {link.title}
-                    </Link>
-                  </li>
-                ))
-              )}
+              {memoizedTopBarLinks}
             </ul>
           </div>
           {/*phone number and email website */}
@@ -196,5 +195,3 @@ function Header() {
     </>
   );
 }
-
-export default Header;
