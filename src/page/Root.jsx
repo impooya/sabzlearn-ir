@@ -25,8 +25,10 @@ export default function Root() {
           authConfig.setIsLoggedIn(true);
           authConfig.setUserInfos(userData);
         });
+    } else {
+      authConfig.setIsLoggedIn(false);
     }
-  }, [authConfig.login]);
+  }, [authConfig.login, authConfig.logout]);
   useEffect(() => {
     if (
       authConfig.isLoggedIn &&

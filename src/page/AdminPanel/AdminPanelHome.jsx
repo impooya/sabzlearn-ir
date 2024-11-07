@@ -2,7 +2,6 @@ import { Outlet } from "react-router-dom";
 import Sidebar from "../../components/AdminPanel/Sidebar/Sidebar";
 import "./index.css";
 import Topbar from "../../components/AdminPanel/Topbar/TopBar";
-import "bootstrap/dist/css/bootstrap.min.css";
 export default function AdminPanelHome() {
   return (
     <>
@@ -11,8 +10,10 @@ export default function AdminPanelHome() {
       </div>
       <div id="home" className="col-10">
         <Topbar />
+        <div className="container-fluid" id="home-content">
+          <Outlet />
+        </div>
       </div>
-      <Outlet />
     </>
   );
 }
