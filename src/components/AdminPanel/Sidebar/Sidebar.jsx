@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import "./Sidebar.css";
 import { AuthContext } from "../../../contexts/authContext";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 export default function Sidebar() {
   const authConfig = useContext(AuthContext);
@@ -33,15 +33,18 @@ export default function Sidebar() {
       </div>
       <div className="sidebar-menu">
         <ul>
-          <li className="active-menu">
+          <li>
             <a href="#">
               <span>صفحه اصلی</span>
             </a>
           </li>
           <li>
-            <a href="#">
+            <NavLink
+              to={"courses"}
+              className={({ isActive }) => (isActive ? "active-menu" : "")}
+            >
               <span>دوره ها</span>
-            </a>
+            </NavLink>
           </li>
           <li>
             <a href="#">
@@ -54,9 +57,12 @@ export default function Sidebar() {
             </a>
           </li>
           <li>
-            <a href="#">
+            <NavLink
+              to="users"
+              className={({ isActive }) => (isActive ? "active-menu" : "")}
+            >
               <span>کاربران</span>
-            </a>
+            </NavLink>
           </li>
           <li>
             <a href="#">
@@ -64,9 +70,12 @@ export default function Sidebar() {
             </a>
           </li>
           <li>
-            <a href="#">
+            <NavLink
+              to="category"
+              className={({ isActive }) => (isActive ? "active-menu" : "")}
+            >
               <span>دسته‌بندی‌ها</span>
-            </a>
+            </NavLink>
           </li>
           <li>
             <a href="#" onClick={logoutAdmin}>
