@@ -63,7 +63,7 @@ function PreSaleCourses() {
                         className="block w-full"
                       >
                         <img
-                          src="images/courses/youtuber.png"
+                          src={`http://localhost:4000/courses/covers/${presell.cover}`}
                           alt="Course img"
                           className="bg-cover rounded-t-2xl w-full"
                         />

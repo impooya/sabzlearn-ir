@@ -32,7 +32,10 @@ const schema = yup.object({
     .required("شماره تماس الزامی است")
     .matches(/^0(9[0-9])\d{8}$/, "شماره تماس معتبر نیست"),
 
-  password: yup.string().required("رمز الزامی است"),
+  password: yup
+    .string()
+    .required("رمز الزامی است")
+    .max(8, "رمز عبور باید حداقل 8 حرف باشد"),
 });
 
 function Users() {

@@ -71,11 +71,71 @@ function Category() {
       console.log(err);
     },
   });
+  const { mutate: editCategory } = useMutation({
+    mutationKey: ["edit-cat"],
+    mutationFn: ({ categoryID, data }) => {
+      return axios.put(
+        `http://localhost:4000/v1/category/${categoryID}`,
+        data,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorageData.token}`,
+          },
+        }
+      );
+    },
+    onSuccess: () => {
+      Swal.fire({
+        title: "ویرایش با موفقیت انجام شد",
+        confirmButtonText: "اوکی",
+      });
+      queryClient.invalidateQueries({
+        queryKey: ["category-panel"],
+      });
+    },
+    onError: (err) => {
+      console.log(err);
+      Swal.fire({
+        title: "خطا",
+        text: "ویرایش ناموفق بود. لطفا دوباره تلاش کنید.",
+        icon: "error",
+        confirmButtonText: "اوکی",
+      });
+    },
+  });
   function onSubmit(data) {
     addNewCategory(data);
   }
   function deleteCategoryPanel(categoryID) {
     removeCategory(categoryID);
+  }
+
+  function editCategoryHandler(categoryID) {
+    Swal.fire({
+      title: "عنوان و اسم دوره جدید را وارد کنید",
+      html: `
+        <input id="swal-input1" class="swal2-input" placeholder="عنوان" />
+        <input id="swal-input2" class="swal2-input" placeholder="اسم دوره" />
+      `,
+      showCancelButton: true,
+      confirmButtonText: "ادیت",
+      cancelButtonText: "لغو",
+      preConfirm: () => {
+        const title = document.getElementById("swal-input1").value;
+        const name = document.getElementById("swal-input2").value;
+        if (!title || !name) {
+          Swal.showValidationMessage("هر دو ورودی باید پر شوند");
+        }
+        return { title, name };
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const { title, name } = result.value;
+        editCategory({ categoryID, data: { title, name } }); // { title: '...', courseName: '...' }
+        // Call your editCategory function here with the categoryID and the new values
+        // editCategory(categoryID, result.value.title, result.value.courseName);
+      }
+    });
   }
 
   return (
@@ -146,7 +206,13 @@ function Category() {
                 <td>{index + 1}</td>
                 <td>{category.title}</td>
                 <td>
-                  <button type="button" className="btn btn-primary edit-btn">
+                  <button
+                    type="button"
+                    className="btn btn-primary edit-btn"
+                    onClick={() => {
+                      editCategoryHandler(category._id);
+                    }}
+                  >
                     ویرایش
                   </button>
                 </td>

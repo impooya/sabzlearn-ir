@@ -36,7 +36,7 @@ function MainCourses() {
                         className="block w-full"
                       >
                         <img
-                          src="/images/courses/python.png"
+                          src={`http://localhost:4000/courses/covers/${course.cover}`}
                           alt="Course img"
                           className="bg-cover rounded-t-2xl w-full"
                         />
