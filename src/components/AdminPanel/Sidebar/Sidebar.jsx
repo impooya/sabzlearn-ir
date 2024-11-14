@@ -78,6 +78,14 @@ export default function Sidebar() {
             </NavLink>
           </li>
           <li>
+            <NavLink
+              to="contacts"
+              className={({ isActive }) => (isActive ? "active-menu" : "")}
+            >
+              <span>پیغام ها</span>
+            </NavLink>
+          </li>
+          <li>
             <a href="#" onClick={logoutAdmin}>
               <span>خروج</span>
             </a>

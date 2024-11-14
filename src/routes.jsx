@@ -15,6 +15,7 @@ import Courses from "./page/AdminPanel/Courses/Courses";
 import Menus from "./page/AdminPanel/Menus/Menus";
 import Articles from "./page/AdminPanel/Articles/Articles";
 import CategoryPanel from "./page/AdminPanel/Category/Category";
+import AdminContact from "./page/AdminPanel/Contact/Contact";
 
 export const router = createBrowserRouter([
   {
@@ -68,6 +69,7 @@ export const router = createBrowserRouter([
       { path: "menus", element: <Menus /> },
       { path: "articles", element: <Articles /> },
       { path: "category", element: <CategoryPanel /> },
+      { path: "contacts", element: <AdminContact /> },
     ],
   },
 ]);

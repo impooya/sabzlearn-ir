@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 function Courses() {
   const localStorageData = JSON.parse(localStorage.getItem("user"));
   const queryClient = useQueryClient();
-  const [courseCategory, setCourseCategory] = useState("");
+  const [courseCategory, setCourseCategory] = useState("-1");
   const [courseStatus, setCourseStatus] = useState("start");
 
   const {
@@ -99,14 +99,22 @@ function Courses() {
       console.log(err);
     },
   });
+
   function onSubmit(data) {
-    addNewCourse({
-      ...data,
-      cover: data["cover"][0],
-      categoryID: courseCategory,
-      status: courseStatus,
-    });
-    // addNewCourse({...data, data[]})
+    if (courseCategory === "-1") {
+      Swal.fire({
+        title: "لطفا دسته بندی مورد نظر خود را وارد کنید",
+        icon: "error",
+        confirmButtonText: "اوکی",
+      });
+    } else {
+      addNewCourse({
+        ...data,
+        cover: data["cover"][0],
+        categoryID: courseCategory,
+        status: courseStatus,
+      });
+    }
   }
 
   function removeCoursesHandler(courseId) {
@@ -227,6 +235,7 @@ function Courses() {
               <div className="number input">
                 <label className="input-title">دسته‌بندی دوره</label>
                 <select onChange={selectCategory}>
+                  <option value="-1">لطفا دسته‌بندی دوره را انتخاب کنید</option>
                   {categories?.map((category) => (
                     <option key={category._id} value={category._id}>
                       {category.title}
