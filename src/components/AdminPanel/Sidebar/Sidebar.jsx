@@ -47,9 +47,12 @@ export default function Sidebar() {
             </NavLink>
           </li>
           <li>
-            <a href="#">
+            <NavLink
+              to={"menus"}
+              className={({ isActive }) => (isActive ? "active-menu" : "")}
+            >
               <span>منو ها</span>
-            </a>
+            </NavLink>
           </li>
           <li>
             <NavLink
@@ -69,6 +72,14 @@ export default function Sidebar() {
           </li>
           <li>
             <NavLink
+              to="comments"
+              className={({ isActive }) => (isActive ? "active-menu" : "")}
+            >
+              <span>کامنت ها</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
               to="sessions"
               className={({ isActive }) => (isActive ? "active-menu" : "")}
             >
@@ -76,9 +87,12 @@ export default function Sidebar() {
             </NavLink>
           </li>
           <li>
-            <a href="#">
-              <span>کدهای تخفیف</span>
-            </a>
+            <NavLink
+              to="offs"
+              className={({ isActive }) => (isActive ? "active-menu" : "")}
+            >
+              <span>کد های تخفیف</span>
+            </NavLink>
           </li>
           <li>
             <NavLink

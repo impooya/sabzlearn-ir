@@ -11,6 +11,7 @@ function Articles() {
   const localStorageData = JSON.parse(localStorage.getItem("user"));
   const [articleCategory, setArticleCategory] = useState("-1");
   const [articleBody, setArticleBody] = useState("");
+  const [submissionType, setSubmissionType] = useState("");
   const {
     handleSubmit,
     register,
@@ -69,7 +70,12 @@ function Articles() {
       formData.append("shortName", newArticle.shortName);
       formData.append("categoryID", newArticle.categoryID);
 
-      return axios.post("http://localhost:4000/v1/articles", formData, {
+      const URL =
+        submissionType === "DRAFT"
+          ? "http://localhost:4000/v1/articles/draft"
+          : "http://localhost:4000/v1/articles";
+
+      return axios.post(URL, formData, {
         headers: {
           Authorization: `Bearer ${localStorageData.token}`,
         },
@@ -114,7 +120,10 @@ function Articles() {
   function onSubmit(data) {
     if (articleCategory === "-1") {
       Swal.fire({
-        title: "لطفا دسته بندی مورد نظر خود را وارد کنید",
+        title:
+          submissionType === "DRAFT"
+            ? "ذخیره مقاله به‌عنوان پیش‌نویس انجام شد"
+            : "اضافه شدن مقاله با موفقیت انجام شد",
         icon: "error",
         confirmButtonText: "اوکی",
       });
@@ -127,9 +136,9 @@ function Articles() {
       });
     }
   }
+
   return (
     <>
-      {/* <Editor /> */}
       <div className="container-fluid" id="home-content">
         <div className="container">
           <div className="home-title">
@@ -256,7 +265,19 @@ function Articles() {
             <div className="col-12">
               <div className="bottom-form">
                 <div className="submit-btn">
-                  <input type="submit" value="افزودن" />
+                  <input
+                    type="submit"
+                    value="انتشار"
+                    onClick={() => setSubmissionType("PUBLISH")}
+                  />
+                  <input
+                    type="submit"
+                    value="پیش‌نویس"
+                    className="m-1"
+                    onClick={() => {
+                      setSubmissionType("DRAFT");
+                    }}
+                  />
                 </div>
               </div>
             </div>
@@ -271,6 +292,7 @@ function Articles() {
               <th>عنوان</th>
               <th>لینک</th>
               <th>نویسنده</th>
+              <th>وضعیت</th>
               <th>ویرایش</th>
               <th>حذف</th>
             </tr>
@@ -282,6 +304,7 @@ function Articles() {
                 <td>{article.title}</td>
                 <td>{article.shortName}</td>
                 <td>{article.creator.name}</td>
+                <td>{article.publish === 1 ? "منتشر شده" : "پیش‌نویس"}</td>
                 <td>
                   <button type="button" className="btn btn-primary edit-btn">
                     ویرایش

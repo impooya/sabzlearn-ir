@@ -8,7 +8,6 @@ import Login from "./page/Login";
 import Register from "./page/Register";
 import MainCourses from "./components/MainCourses";
 import Contact from "./page/Contact/Contact";
-
 import AdminPanelHome from "./page/AdminPanel/AdminPanelHome";
 import Users from "./page/AdminPanel/Users/Users";
 import Courses from "./page/AdminPanel/Courses/Courses";
@@ -17,6 +16,8 @@ import Articles from "./page/AdminPanel/Articles/Articles";
 import CategoryPanel from "./page/AdminPanel/Category/Category";
 import AdminContact from "./page/AdminPanel/Contact/Contact";
 import Sessions from "./page/AdminPanel/Sessions/Sessions";
+import Comments from "./page/AdminPanel/Comments/Comments";
+import Offs from "./page/AdminPanel/Offs/Offs";
 
 export const router = createBrowserRouter([
   {
@@ -72,6 +73,8 @@ export const router = createBrowserRouter([
       { path: "category", element: <CategoryPanel /> },
       { path: "contacts", element: <AdminContact /> },
       { path: "sessions", element: <Sessions /> },
+      { path: "comments", element: <Comments /> },
+      { path: "offs", element: <Offs /> },
     ],
   },
 ]);

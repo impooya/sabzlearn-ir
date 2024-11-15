@@ -51,6 +51,9 @@ function Contact() {
         title: "پیام شما با موفقیت ارسال شد",
         icon: "success",
       });
+      queryClient.invalidateQueries({
+        queryKey: ["contact-admin"],
+      });
     },
     onError: (err) => {
       console.log(err);
@@ -124,14 +127,22 @@ function Contact() {
                 <th>ایمیل</th>
                 <th>شماره تماس</th>
                 <th>مشاهده</th>
-                <th>حذف</th>
                 <th>پاسخ</th>
+                <th>حذف</th>
               </tr>
             </thead>
             <tbody>
               {contacts?.map((contact, index) => (
                 <tr key={contact._id}>
-                  <td>{index + 1}</td>
+                  <td
+                    style={
+                      contact.answer === 1
+                        ? { backgroundColor: "green" }
+                        : { backgroundColor: "red" }
+                    }
+                  >
+                    {index + 1}
+                  </td>
                   <td>{contact.name}</td>
                   <td>{contact.email}</td>
                   <td>{contact.phone}</td>
@@ -152,7 +163,7 @@ function Contact() {
                       className="btn btn-primary edit-btn"
                       onClick={() => sendAnwserToUser(contact.email)}
                     >
-                      ویرایش
+                      پاسخ
                     </button>
                   </td>
                   <td>

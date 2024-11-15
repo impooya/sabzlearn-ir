@@ -43,48 +43,51 @@ function Articles() {
 
           <div className="articles__content">
             <div className="grid grid-cols-1 lmf:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-2">
-              {latestArticles?.slice(0, 3).map((article) => (
-                <div
-                  key={article._id}
-                  className="col-4 flex justify-start items-center flex-col   bg-white "
-                >
-                  <div className="article-card my-12 shadow-lg hover:-translate-y-3 transition-all duration-[400ms] ease delay-75">
-                    <div className="article-card__header">
-                      <Link
-                        to={`/article-info/${article.shortName}`}
-                        className="article-card__link-img"
-                      >
-                        <img
-                          src="images/blog/3.jpg"
-                          className="article-card__img rounded-t-2xl"
-                          alt="Article Cover"
-                          onLoad={imageLoaderConfig.onImageLoaded}
-                        />
-                        {!imageLoaderConfig.isImgShow && (
-                          <ClipLoader color="#1edb4d" />
-                        )}
-                      </Link>
-                    </div>
-                    <div className="article-card__content pt-4 pb-8 pr-12 pl-8">
-                      <Link
-                        to={`/article-info/${article.shortName}`}
-                        className="article-card__link font-IRANSansBold hover:text-blue-600 transition-all delay-100"
-                      >
-                        {article.title}
-                      </Link>
-                      <p className="article-card__text text-[#898989] text-md pt-4 pb-10 line-clamp-1">
-                        {article.description}
-                      </p>
-                      <Link
-                        to={`/article-info/${article.shortName}`}
-                        className="article-card__btn text-green-primery border-2 border-solid border-green-primery text-lg py-1 px-2 rounded-lg hover:text-white transition-all ease duration-[400ms] hover:bg-green-primery "
-                      >
-                        بیشتر بخوانید
-                      </Link>
+              {latestArticles
+                ?.slice(0, 3)
+                .filter((article) => article.publish === 1)
+                .map((article) => (
+                  <div
+                    key={article._id}
+                    className="col-4 flex justify-start items-center flex-col   bg-white "
+                  >
+                    <div className="article-card my-12 shadow-lg hover:-translate-y-3 transition-all duration-[400ms] ease delay-75">
+                      <div className="article-card__header">
+                        <Link
+                          to={`/article-info/${article.shortName}`}
+                          className="article-card__link-img"
+                        >
+                          <img
+                            src="images/blog/3.jpg"
+                            className="article-card__img rounded-t-2xl"
+                            alt="Article Cover"
+                            onLoad={imageLoaderConfig.onImageLoaded}
+                          />
+                          {!imageLoaderConfig.isImgShow && (
+                            <ClipLoader color="#1edb4d" />
+                          )}
+                        </Link>
+                      </div>
+                      <div className="article-card__content pt-4 pb-8 pr-12 pl-8">
+                        <Link
+                          to={`/article-info/${article.shortName}`}
+                          className="article-card__link font-IRANSansBold hover:text-blue-600 transition-all delay-100"
+                        >
+                          {article.title}
+                        </Link>
+                        <p className="article-card__text text-[#898989] text-md pt-4 pb-10 line-clamp-1">
+                          {article.description}
+                        </p>
+                        <Link
+                          to={`/article-info/${article.shortName}`}
+                          className="article-card__btn text-green-primery border-2 border-solid border-green-primery text-lg py-1 px-2 rounded-lg hover:text-white transition-all ease duration-[400ms] hover:bg-green-primery "
+                        >
+                          بیشتر بخوانید
+                        </Link>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
             </div>
           </div>
         </div>
