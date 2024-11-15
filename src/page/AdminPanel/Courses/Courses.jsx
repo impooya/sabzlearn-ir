@@ -306,7 +306,7 @@ function Courses() {
           </form>
         </div>
       </div>
-      <DataTable title={"دوره ها"}>
+      <DataTable title="دوره ها">
         <table className="table">
           <thead>
             <tr>
@@ -336,7 +336,7 @@ function Courses() {
                 </td>
                 <td>{course.shortName}</td>
                 <td>{course.creator}</td>
-                <td>{course.categoryID.title}</td>
+                <td>{course.categoryID?.title}</td>
                 <td>
                   <button type="button" className="btn btn-primary edit-btn">
                     ویرایش

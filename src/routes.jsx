@@ -16,6 +16,7 @@ import Menus from "./page/AdminPanel/Menus/Menus";
 import Articles from "./page/AdminPanel/Articles/Articles";
 import CategoryPanel from "./page/AdminPanel/Category/Category";
 import AdminContact from "./page/AdminPanel/Contact/Contact";
+import Sessions from "./page/AdminPanel/Sessions/Sessions";
 
 export const router = createBrowserRouter([
   {
@@ -70,6 +71,7 @@ export const router = createBrowserRouter([
       { path: "articles", element: <Articles /> },
       { path: "category", element: <CategoryPanel /> },
       { path: "contacts", element: <AdminContact /> },
+      { path: "sessions", element: <Sessions /> },
     ],
   },
 ]);

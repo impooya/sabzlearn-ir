@@ -33,6 +33,15 @@ export default function Header() {
     queryKey: ["topbar-links"],
     queryFn: getAllTopBarLinks,
   });
+
+  const { data: emailInfo } = useQuery({
+    queryKey: ["email-phone"],
+    queryFn: async () => {
+      const res = await axios.get("http://localhost:4000/v1/infos/index");
+      const data = await res.data;
+      return data;
+    },
+  });
   const {
     data: menus,
     isError: isMenusErr,
@@ -86,7 +95,7 @@ export default function Header() {
             >
               <MdMail className="text-green-primery" />
               <span className="group-hover:text-blue-300 transition-all delay-75">
-                sabzlearn@gmail.com
+                {emailInfo?.email}
               </span>
             </a>
             <a
@@ -95,7 +104,7 @@ export default function Header() {
             >
               <FaPhoneAlt className="text-green-primery" />
               <span className="group-hover:text-blue-300 transition-all delay-75">
-                09921558293
+                {emailInfo?.phone}
               </span>
             </a>
           </div>

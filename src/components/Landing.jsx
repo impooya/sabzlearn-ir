@@ -1,7 +1,17 @@
 import { FaSearch } from "react-icons/fa";
 import Typewriter from "typewriter-effect";
 import CountUp from "react-countup";
+import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
 function Landing() {
+  const { data: landData } = useQuery({
+    queryKey: ["land-data"],
+    queryFn: async () => {
+      const res = await axios.get("http://localhost:4000/v1/infos/index");
+      const data = await res.data;
+      return data;
+    },
+  });
   return (
     <>
       <svg className="hidden">
@@ -140,7 +150,11 @@ function Landing() {
               </svg>
               <div className="flex flex-col justify-center items-center  md:gap-y-3 font-IRANSansBold text-lg md:text-2xl">
                 <span>
-                  <CountUp start={0} end={31020} duration={2.5} />
+                  <CountUp
+                    start={0}
+                    end={landData?.usersCount}
+                    duration={2.5}
+                  />
                 </span>
                 <h3>کاربر توی سبزلرن ثبت نام کردن</h3>
               </div>
@@ -151,9 +165,13 @@ function Landing() {
               </svg>
               <div className="flex flex-col justify-center items-center  md:gap-y-3 font-IRANSansBold text-lg md:text-2xl">
                 <span>
-                  <CountUp start={0} end={42} duration={2.5} />
+                  <CountUp
+                    start={0}
+                    end={landData?.coursesCount}
+                    duration={2.5}
+                  />
                 </span>
-                <h3>کاربر توی سبزلرن ثبت نام کردن</h3>
+                <h3>دوره آموزشی داریم</h3>
               </div>
             </div>
             <div className="flex justify-center items-center flex-col gap-y-2 md:gap-y-6">
@@ -162,9 +180,9 @@ function Landing() {
               </svg>
               <div className="flex flex-col justify-center items-center  md:gap-y-3 font-IRANSansBold text-lg md:text-2xl">
                 <span>
-                  <CountUp start={0} end={31320} duration={2.5} />
+                  <CountUp start={0} end={landData?.totalTime} duration={2.5} />
                 </span>
-                <h3>کاربر توی سبزلرن ثبت نام کردن</h3>
+                <h3>دقیقه آموزش تولید کردیم</h3>
               </div>
             </div>
           </div>

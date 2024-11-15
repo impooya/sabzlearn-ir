@@ -52,9 +52,12 @@ export default function Sidebar() {
             </a>
           </li>
           <li>
-            <a href="#">
+            <NavLink
+              to="articles"
+              className={({ isActive }) => (isActive ? "active-menu" : "")}
+            >
               <span>مقاله ها</span>
-            </a>
+            </NavLink>
           </li>
           <li>
             <NavLink
@@ -62,6 +65,14 @@ export default function Sidebar() {
               className={({ isActive }) => (isActive ? "active-menu" : "")}
             >
               <span>کاربران</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="sessions"
+              className={({ isActive }) => (isActive ? "active-menu" : "")}
+            >
+              <span>جلسات</span>
             </NavLink>
           </li>
           <li>

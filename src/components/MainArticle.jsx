@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { CiFolderOn } from "react-icons/ci";
 import { CiUser } from "react-icons/ci";
 import { CiClock2 } from "react-icons/ci";
+import DOMPurify from "dompurify";
 import {
   FaRegEye,
   FaFacebook,
@@ -55,7 +56,7 @@ function MainArticle() {
               href="#"
               className="article-header__text md:text-sm  text-[#8f8f8f]"
             >
-              {singleArticle?.categoryID.title}
+              {singleArticle?.categoryID?.title}
             </a>
           </div>
           <div className="flex items-center justify-center gap-2 ml-4">
@@ -108,19 +109,12 @@ function MainArticle() {
           </span>
         </div>
 
-        <p className="article__paragraph text-lg md:text-2xl leading-10 text-[#7d7e7f] ">
-          جاوا اسکریپت یکی از زبان‌های برنامه‌نویسی اصلی حوزه فرانت‌اند است که
-          به واسطه فریم ورک‌های آن می‌توان انواع وب سایت‌ها، اپلیکیشن‌ها و وب
-          اپلیکیشن‌ها را طراحی کرد. به طور کلی بعد از یادگیری html و css معمولاً
-          باید آموزش جاوا اسکریپت را نیز فرا بگیرید. . چرا که این زبان
-          تکمیل‌کننده html و css بوده و در چنین شرایطی موقعیت‌های شغلی بیشتر را
-          در اختیار خواهید داشت و همچنین می‌توانید پروژه‌های گسترده‌تری را انجام
-          دهید. در حال حاضر با وجود منابع رایگان موجود در وب شما به راحتی
-          می‌توانید زبان جاوا اسکریپت را به صورت حرفه‌ای فرا بگیرید. به همین
-          واسطه در ادامه مطلب قصد داریم سایت‌های شاخص آموزش این زبان
-          برنامه‌نویسی در جهان را به شما معرفی کنیم و در آخر بگوییم که بهترین
-          سایت آموزش جاوا اسکریپت کدام است.
-        </p>
+        <div
+          className="article__paragraph text-lg md:text-2xl leading-10 text-[#7d7e7f] "
+          dangerouslySetInnerHTML={{
+            __html: DOMPurify.sanitize(singleArticle.body),
+          }}
+        ></div>
 
         <div className="article-read bg-[#f2f2f2] rounded-[3rem] py-8 px-12 my-12">
           <span className="block text-[#333333] text-lg md:text-xl mb-2 font-IRANSansBold ">
@@ -155,11 +149,11 @@ function MainArticle() {
         </div>
 
         <img
-          src="/images/blog/2.jpg"
+          src={`http://localhost:4000/courses/covers/${singleArticle.cover}`}
           alt="Article Image"
           className="article__seconadary-banner block mx-auto"
         />
-        <div className=" my-20">
+        {/* <div className=" my-20">
           <h2 className="text-lg md:text-2xl text-[#008c25] font-IRANSansBold leading-4">
             معرفی بهترین سایت ‌های آموزش جاوا اسکریپت:
           </h2>
@@ -193,8 +187,8 @@ function MainArticle() {
             یادگیری زبان جاوا اسکریپت وجود دارد که شما بتوانید به واسطه آن به
             صورت رایگان و به زبان فارسی این زبان را یاد بگیرید.
           </p>
-        </div>
-        <div className="my-20">
+        </div> */}
+        {/* <div className="my-20">
           <h2 className="text-lg md:text-2xl text-[#008c25] font-IRANSansBold leading-4">
             معرفی بهترین سایت ‌های آموزش جاوا اسکریپت:
           </h2>
@@ -213,7 +207,7 @@ function MainArticle() {
             alt="article body img"
             className="block my-0 mx-auto"
           />
-        </div>
+        </div> */}
 
         <div className="flex items-center">
           <span className="text-sm md:text-xl text-[#7d7e7f]">
