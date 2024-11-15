@@ -18,6 +18,7 @@ import AdminContact from "./page/AdminPanel/Contact/Contact";
 import Sessions from "./page/AdminPanel/Sessions/Sessions";
 import Comments from "./page/AdminPanel/Comments/Comments";
 import Offs from "./page/AdminPanel/Offs/Offs";
+import Index from "./page/AdminPanel/Index/Index";
 
 export const router = createBrowserRouter([
   {
@@ -63,6 +64,7 @@ export const router = createBrowserRouter([
     path: "/p-admin",
     element: <AdminPanelHome />,
     children: [
+      { index: true, element: <Index /> },
       {
         path: "users",
         element: <Users />,
