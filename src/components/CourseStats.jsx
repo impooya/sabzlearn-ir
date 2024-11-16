@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { FaRegComments, FaRegEye, FaUserGraduate } from "react-icons/fa";
+import { singleCourseDataContext } from "../contexts/getSingleCourseData";
 
 function CourseStats() {
+  const getSingleCourseDataConfig = useContext(singleCourseDataContext);
   return (
     <>
       <div className="shadow-[0_0_13px_1px_rgba(70,72,77,0.08)] border mt-3 lg:mt-3  p-5 rounded-lg border-solid border-[#f2f2f2]">
@@ -12,7 +15,7 @@ function CourseStats() {
                 تعداد دانشجو :
               </span>
               <span className="text-white bg-[#c4c7cf] rounded-lg text-sm lg:text-lg  lg:py-1 lg:px-4 ">
-                178
+                {getSingleCourseDataConfig.data?.courseStudentsCount}
               </span>
             </div>
           </div>

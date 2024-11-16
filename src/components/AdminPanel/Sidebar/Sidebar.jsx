@@ -34,9 +34,13 @@ export default function Sidebar() {
       <div className="sidebar-menu">
         <ul>
           <li>
-            <a href="#">
+            <NavLink
+              to={"/p-admin"}
+              className={({ isActive }) => (isActive ? "active-menu" : "")}
+              end
+            >
               <span>صفحه اصلی</span>
-            </a>
+            </NavLink>
           </li>
           <li>
             <NavLink
