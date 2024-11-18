@@ -60,6 +60,14 @@ export default function Sidebar() {
           </li>
           <li>
             <NavLink
+              to={"tickets"}
+              className={({ isActive }) => (isActive ? "active-menu" : "")}
+            >
+              <span>تیکت ها</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
               to="articles"
               className={({ isActive }) => (isActive ? "active-menu" : "")}
             >

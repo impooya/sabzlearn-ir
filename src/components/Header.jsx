@@ -5,7 +5,7 @@ import { FaCartShopping } from "react-icons/fa6";
 import { FaSearch } from "react-icons/fa";
 import { FaRegUser } from "react-icons/fa";
 import { IoMdMenu } from "react-icons/io";
-import { useContext, useMemo } from "react";
+import { memo, useContext, useMemo } from "react";
 import { SidebarContext } from "../contexts/sidebarState";
 import { OverlayContext } from "../contexts/OverlayState";
 import { WichSideBarContext } from "../contexts/WichSideBarState";
@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../contexts/authContext";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-export default function Header() {
+const Header = memo(function Header() {
   const sidebarConfig = useContext(SidebarContext);
   const overlayConfig = useContext(OverlayContext);
   const wichSideBarConfig = useContext(WichSideBarContext);
@@ -178,7 +178,7 @@ export default function Header() {
             </a>
             {authConfig.isLoggedIn ? (
               <Link
-                to={authConfig.isLoggedIn ? "/" : "/login"}
+                to={authConfig.isLoggedIn ? "/my-account" : "/login"}
                 className="w-32 border-2  border-green-primery text-green-primery hidden lg:flex justify-center items-center h-11 rounded-md text-sm hover:bg-green-primery hover:text-white transition-all "
               >
                 {authConfig.userInfos?.name}
@@ -203,4 +203,5 @@ export default function Header() {
       </header>
     </>
   );
-}
+});
+export default Header;
